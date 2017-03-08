@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://static.zybuluo.com/lfire/onwbhz11og0ocin9z3fe3irq/image_1bam88jme1gt21lt41v5n8j37gh2a.png">
 <meta property="og:image" content="http://static.zybuluo.com/lfire/ns46ophzsvpq10ws01hqqhqv/image_1bam8ffjp11t71te51p34183e102n.png">
 <meta property="og:image" content="http://static.zybuluo.com/lfire/8c4i86w8lyvj98vx7931pg11/image_1bam8k79o8kk1jmg3ah5tkqo234.png">
-<meta property="og:updated_time" content="2017-03-08T12:32:33.494Z">
+<meta property="og:updated_time" content="2017-03-08T12:50:12.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmder & cygwin 中文支持解决方案">
 <meta name="twitter:description" content="在 windows 环境下，我们因系统本身自带的 cmd 方案表现很弱，所以我们经常使用其他的解决方案来弥补。而这些方案中最为常见和好用的也就是 cmder 和 cygwin 两种。今天对于方案中，我们常遇到的问题——中文编码乱码问题来配置使用。">
@@ -437,10 +437,10 @@
 <li>相关工具配置</li>
 </ul>
 <h2 id="cmder-方案"><a href="#cmder-方案" class="headerlink" title="cmder 方案"></a>cmder 方案</h2><h3 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h3><p>右键标题栏 &gt; settings<br><img src="http://static.zybuluo.com/lfire/tj8269jbtkqtfykvgy5zjq6e/image_1balsa4i04rc1qfi1ve13q94ss9.png" alt="image_1balsa4i04rc1qfi1ve13q94ss9.png-14.2kB"></p>
-<p>Main &gt; Font charset</p>
+<p>Main &gt; Font charset  </p>
 <p><center><img src="http://static.zybuluo.com/lfire/uajwkvwfokfmi91x60b6ntwh/image_1balthlad1ksn14qb1jg13551l8om.png" alt="image_1balthlad1ksn14qb1jg13551l8om.png-58.9kB"></center></p>
 <p>这里选择 GB 2312 主要是因为，windows 系统的主要编码还是：ANSI。</p>
-<h3 id="终端环境变量"><a href="#终端环境变量" class="headerlink" title="终端环境变量"></a>终端环境变量</h3><p>Settings &gt; Startup &gt; Environment</p>
+<h3 id="终端环境变量"><a href="#终端环境变量" class="headerlink" title="终端环境变量"></a>终端环境变量</h3><p>Settings &gt; Startup &gt; Environment  </p>
 <p><center><img src="http://static.zybuluo.com/lfire/9dynqnoliilgilonji2mo8jc/image_1baltov1i1s8t1v3h1pqg1k2010cg13.png" alt="image_1baltov1i1s8t1v3h1pqg1k2010cg13.png-52.4kB"></center></p>
 <p>这里的设置，需要关闭 cmder 再重新打开一次生效。<br>我们可以通过 locale 命令查看设置的结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">λ locale</div><div class="line">LANG=zh_CN.utf-8</div><div class="line">LC_CTYPE=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_NUMERIC=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_TIME=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_COLLATE=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_MONETARY=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_MESSAGES=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_ALL=</div></pre></td></tr></table></figure></p>
 <h3 id="相关工具的配置——"><a href="#相关工具的配置——" class="headerlink" title="相关工具的配置——"></a>相关工具的配置——</h3><p><strong>git 配置</strong><br>在 git 命令行下，主要是与：</p>
@@ -455,9 +455,9 @@
 <p>Text<br><img src="http://static.zybuluo.com/lfire/sg7wj11r10qijeg44gl54wme/image_1balvh3up1c1dmrg6ko5jovn01t.png" alt="image_1balvh3up1c1dmrg6ko5jovn01t.png-17.1kB"></p>
 <h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><p>修改 ~/.bashrc 文件，加入：<br>export LANG=”zh_CN.UTF-8”<br>export OUTPUT_CHARSET=”UTF8”</p>
 <h3 id="相关工具配置"><a href="#相关工具配置" class="headerlink" title="相关工具配置"></a>相关工具配置</h3><p>git 和 vim 的配置与 cmder 下是一致的，可以采用同样的方式来处理。<br><img src="http://static.zybuluo.com/lfire/onwbhz11og0ocin9z3fe3irq/image_1bam88jme1gt21lt41v5n8j37gh2a.png" alt="image_1bam88jme1gt21lt41v5n8j37gh2a.png-9kB"></p>
-<h2 id="综合方案"><a href="#综合方案" class="headerlink" title="综合方案"></a>综合方案</h2><p>cmder 是一种终端集成器，它同样可以将 cygwin 集成到其内部窗口上。<br>具体的配置方式，我们可以参考 <a href="https://github.com/cmderdev/cmder/wiki/%5BWindows%5D-Integrating-Cygwin" target="_blank" rel="external">cmder 官方手册</a><br>以下是本人的配置截图：</p>
+<h2 id="综合方案"><a href="#综合方案" class="headerlink" title="综合方案"></a>综合方案</h2><p>cmder 是一种终端集成器，它同样可以将 cygwin 集成到其内部窗口上。<br>具体的配置方式，我们可以参考 <a href="https://github.com/cmderdev/cmder/wiki/%5BWindows%5D-Integrating-Cygwin" target="_blank" rel="external">cmder 官方手册</a><br>以下是本人的配置截图：  </p>
 <p><center><img src="http://static.zybuluo.com/lfire/ns46ophzsvpq10ws01hqqhqv/image_1bam8ffjp11t71te51p34183e102n.png" alt="image_1bam8ffjp11t71te51p34183e102n.png-60.7kB"></center></p>
-<p>配置后的运行效果图：</p>
+<p>配置后的运行效果图：    </p>
 <p><center><img src="http://static.zybuluo.com/lfire/8c4i86w8lyvj98vx7931pg11/image_1bam8k79o8kk1jmg3ah5tkqo234.png" alt="image_1bam8k79o8kk1jmg3ah5tkqo234.png-73.2kB"></center></p>
 
       
