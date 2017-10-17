@@ -2,10 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>lfire</title>
   
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lfire.github.io/"/>
-  <updated>2017-03-10T12:33:36.873Z</updated>
+  <updated>2017-10-17T03:04:42.008Z</updated>
   <id>https://lfire.github.io/</id>
   
   <author>
@@ -16,24 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo基础搭建博客系统</title>
+    <link href="https://lfire.github.io/2017/10/13/20171013/"/>
+    <id>https://lfire.github.io/2017/10/13/20171013/</id>
+    <published>2017-10-13T06:12:05.000Z</published>
+    <updated>2017-10-17T03:04:42.008Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了更好的使用 hexo 博客系统，对相关的配置进行一个基本的梳理或是内置默认值，其中使用 next 作为其中默认的主题样式，以此来美化 hexo 本身自带的一套主题。系统提供有独立的 github 仓库，同时通过对相关细节记录下来，以达到后期回看，或是另外环境快速搭建的目的。<br><a id="more"></a></p><h2 id="介绍-amp-安装"><a href="#介绍-amp-安装" class="headerlink" title="介绍&amp;安装"></a>介绍&amp;安装</h2><p>本系统是基于 hexo 搭建，因此，我们需要先安装好 hexo 的基础环境。<br><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">hexo 帮助说明</a><br>在 hexo 的官网，有详细的说明，如何搭建 hexo 的命令环境，以及基础 node 环境的安装也都有详细说明。    </p><h3 id="简单的过程"><a href="#简单的过程" class="headerlink" title="简单的过程"></a>简单的过程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 安装 hexo</span></div><div class="line">npm install -g hexo-cli</div><div class="line"><span class="comment">## 初始化 hexo，其中 blog 为你希望用于存储博客文件的目录名称，可以自行决定</span></div><div class="line">hexo init blog</div></pre></td></tr></table></figure><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>因本次的系统，我们默认以 next 为博客的默认主题，因此我们可以通过 github 来实现 next 的安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div><div class="line"><span class="comment"># 或使用SVN</span></div><div class="line">svn <span class="built_in">export</span> https://github.com/iissnan/hexo-theme-next.git/trunk/ themes/next --force</div></pre></td></tr></table></figure></p><p>以上的两种情况，你可以根据你个人的喜好和环境选择一种方式即可。</p><h3 id="默认配置导入"><a href="#默认配置导入" class="headerlink" title="默认配置导入"></a>默认配置导入</h3><p>在本次的搭建过程中，hexo 本身存在有很多的相关配置，因此，经过梳理，将相关配置开了一个项目，托管到了 github，我们可以通过将这份线上的配置下载到本地博客系统中，即可实现一次性配置。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">svn <span class="built_in">export</span> https://github.com/lfire/wumiblog.git/trunk/ ./ --force</div><div class="line"><span class="comment">## 安装依赖</span></div><div class="line">npm install</div></pre></td></tr></table></figure></p><h2 id="博客文章新建"><a href="#博客文章新建" class="headerlink" title="博客文章新建"></a>博客文章新建</h2><p>环境搭建完成后，我们就可以开始文章的写作了。写作过程中，hexo 设计了一个【layout】的概念，从字面来理解，就是布局的意思，也可以理解为模板，如果有相关能力者，你也可以开发相应的 layout 来支持更为丰富的功能，这点上，不再展开，具体可以查看官方的相关文档。<br>以下记录几种常用的 layout 页的建立命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 创建标签页</span></div><div class="line">hexo new page <span class="string">"tags"</span></div><div class="line"><span class="comment">## 创建分类页</span></div><div class="line">hexo new page <span class="string">"categories"</span></div></pre></td></tr></table></figure></p><p>需要注意的是，在实际使用过程中，我们新建普通的博客文章，这个 layout 参数是可以省略的，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new hello-hexo</div></pre></td></tr></table></figure></p><p>执行之后，就会在对应的目录下（如目录名为 blog，则路径为：<em>blog/source/_posts/hello-hexo.md</em>）生成相关文件。</p><h2 id="部署-amp-发布"><a href="#部署-amp-发布" class="headerlink" title="部署&amp;发布"></a>部署&amp;发布</h2><p>在配置文件中（<em>blog/_config.yml</em>），如下图，会有 github 部署位置的一个配置，本例中，使用的只是一个演示 demo，有需要的可以自已修改为对应的位置即可。</p><p><center><img src="http://static.zybuluo.com/lfire/tldkxmb2dhy0cni66z4jrsvc/image_1bsk41i721c8d1d9f1p761dop2159.png" alt="image_1bsk41i721c8d1d9f1p761dop2159.png-12.6kB"><br>配置部署位置后，我们就可以执行相关命令来完成部署。</center></p><h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 先将 markdown 文档转化为静态 HTML 文件资源</span></div><div class="line">hexo generate</div><div class="line"><span class="comment">## or 缩写</span></div><div class="line">hexo g</div></pre></td></tr></table></figure><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 将生成的静态文件上传部署到配置位置</span></div><div class="line">hexo deploy</div><div class="line"><span class="comment">## or 缩写</span></div><div class="line">hexo d</div></pre></td></tr></table></figure><h3 id="一步到位"><a href="#一步到位" class="headerlink" title="一步到位"></a>一步到位</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate --deploy</div><div class="line"><span class="comment">## or </span></div><div class="line">hexo deploy --generate</div><div class="line"><span class="comment">## or 缩写</span></div><div class="line">hexo g <span class="_">-d</span></div><div class="line">hexo d -g</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为了更好的使用 hexo 博客系统，对相关的配置进行一个基本的梳理或是内置默认值，其中使用 next 作为其中默认的主题样式，以此来美化 hexo 本身自带的一套主题。系统提供有独立的 github 仓库，同时通过对相关细节记录下来，以达到后期回看，或是另外环境快速搭建的目的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="https://lfire.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="hexo" scheme="https://lfire.github.io/tags/hexo/"/>
+    
+      <category term="博客" scheme="https://lfire.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>win10 升级后 cmder 别名失效修复</title>
     <link href="https://lfire.github.io/2017/03/10/20170310/"/>
     <id>https://lfire.github.io/2017/03/10/20170310/</id>
     <published>2017-03-10T12:05:24.000Z</published>
-    <updated>2017-03-10T12:33:36.873Z</updated>
+    <updated>2017-10-13T06:03:01.810Z</updated>
     
-    <content type="html"><![CDATA[<p>近期系统接收到了 win10 的慢速升级推送，但发现，升级过后，系统原先配置好的 cmder 别名全都无法正常工作。在 cmder github 上也试图查找相关的解决方案，但很多的说法以及配置都没能解决，最后，在一个地方发现了问题的初步解决方案。<br><a id="more"></a></p>
-<h2 id="问题表现，别名全部失效"><a href="#问题表现，别名全部失效" class="headerlink" title="问题表现，别名全部失效"></a>问题表现，别名全部失效</h2><p>表现是相关加载都能成功，但命令本身就是不生效，无法工作，并且，相关中文也会产生叠加现象。</p>
-<p><center><img src="http://static.zybuluo.com/lfire/39hqqx5xswsstbpa6ayc620y/image_1bas246jq19641o3ffbjncm14ea9.png" alt="image_1bas246jq19641o3ffbjncm14ea9.png-32.6kB"></center></p>
-<h2 id="查找答案"><a href="#查找答案" class="headerlink" title="查找答案"></a>查找答案</h2><p>我通过 google 查找各种可能性，最后终于在 <a href="https://github.com/cmderdev/cmder/issues/1257" target="_blank" rel="external">github cmder issues</a> 查找到了需要的答案。<br>原来，</p>
-<blockquote>
-<p>Ok guys, found what the issue was.<br>I am using Windows 10 Insider build 15025 - the problem was with modification that were made by Microsoft to standard cmd.exe</p>
-<p>To solve this I had to “Use legacy console” option in standard cmd - which solved this issue.</p>
-</blockquote>
-<p>是因 win10 升级，可能其内部改变了某些终端的特性，我们需要禁用新的控制台。</p>
-<p><center><img src="http://static.zybuluo.com/lfire/xew1dq4a9von8309oqczgpij/image_1bas34bfun11ip51bot1am71ute9.png" alt="image_1bas34bfun11ip51bot1am71ute9.png-36kB"></center></p>
-<p>这样配置完成后，我们重新打开 cmder 一次，<strong> OK，问题解决 </strong>。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>近期系统接收到了 win10 的慢速升级推送，但发现，升级过后，系统原先配置好的 cmder 别名全都无法正常工作。在 cmder github 上也试图查找相关的解决方案，但很多的说法以及配置都没能解决，最后，在一个地方发现了问题的初步解决方案。<br><a id="more"></a></p><h2 id="问题表现，别名全部失效"><a href="#问题表现，别名全部失效" class="headerlink" title="问题表现，别名全部失效"></a>问题表现，别名全部失效</h2><p>表现是相关加载都能成功，但命令本身就是不生效，无法工作，并且，相关中文也会产生叠加现象。</p><p><center><img src="http://static.zybuluo.com/lfire/39hqqx5xswsstbpa6ayc620y/image_1bas246jq19641o3ffbjncm14ea9.png" alt="image_1bas246jq19641o3ffbjncm14ea9.png-32.6kB"></center></p><h2 id="查找答案"><a href="#查找答案" class="headerlink" title="查找答案"></a>查找答案</h2><p>我通过 google 查找各种可能性，最后终于在 <a href="https://github.com/cmderdev/cmder/issues/1257" target="_blank" rel="external">github cmder issues</a> 查找到了需要的答案。<br>原来，</p><blockquote><p>Ok guys, found what the issue was.<br>I am using Windows 10 Insider build 15025 - the problem was with modification that were made by Microsoft to standard cmd.exe</p><p>To solve this I had to “Use legacy console” option in standard cmd - which solved this issue.</p></blockquote><p>是因 win10 升级，可能其内部改变了某些终端的特性，我们需要禁用新的控制台。</p><p><center><img src="http://static.zybuluo.com/lfire/xew1dq4a9von8309oqczgpij/image_1bas34bfun11ip51bot1am71ute9.png" alt="image_1bas34bfun11ip51bot1am71ute9.png-36kB"></center></p><p>这样配置完成后，我们重新打开 cmder 一次，<strong> OK，问题解决 </strong>。</p>]]></content>
     
     <summary type="html">
     
@@ -61,51 +75,9 @@
     <link href="https://lfire.github.io/2017/03/08/20170308/"/>
     <id>https://lfire.github.io/2017/03/08/20170308/</id>
     <published>2017-03-08T01:54:46.000Z</published>
-    <updated>2017-03-08T12:50:12.711Z</updated>
+    <updated>2017-03-08T12:50:12.712Z</updated>
     
-    <content type="html"><![CDATA[<p>在 windows 环境下，我们因系统本身自带的 cmd 方案表现很弱，所以我们经常使用其他的解决方案来弥补。而这些方案中最为常见和好用的也就是 cmder 和 cygwin 两种。<br>今天对于方案中，我们常遇到的问题——中文编码乱码问题来配置使用。</p>
-<a id="more"></a>
-<h2 id="使用环境-amp-场景"><a href="#使用环境-amp-场景" class="headerlink" title="使用环境 &amp; 场景"></a>使用环境 &amp; 场景</h2><p>中文环境下，最为常见的编码就是：</p>
-<ul>
-<li>GBK</li>
-<li>UTF-8</li>
-</ul>
-<p>而在 windows 环境下，这两种编码的文件同时存在是非常常见的，而在 cmd 的终端环境下，想要一次性解决该显示问题，目前来说并不容易，因此，我们当前只能寻找一种最为全面的解决方案，以最大可能来解决该问题。<br>因此，目前需要来分析一下使用的场景：</p>
-<ul>
-<li>程序员编码</li>
-<li>各工具使用，如： git、svn等</li>
-</ul>
-<p>而对于编码的场景下，我们目前最为推荐的编码格式仍是 utf-8 ，所以，这里也一样的不解释，建议使用 utf-8。<br>而对于 git &amp; svn 等相关的版本管理工具，这里也是程序员常有遇到的场景，而在 git 序列中，github 的使用常在手边过，而 github 所支持的中文编码就是 utf-8 。<br>从这些相关的场景分析来看，我们所有可控的场景中，我们最好使用的编码仍然是 <strong>utf-8</strong> 。<br>因此，这里本人也强烈推荐各位，在可以自己控制的情况下，我们应该首选 <strong>utf8</strong>。<br>场景的主编码确定好后，我们就可以分别针对两种不同工具，来进行相关的支持配置。</p>
-<p><strong>配置总体可以分为：</strong></p>
-<ul>
-<li>软件界面</li>
-<li>终端环境变量</li>
-<li>相关工具配置</li>
-</ul>
-<h2 id="cmder-方案"><a href="#cmder-方案" class="headerlink" title="cmder 方案"></a>cmder 方案</h2><h3 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h3><p>右键标题栏 &gt; settings<br><img src="http://static.zybuluo.com/lfire/tj8269jbtkqtfykvgy5zjq6e/image_1balsa4i04rc1qfi1ve13q94ss9.png" alt="image_1balsa4i04rc1qfi1ve13q94ss9.png-14.2kB"></p>
-<p>Main &gt; Font charset  </p>
-<p><center><img src="http://static.zybuluo.com/lfire/uajwkvwfokfmi91x60b6ntwh/image_1balthlad1ksn14qb1jg13551l8om.png" alt="image_1balthlad1ksn14qb1jg13551l8om.png-58.9kB"></center></p>
-<p>这里选择 GB 2312 主要是因为，windows 系统的主要编码还是：ANSI。</p>
-<h3 id="终端环境变量"><a href="#终端环境变量" class="headerlink" title="终端环境变量"></a>终端环境变量</h3><p>Settings &gt; Startup &gt; Environment  </p>
-<p><center><img src="http://static.zybuluo.com/lfire/9dynqnoliilgilonji2mo8jc/image_1baltov1i1s8t1v3h1pqg1k2010cg13.png" alt="image_1baltov1i1s8t1v3h1pqg1k2010cg13.png-52.4kB"></center></p>
-<p>这里的设置，需要关闭 cmder 再重新打开一次生效。<br>我们可以通过 locale 命令查看设置的结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">λ locale</div><div class="line">LANG=zh_CN.utf-8</div><div class="line">LC_CTYPE=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_NUMERIC=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_TIME=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_COLLATE=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_MONETARY=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_MESSAGES=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_ALL=</div></pre></td></tr></table></figure></p>
-<h3 id="相关工具的配置——"><a href="#相关工具的配置——" class="headerlink" title="相关工具的配置——"></a>相关工具的配置——</h3><p><strong>git 配置</strong><br>在 git 命令行下，主要是与：</p>
-<ul>
-<li>i18n.commitencoding</li>
-<li>i18n.logoutputencoding</li>
-</ul>
-<p>两个配置参数有关，我们可以通过以下命令进行配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">λ git config --global i18n.commitencoding utf-8</div><div class="line">λ git config --global i18n.logoutputencoding utf-8</div></pre></td></tr></table></figure></p>
-<p><strong>VIM 配置</strong><br>vim 是终端下最为常见的文档编辑器，我们可以在 VIM 的配置文件中加入如下配置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set fileencoding=cp936</div><div class="line">set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1</div></pre></td></tr></table></figure></p>
-<p>注：<br>查找 vim 配置文件的位置，可以通过进入 vim 后，输入<br>:version</p>
-<h2 id="cygwin-方案"><a href="#cygwin-方案" class="headerlink" title="cygwin 方案"></a>cygwin 方案</h2><h3 id="界面配置-1"><a href="#界面配置-1" class="headerlink" title="界面配置"></a>界面配置</h3><p>右键标题栏 &gt; Options<br><img src="http://static.zybuluo.com/lfire/s4b2vn4jwjnexkenrh523c4k/image_1balvfe7crb3rmutbr10e715211g.png" alt="image_1balvfe7crb3rmutbr10e715211g.png-7.6kB"></p>
-<p>Text<br><img src="http://static.zybuluo.com/lfire/sg7wj11r10qijeg44gl54wme/image_1balvh3up1c1dmrg6ko5jovn01t.png" alt="image_1balvh3up1c1dmrg6ko5jovn01t.png-17.1kB"></p>
-<h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><p>修改 ~/.bashrc 文件，加入：<br>export LANG=”zh_CN.UTF-8”<br>export OUTPUT_CHARSET=”UTF8”</p>
-<h3 id="相关工具配置"><a href="#相关工具配置" class="headerlink" title="相关工具配置"></a>相关工具配置</h3><p>git 和 vim 的配置与 cmder 下是一致的，可以采用同样的方式来处理。<br><img src="http://static.zybuluo.com/lfire/onwbhz11og0ocin9z3fe3irq/image_1bam88jme1gt21lt41v5n8j37gh2a.png" alt="image_1bam88jme1gt21lt41v5n8j37gh2a.png-9kB"></p>
-<h2 id="综合方案"><a href="#综合方案" class="headerlink" title="综合方案"></a>综合方案</h2><p>cmder 是一种终端集成器，它同样可以将 cygwin 集成到其内部窗口上。<br>具体的配置方式，我们可以参考 <a href="https://github.com/cmderdev/cmder/wiki/%5BWindows%5D-Integrating-Cygwin" target="_blank" rel="external">cmder 官方手册</a><br>以下是本人的配置截图：  </p>
-<p><center><img src="http://static.zybuluo.com/lfire/ns46ophzsvpq10ws01hqqhqv/image_1bam8ffjp11t71te51p34183e102n.png" alt="image_1bam8ffjp11t71te51p34183e102n.png-60.7kB"></center></p>
-<p>配置后的运行效果图：    </p>
-<p><center><img src="http://static.zybuluo.com/lfire/8c4i86w8lyvj98vx7931pg11/image_1bam8k79o8kk1jmg3ah5tkqo234.png" alt="image_1bam8k79o8kk1jmg3ah5tkqo234.png-73.2kB"></center></p>
-]]></content>
+    <content type="html"><![CDATA[<p>在 windows 环境下，我们因系统本身自带的 cmd 方案表现很弱，所以我们经常使用其他的解决方案来弥补。而这些方案中最为常见和好用的也就是 cmder 和 cygwin 两种。<br>今天对于方案中，我们常遇到的问题——中文编码乱码问题来配置使用。</p><a id="more"></a><h2 id="使用环境-amp-场景"><a href="#使用环境-amp-场景" class="headerlink" title="使用环境 &amp; 场景"></a>使用环境 &amp; 场景</h2><p>中文环境下，最为常见的编码就是：</p><ul><li>GBK</li><li>UTF-8</li></ul><p>而在 windows 环境下，这两种编码的文件同时存在是非常常见的，而在 cmd 的终端环境下，想要一次性解决该显示问题，目前来说并不容易，因此，我们当前只能寻找一种最为全面的解决方案，以最大可能来解决该问题。<br>因此，目前需要来分析一下使用的场景：</p><ul><li>程序员编码</li><li>各工具使用，如： git、svn等</li></ul><p>而对于编码的场景下，我们目前最为推荐的编码格式仍是 utf-8 ，所以，这里也一样的不解释，建议使用 utf-8。<br>而对于 git &amp; svn 等相关的版本管理工具，这里也是程序员常有遇到的场景，而在 git 序列中，github 的使用常在手边过，而 github 所支持的中文编码就是 utf-8 。<br>从这些相关的场景分析来看，我们所有可控的场景中，我们最好使用的编码仍然是 <strong>utf-8</strong> 。<br>因此，这里本人也强烈推荐各位，在可以自己控制的情况下，我们应该首选 <strong>utf8</strong>。<br>场景的主编码确定好后，我们就可以分别针对两种不同工具，来进行相关的支持配置。</p><p><strong>配置总体可以分为：</strong></p><ul><li>软件界面</li><li>终端环境变量</li><li>相关工具配置</li></ul><h2 id="cmder-方案"><a href="#cmder-方案" class="headerlink" title="cmder 方案"></a>cmder 方案</h2><h3 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h3><p>右键标题栏 &gt; settings<br><img src="http://static.zybuluo.com/lfire/tj8269jbtkqtfykvgy5zjq6e/image_1balsa4i04rc1qfi1ve13q94ss9.png" alt="image_1balsa4i04rc1qfi1ve13q94ss9.png-14.2kB"></p><p>Main &gt; Font charset  </p><p><center><img src="http://static.zybuluo.com/lfire/uajwkvwfokfmi91x60b6ntwh/image_1balthlad1ksn14qb1jg13551l8om.png" alt="image_1balthlad1ksn14qb1jg13551l8om.png-58.9kB"></center></p><p>这里选择 GB 2312 主要是因为，windows 系统的主要编码还是：ANSI。</p><h3 id="终端环境变量"><a href="#终端环境变量" class="headerlink" title="终端环境变量"></a>终端环境变量</h3><p>Settings &gt; Startup &gt; Environment  </p><p><center><img src="http://static.zybuluo.com/lfire/9dynqnoliilgilonji2mo8jc/image_1baltov1i1s8t1v3h1pqg1k2010cg13.png" alt="image_1baltov1i1s8t1v3h1pqg1k2010cg13.png-52.4kB"></center></p><p>这里的设置，需要关闭 cmder 再重新打开一次生效。<br>我们可以通过 locale 命令查看设置的结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">λ locale</div><div class="line">LANG=zh_CN.utf-8</div><div class="line">LC_CTYPE=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_NUMERIC=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_TIME=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_COLLATE=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_MONETARY=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_MESSAGES=<span class="string">"zh_CN.utf-8"</span></div><div class="line">LC_ALL=</div></pre></td></tr></table></figure></p><h3 id="相关工具的配置——"><a href="#相关工具的配置——" class="headerlink" title="相关工具的配置——"></a>相关工具的配置——</h3><p><strong>git 配置</strong><br>在 git 命令行下，主要是与：</p><ul><li>i18n.commitencoding</li><li>i18n.logoutputencoding</li></ul><p>两个配置参数有关，我们可以通过以下命令进行配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">λ git config --global i18n.commitencoding utf-8</div><div class="line">λ git config --global i18n.logoutputencoding utf-8</div></pre></td></tr></table></figure></p><p><strong>VIM 配置</strong><br>vim 是终端下最为常见的文档编辑器，我们可以在 VIM 的配置文件中加入如下配置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set fileencoding=cp936</div><div class="line">set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1</div></pre></td></tr></table></figure></p><p>注：<br>查找 vim 配置文件的位置，可以通过进入 vim 后，输入<br>:version</p><h2 id="cygwin-方案"><a href="#cygwin-方案" class="headerlink" title="cygwin 方案"></a>cygwin 方案</h2><h3 id="界面配置-1"><a href="#界面配置-1" class="headerlink" title="界面配置"></a>界面配置</h3><p>右键标题栏 &gt; Options<br><img src="http://static.zybuluo.com/lfire/s4b2vn4jwjnexkenrh523c4k/image_1balvfe7crb3rmutbr10e715211g.png" alt="image_1balvfe7crb3rmutbr10e715211g.png-7.6kB"></p><p>Text<br><img src="http://static.zybuluo.com/lfire/sg7wj11r10qijeg44gl54wme/image_1balvh3up1c1dmrg6ko5jovn01t.png" alt="image_1balvh3up1c1dmrg6ko5jovn01t.png-17.1kB"></p><h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><p>修改 ~/.bashrc 文件，加入：<br>export LANG=”zh_CN.UTF-8”<br>export OUTPUT_CHARSET=”UTF8”</p><h3 id="相关工具配置"><a href="#相关工具配置" class="headerlink" title="相关工具配置"></a>相关工具配置</h3><p>git 和 vim 的配置与 cmder 下是一致的，可以采用同样的方式来处理。<br><img src="http://static.zybuluo.com/lfire/onwbhz11og0ocin9z3fe3irq/image_1bam88jme1gt21lt41v5n8j37gh2a.png" alt="image_1bam88jme1gt21lt41v5n8j37gh2a.png-9kB"></p><h2 id="综合方案"><a href="#综合方案" class="headerlink" title="综合方案"></a>综合方案</h2><p>cmder 是一种终端集成器，它同样可以将 cygwin 集成到其内部窗口上。<br>具体的配置方式，我们可以参考 <a href="https://github.com/cmderdev/cmder/wiki/%5BWindows%5D-Integrating-Cygwin" target="_blank" rel="external">cmder 官方手册</a><br>以下是本人的配置截图：  </p><p><center><img src="http://static.zybuluo.com/lfire/ns46ophzsvpq10ws01hqqhqv/image_1bam8ffjp11t71te51p34183e102n.png" alt="image_1bam8ffjp11t71te51p34183e102n.png-60.7kB"></center></p><p>配置后的运行效果图：    </p><p><center><img src="http://static.zybuluo.com/lfire/8c4i86w8lyvj98vx7931pg11/image_1bam8k79o8kk1jmg3ah5tkqo234.png" alt="image_1bam8k79o8kk1jmg3ah5tkqo234.png-73.2kB"></center></p>]]></content>
     
     <summary type="html">
     
@@ -133,65 +105,9 @@
     <link href="https://lfire.github.io/2017/03/02/cmder/"/>
     <id>https://lfire.github.io/2017/03/02/cmder/</id>
     <published>2017-03-02T01:12:42.000Z</published>
-    <updated>2017-03-08T12:32:33.496Z</updated>
+    <updated>2017-03-08T12:32:33.497Z</updated>
     
-    <content type="html"><![CDATA[<p>当我们在 windows 环境下来进行开发编码工作时，是不是经常有一个不好的体验—— cmd 太弱了。</p>
-<h2 id="windows-cmd-不足"><a href="#windows-cmd-不足" class="headerlink" title="windows cmd 不足"></a>windows cmd 不足</h2><blockquote>
-<ul>
-<li>界面太过于死板，不美观</li>
-<li>相关的操作，以及命令支持不完善，无法达到，或是平衡 linx 平台下相关的操作习惯</li>
-<li>当前各种框架平台不断发展，相关需要在命令行下执行的操作越来越多，而cmd没有多标签等相关的切换功能</li>
-<li>窗口的大小直接受限，不能自如的调整窗口大小</li>
-<li>…</li>
-</ul>
-</blockquote>
-<p>以上所列出的点不尽全，相信只要有需要使用 shell 来进行终端操作的用户就能感觉到 windows 对于用户，在这方面的不友好。而现实的开发工作序列中，无论是我们的代码管理，还是我们的环境编译，以及其他相关框架或平台的应用，如若想完全的脱离终端，这种可能性及小。<br>另外，从操作的效率性方面来出发，命令行下的操作，要比鼠标和键盘的来回切换操作来得高效和方便。（也许你不太认可，但这是很大一部分人公认的。）</p>
-<a id="more"></a>
-<h2 id="神器登场-cmder"><a href="#神器登场-cmder" class="headerlink" title="神器登场 cmder"></a>神器登场 cmder</h2><p><a href="http://cmder.net" target="_blank" rel="external">cmder</a> 是一款绿色且开源的软件，并且已经托管在了 <a href="https://github.com/cmderdev/cmder" target="_blank" rel="external">github</a> 上，其主要的目标即是在 windows 平台上，打造类 linux 的终端操作体验。<br>先来一张靓照：<br><img src="http://static.zybuluo.com/lfire/kjx599up3fkhyp66w8u1thk1/image_1ba6bg7io1baabambl16t6164l9.png" alt="image_1ba6bg7io1baabambl16t6164l9.png-125.4kB"><br>从图中我们可以看到，中文支持友好，同时，终端的颜值很高，最最主要的是，本软件是高度可定制的。<br>只要是你愿意，你完全可以根据你自己的喜好，自定出一套你自己喜欢的主题出来。<br>如下图所示，你可以打开 Settings 来配置你自己的各种需要</p>
-<p><center><img src="http://static.zybuluo.com/lfire/c7lnguz1rbyw3ptfc25t1nsa/image_1ba6dr9s21t1b1va83kag7r14eqm.png" alt="image_1ba6dr9s21t1b1va83kag7r14eqm.png-58kB"></center></p>
-<h2 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h2><h3 id="提供高度类-Linux-的终端体验"><a href="#提供高度类-Linux-的终端体验" class="headerlink" title="提供高度类 Linux 的终端体验"></a>提供高度类 Linux 的终端体验</h3><p>在我们平常的使用命令终端的体验过程中，如若能达到 linux 平台下相关命令的可靠性，那即是 windows 平台下开发者的福音，而 cmder 正是朝着这一方向而来的。可以支持的初略的列一下：<br>pwd ll ls whoami where cp rm unzip …</p>
-<p><center><img src="http://static.zybuluo.com/lfire/popnb072z38727c023futjay/image_1ba6enhov1l3gqh41bfa1ktupf91g.png" alt="image_1ba6enhov1l3gqh41bfa1ktupf91g.png-55.1kB"></center></p>
-<h3 id="快捷键支持丰富"><a href="#快捷键支持丰富" class="headerlink" title="快捷键支持丰富"></a>快捷键支持丰富</h3><ul>
-<li><strong>打开设置：</strong> 使用 <code>win + alt + p</code></li>
-<li><strong>新建标签：</strong> <code>ctrl + t</code></li>
-<li><strong>关闭标签：</strong> <code>ctrl + w</code></li>
-<li><strong>快速新建不同类型标签：</strong> <code>shift + alt + number</code><ol>
-<li>cmd</li>
-<li>PowerShell</li>
-</ol>
-</li>
-<li><strong>全屏：</strong> <code>alt + enter</code></li>
-<li><strong>返回上级目录：</strong> <code>ctrl + alt + u</code></li>
-<li><strong>历史查询：</strong> <code>ctrl + r</code></li>
-<li><strong>选择复制文本：</strong> <code>left mouse select</code></li>
-<li><strong>粘贴文本：</strong> <code>right click</code><br>更多的快捷键，你可以打开 <strong>Settings</strong> &gt; <strong>Keys &amp; Macro</strong> 中进行设置和查看。</li>
-</ul>
-<h3 id="支持命令别名-Aliases-配置"><a href="#支持命令别名-Aliases-配置" class="headerlink" title="支持命令别名(Aliases)配置"></a>支持命令别名(Aliases)配置</h3><p>这是 cmder 所提供的一个非常方便的功能，我们可以很个性化的设置我们个人喜欢的命令，来完成某些长命令的输入。<br>以下是我别名配置的一个片段，大家可参考：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">pwd</span>=<span class="built_in">cd</span></div><div class="line">clear=cls</div><div class="line"><span class="built_in">history</span>=cat <span class="string">"%CMDER_ROOT%\config\.history"</span></div><div class="line"><span class="built_in">unalias</span>=<span class="built_in">alias</span> /d <span class="variable">$1</span></div><div class="line">vi=vim $*</div><div class="line">cmderr=<span class="built_in">cd</span> /d <span class="string">"%CMDER_ROOT%"</span></div><div class="line">e.=explorer .</div><div class="line">gl=git <span class="built_in">log</span> --oneline --all --graph --decorate  $*</div><div class="line">l=ls --show-control-chars  --color $*</div><div class="line">la=ls <span class="_">-a</span>F --show-control-chars --color $*</div><div class="line">ll=ls -alF --show-control-chars --color $*</div><div class="line">ls=ls --show-control-chars -F --color $*</div></pre></td></tr></table></figure></p>
-<h3 id="对于中文支持的处理"><a href="#对于中文支持的处理" class="headerlink" title="对于中文支持的处理"></a>对于中文支持的处理</h3><p>在平常应用过程中，我们经常会遇到中文问题的苦恼，如何很好的解决中文在各种场景下的显示问题，是很多类似产品的一大痛点。</p>
-<p><strong>常见场景：</strong></p>
-<ul>
-<li>中文文件或中文文件夹名的显示和操作；</li>
-<li>VIM 中打开包含中文内容的文件查看及编辑等；</li>
-<li>git 提交代码到 github 等代码仓库时，中文日志的提交及查看；</li>
-</ul>
-<p><strong>几个关键配置要点：</strong></p>
-<ul>
-<li>中文字体的选择：我们需要选择相关支持中文字符显示的字体来做为软件的展示字体。</li>
-<li>字符编码的选择：在 windows 下，很多文件名，及文件的编码都是以 GBK 为编码，因此，这里我们需要很慎重的选择软件的字体编码。</li>
-<li>环境变量的设置：因本软件的类 linux 的设计，所以很多命令，如 git 都有着 linux 下相似的处理逻辑，而 github 这种是全以 UTF8 为编码的平台，因此，环境变量需要对此进行特殊处理。</li>
-<li>VIM 的字符编码配置：因是在 windows 平台中，很多的文件的编码可能是多种多样的，不是固定的某一种，因此，在 VIM 的配置中，就必须要考虑到这种情况，配置让它可以智能的识别并转换文件内容编码。</li>
-</ul>
-<p>以下贴出我所配置的部分参数：<br><strong>字体&amp;字体编码配置</strong></p>
-<p><center><img src="http://static.zybuluo.com/lfire/tqjuairc92zf58e0a6rxrwe3/image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png" alt="image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png-21kB"></center></p>
-<p>其中的 <strong>YaHei Consolas Hybrid</strong> 是我在编程过程中，所遇到的一种字体，对于中文、英文大小写、以及数字的支持以及辨识度很高。<a href="http://pan.baidu.com/s/1i4HDZE1" target="_blank" rel="external">个人推荐使用，可以这下载安装，提取密码: tmgw</a><br>而其中因是在 windows 环境下，所以建议使用 GB2312 编码。</p>
-<p><strong>环境变量配置</strong></p>
-<p><center><img src="http://static.zybuluo.com/lfire/mckot5pvachk05wtrvm1rvpt/image_1ba6n59vr7a8se716vu16jhrbn2a.png" alt="image_1ba6n59vr7a8se716vu16jhrbn2a.png-31.7kB"></center></p>
-<p>为兼容 github 等使用，整体将 cmder 的环境变量中 LANG 设置为 UTF-8 ，以此实现 <em>git log</em> 等命令查看时支持中文。</p>
-<p><strong>VIM配置</strong></p>
-<p><center><img src="http://static.zybuluo.com/lfire/oatt6pao27tfbbkne7j7pgv5/image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png" alt="image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png-62.7kB"></center></p>
-<p>为实现 VIM 支持各种编码格式文件的中文查看及编辑，cmder 内部已做好了配置进行处理，上图只是将相关的配置内容贴出。</p>
-<h2 id="整体配置及软件包下载"><a href="#整体配置及软件包下载" class="headerlink" title="整体配置及软件包下载"></a>整体配置及软件包下载</h2><p>为方便大家直接使用，我将当前我所使用的版本，以及配置整体打包分享出来。<br><a href="http://pan.baidu.com/s/1nuKTEe1" target="_blank" rel="external">推荐大家使用，提取密码: 1aix</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>当我们在 windows 环境下来进行开发编码工作时，是不是经常有一个不好的体验—— cmd 太弱了。</p><h2 id="windows-cmd-不足"><a href="#windows-cmd-不足" class="headerlink" title="windows cmd 不足"></a>windows cmd 不足</h2><blockquote><ul><li>界面太过于死板，不美观</li><li>相关的操作，以及命令支持不完善，无法达到，或是平衡 linx 平台下相关的操作习惯</li><li>当前各种框架平台不断发展，相关需要在命令行下执行的操作越来越多，而cmd没有多标签等相关的切换功能</li><li>窗口的大小直接受限，不能自如的调整窗口大小</li><li>…</li></ul></blockquote><p>以上所列出的点不尽全，相信只要有需要使用 shell 来进行终端操作的用户就能感觉到 windows 对于用户，在这方面的不友好。而现实的开发工作序列中，无论是我们的代码管理，还是我们的环境编译，以及其他相关框架或平台的应用，如若想完全的脱离终端，这种可能性及小。<br>另外，从操作的效率性方面来出发，命令行下的操作，要比鼠标和键盘的来回切换操作来得高效和方便。（也许你不太认可，但这是很大一部分人公认的。）</p><a id="more"></a><h2 id="神器登场-cmder"><a href="#神器登场-cmder" class="headerlink" title="神器登场 cmder"></a>神器登场 cmder</h2><p><a href="http://cmder.net" target="_blank" rel="external">cmder</a> 是一款绿色且开源的软件，并且已经托管在了 <a href="https://github.com/cmderdev/cmder" target="_blank" rel="external">github</a> 上，其主要的目标即是在 windows 平台上，打造类 linux 的终端操作体验。<br>先来一张靓照：<br><img src="http://static.zybuluo.com/lfire/kjx599up3fkhyp66w8u1thk1/image_1ba6bg7io1baabambl16t6164l9.png" alt="image_1ba6bg7io1baabambl16t6164l9.png-125.4kB"><br>从图中我们可以看到，中文支持友好，同时，终端的颜值很高，最最主要的是，本软件是高度可定制的。<br>只要是你愿意，你完全可以根据你自己的喜好，自定出一套你自己喜欢的主题出来。<br>如下图所示，你可以打开 Settings 来配置你自己的各种需要</p><p><center><img src="http://static.zybuluo.com/lfire/c7lnguz1rbyw3ptfc25t1nsa/image_1ba6dr9s21t1b1va83kag7r14eqm.png" alt="image_1ba6dr9s21t1b1va83kag7r14eqm.png-58kB"></center></p><h2 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h2><h3 id="提供高度类-Linux-的终端体验"><a href="#提供高度类-Linux-的终端体验" class="headerlink" title="提供高度类 Linux 的终端体验"></a>提供高度类 Linux 的终端体验</h3><p>在我们平常的使用命令终端的体验过程中，如若能达到 linux 平台下相关命令的可靠性，那即是 windows 平台下开发者的福音，而 cmder 正是朝着这一方向而来的。可以支持的初略的列一下：<br>pwd ll ls whoami where cp rm unzip …</p><p><center><img src="http://static.zybuluo.com/lfire/popnb072z38727c023futjay/image_1ba6enhov1l3gqh41bfa1ktupf91g.png" alt="image_1ba6enhov1l3gqh41bfa1ktupf91g.png-55.1kB"></center></p><h3 id="快捷键支持丰富"><a href="#快捷键支持丰富" class="headerlink" title="快捷键支持丰富"></a>快捷键支持丰富</h3><ul><li><strong>打开设置：</strong> 使用 <code>win + alt + p</code></li><li><strong>新建标签：</strong> <code>ctrl + t</code></li><li><strong>关闭标签：</strong> <code>ctrl + w</code></li><li><strong>快速新建不同类型标签：</strong> <code>shift + alt + number</code><ol><li>cmd</li><li>PowerShell</li></ol></li><li><strong>全屏：</strong> <code>alt + enter</code></li><li><strong>返回上级目录：</strong> <code>ctrl + alt + u</code></li><li><strong>历史查询：</strong> <code>ctrl + r</code></li><li><strong>选择复制文本：</strong> <code>left mouse select</code></li><li><strong>粘贴文本：</strong> <code>right click</code><br>更多的快捷键，你可以打开 <strong>Settings</strong> &gt; <strong>Keys &amp; Macro</strong> 中进行设置和查看。</li></ul><h3 id="支持命令别名-Aliases-配置"><a href="#支持命令别名-Aliases-配置" class="headerlink" title="支持命令别名(Aliases)配置"></a>支持命令别名(Aliases)配置</h3><p>这是 cmder 所提供的一个非常方便的功能，我们可以很个性化的设置我们个人喜欢的命令，来完成某些长命令的输入。<br>以下是我别名配置的一个片段，大家可参考：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">pwd</span>=<span class="built_in">cd</span></div><div class="line">clear=cls</div><div class="line"><span class="built_in">history</span>=cat <span class="string">"%CMDER_ROOT%\config\.history"</span></div><div class="line"><span class="built_in">unalias</span>=<span class="built_in">alias</span> /d <span class="variable">$1</span></div><div class="line">vi=vim $*</div><div class="line">cmderr=<span class="built_in">cd</span> /d <span class="string">"%CMDER_ROOT%"</span></div><div class="line">e.=explorer .</div><div class="line">gl=git <span class="built_in">log</span> --oneline --all --graph --decorate  $*</div><div class="line">l=ls --show-control-chars  --color $*</div><div class="line">la=ls <span class="_">-a</span>F --show-control-chars --color $*</div><div class="line">ll=ls -alF --show-control-chars --color $*</div><div class="line">ls=ls --show-control-chars -F --color $*</div></pre></td></tr></table></figure></p><h3 id="对于中文支持的处理"><a href="#对于中文支持的处理" class="headerlink" title="对于中文支持的处理"></a>对于中文支持的处理</h3><p>在平常应用过程中，我们经常会遇到中文问题的苦恼，如何很好的解决中文在各种场景下的显示问题，是很多类似产品的一大痛点。</p><p><strong>常见场景：</strong></p><ul><li>中文文件或中文文件夹名的显示和操作；</li><li>VIM 中打开包含中文内容的文件查看及编辑等；</li><li>git 提交代码到 github 等代码仓库时，中文日志的提交及查看；</li></ul><p><strong>几个关键配置要点：</strong></p><ul><li>中文字体的选择：我们需要选择相关支持中文字符显示的字体来做为软件的展示字体。</li><li>字符编码的选择：在 windows 下，很多文件名，及文件的编码都是以 GBK 为编码，因此，这里我们需要很慎重的选择软件的字体编码。</li><li>环境变量的设置：因本软件的类 linux 的设计，所以很多命令，如 git 都有着 linux 下相似的处理逻辑，而 github 这种是全以 UTF8 为编码的平台，因此，环境变量需要对此进行特殊处理。</li><li>VIM 的字符编码配置：因是在 windows 平台中，很多的文件的编码可能是多种多样的，不是固定的某一种，因此，在 VIM 的配置中，就必须要考虑到这种情况，配置让它可以智能的识别并转换文件内容编码。</li></ul><p>以下贴出我所配置的部分参数：<br><strong>字体&amp;字体编码配置</strong></p><p><center><img src="http://static.zybuluo.com/lfire/tqjuairc92zf58e0a6rxrwe3/image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png" alt="image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png-21kB"></center></p><p>其中的 <strong>YaHei Consolas Hybrid</strong> 是我在编程过程中，所遇到的一种字体，对于中文、英文大小写、以及数字的支持以及辨识度很高。<a href="http://pan.baidu.com/s/1i4HDZE1" target="_blank" rel="external">个人推荐使用，可以这下载安装，提取密码: tmgw</a><br>而其中因是在 windows 环境下，所以建议使用 GB2312 编码。</p><p><strong>环境变量配置</strong></p><p><center><img src="http://static.zybuluo.com/lfire/mckot5pvachk05wtrvm1rvpt/image_1ba6n59vr7a8se716vu16jhrbn2a.png" alt="image_1ba6n59vr7a8se716vu16jhrbn2a.png-31.7kB"></center></p><p>为兼容 github 等使用，整体将 cmder 的环境变量中 LANG 设置为 UTF-8 ，以此实现 <em>git log</em> 等命令查看时支持中文。</p><p><strong>VIM配置</strong></p><p><center><img src="http://static.zybuluo.com/lfire/oatt6pao27tfbbkne7j7pgv5/image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png" alt="image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png-62.7kB"></center></p><p>为实现 VIM 支持各种编码格式文件的中文查看及编辑，cmder 内部已做好了配置进行处理，上图只是将相关的配置内容贴出。</p><h2 id="整体配置及软件包下载"><a href="#整体配置及软件包下载" class="headerlink" title="整体配置及软件包下载"></a>整体配置及软件包下载</h2><p>为方便大家直接使用，我将当前我所使用的版本，以及配置整体打包分享出来。<br><a href="http://pan.baidu.com/s/1nuKTEe1" target="_blank" rel="external">推荐大家使用，提取密码: 1aix</a></p>]]></content>
     
     <summary type="html">
     
@@ -233,23 +149,13 @@
     <link href="https://lfire.github.io/2017/03/01/hello-world/"/>
     <id>https://lfire.github.io/2017/03/01/hello-world/</id>
     <published>2017-03-01T08:34:00.000Z</published>
-    <updated>2017-03-08T12:32:33.498Z</updated>
+    <updated>2017-03-08T12:32:33.499Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;
     
     </summary>
