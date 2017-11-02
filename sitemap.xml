@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lfire.github.io/2017/10/31/20171031/</loc>
+    
+    <lastmod>2017-11-02T05:30:53.141Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lfire.github.io/2017/10/23/20171023/</loc>
     
-    <lastmod>2017-10-23T03:18:39.478Z</lastmod>
+    <lastmod>2017-10-31T06:43:38.894Z</lastmod>
     
   </url>
   
@@ -58,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://lfire.github.io/categories/index.html</loc>
+    <loc>https://lfire.github.io/tags/index.html</loc>
     
     <lastmod>2017-02-28T15:05:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://lfire.github.io/tags/index.html</loc>
+    <loc>https://lfire.github.io/categories/index.html</loc>
     
     <lastmod>2017-02-28T15:05:53.000Z</lastmod>
     
