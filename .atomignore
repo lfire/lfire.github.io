@@ -1,0 +1,7 @@
+.deploy_git/
+node_modules/
+public/
+themes/
+scaffolds/
+source/tags/
+source/categories/
