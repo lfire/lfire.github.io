@@ -6,10 +6,8 @@ tags:
 - github
 - hexo
 categories:
-- blog
+- 工具
 - hexo
-- shell
-- git
 ---
 @[TOC]
 
@@ -106,4 +104,4 @@ git push origin src
 最初，一直没能找到一个得心应手的编辑器，后面选择了一款付费软件， Cmd Markdown，但对于 Hexo 的支持，只能说是到达 markdown 的支持，如果要细化到 Hexo 本身，这就有差距了。还有就是，Cmd markdown 使用的是其自建的图床，个人有点担心，还是希望可以自己掌握所有这些资源的去处，最后选择了配置七牛。
 另外一个方面， vscode 和 atom 的发展速度确实惊人，这两款软件提供了大量的插件可用，与我个人使用习惯一匹配，个人最后选择了 Atom 。
 ![write markdown blog with atom](http://pic.hqmmw.com/8e64a09f34f780e41f907342a838491c.png)
-其中有一个重要的插件，可以提一下，[Markdown Preview Enhanced](https://atom.io/packages/markdown-preview-enhanced)，相关的配置很方便，功能很强大。
+其中有一个重要的插件，可以提一下，[Markdown Preview Enhanced](https://atom.io/packages/markdown-preview-enhanced)
