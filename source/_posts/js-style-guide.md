@@ -390,8 +390,8 @@ foo(
 );
 
 // 也可以按逻辑对参数进行组合。
-// 最经典的是baidu.format函数，调用时将参数分为“模板”和“数据”两块
-baidu.format(
+// 最经典的是sdate.format函数，调用时将参数分为“模板”和“数据”两块
+sdate.format(
     dateFormatTemplate,
     year, month, date, hour, minute, second
 );
