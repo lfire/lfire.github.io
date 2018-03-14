@@ -390,8 +390,8 @@ foo(
 );
 
 // 也可以按逻辑对参数进行组合。
-// 最经典的是sdate.format函数，调用时将参数分为“模板”和“数据”两块
-sdate.format(
+// 最经典的是baidu.format函数，调用时将参数分为“模板”和“数据”两块
+baidu.format(
     dateFormatTemplate,
     year, month, date, hour, minute, second
 );
@@ -457,6 +457,47 @@ try {
 catch (ex) {
     // some statements;
 }
+```
+
+**[强制] 在使用长方法链时进行换行缩进。使用前面的 `.` 强调这是方法调用，而不是新语句。**
+
+示例：
+
+```javascript
+// bad
+$('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+// bad
+$('#items').
+  find('.selected').
+    highlight().
+    end().
+  find('.open').
+    updateCount();
+
+// good
+$('#items')
+    .find('.selected')
+    .highlight()
+    .end()
+    .find('.open')
+    .updateCount();
+
+// bad
+var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
+    .attr('width', (radius + margin) * 2).append('svg:g')
+    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+    .call(tron.led);
+
+// good
+var leds = stage.selectAll('.led')
+    .data(data)
+    .enter().append('svg:svg')
+    .classed('led', true)
+    .attr('width', (radius + margin) * 2)
+    .append('svg:g')
+    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+    .call(tron.led);
 ```
 
 #### 2.2.4 语句
@@ -526,6 +567,167 @@ var task = function () {
 
 var func = (function () {
 });
+```
+
+#### 2.2.5 块
+
+**[强制] 使用大括号包裹所有的多行代码块。**
+
+示例：
+
+```javascript
+// bad
+if (test)
+    return false;
+
+// good
+if (test) {
+    return false;
+}
+
+// bad
+function testFun() { return false; }
+
+// good
+function testFun() {
+    return false;
+}
+```
+
+**[强制] 在块末和新语句前插入空行。**
+
+示例：
+
+```javascript
+// bad
+if (foo) {
+    return bar;
+}
+return baz;
+
+// good
+if (foo) {
+    return bar;
+}
+
+return baz;
+
+// bad
+var obj = {
+    foo: function () {
+    },
+    bar: function () {
+    }
+};
+return obj;
+
+// good
+var obj = {
+    foo: function () {
+    },
+
+    bar: function () {
+    }
+};
+
+return obj;
+```
+
+#### 2.2.6 逗号
+
+**[强制] 禁止行首逗号。**
+
+示例：
+
+```javascript
+// bad
+var story = [
+    once
+  , upon
+  , aTime
+];
+
+// good
+var story = [
+    once,
+    upon,
+    aTime
+];
+
+// bad
+var hero = {
+    firstName: 'Bob'
+  , lastName: 'Parr'
+  , heroName: 'Mr. Incredible'
+  , superPower: 'strength'
+};
+
+// good
+var hero = {
+    firstName: 'Bob',
+    lastName: 'Parr',
+    heroName: 'Mr. Incredible',
+    superPower: 'strength'
+};
+```
+**[强制] 禁止额外的行末逗号。**
+
+解释：
+
+行末逗号，会在 IE6/7 和 IE9 怪异模式下引下问题，多余的逗号在某些 ES3 的实现里会增加数组的长度。在 ES5 中已经[澄清][3]。
+
+> Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
+
+示例：
+
+```javascript
+// bad
+var hero = {
+    firstName: 'Kevin',
+    lastName: 'Flynn',
+};
+
+var heroes = [
+    'Batman',
+    'Superman',
+];
+
+// good
+var hero = {
+    firstName: 'Kevin',
+    lastName: 'Flynn'
+};
+
+var heroes = [
+    'Batman',
+    'Superman'
+];
+```
+
+#### 2.2.7 分号
+
+**[强制] 语句结束必须使用分号。**
+
+示例：
+
+```javascript
+// bad
+(function () {
+    var name = 'Skywalker'
+    return name
+})()
+
+// good
+(function () {
+    var name = 'Skywalker';
+    return name;
+})();
+
+// good (防止函数在两个 IIFE 合并时被当成一个参数
+;(function () {
+    var name = 'Skywalker';
+    return name;
+})();
 ```
 
 ### 2.3 命名
@@ -657,6 +859,88 @@ var hasMoreCommands = false;
 ```javascript
 var loadingData = ajax.get('url');
 loadingData.then(callback);
+```
+
+**[建议] 不要使用下划线前/后缀。**
+
+解释：
+
+JavaScript 并没有私有属性或私有方法的概念。虽然使用下划线是表示「私有」的一种共识，但实际上这些属性是完全公开的，它本身就是你公共接口的一部分。这种习惯或许会导致开发者错误的认为改动它不会造成破坏或者不需要去测试。
+也就是说：如果你想要某处为「私有」，它必须不能是显式提出的。
+
+示例：
+
+```javascript
+// bad
+this.__firstName__ = 'Panda';
+this.firstName_ = 'Panda';
+this._firstName = 'Panda';
+
+// good
+this.firstName = 'Panda';
+```
+
+**[建议] 不保存 `this` 的引用，使用 `Function#bind` 。**
+
+解释：
+
+让代码变得更加简洁，避免了很多不必要的变量（存放上文this）。
+
+示例：
+
+```javascript
+// bad
+function testFun() {
+    var self = this;
+    return function () {
+        console.log(self);
+    };
+}
+
+// bad
+function testFun() {
+    var that = this;
+    return function () {
+        console.log(that);
+    };
+}
+
+// bad
+function testFun() {
+    var _this = this;
+    return function () {
+        console.log(_this);
+    };
+}
+
+// good
+function testFun() {
+    return function () {
+        console.log(this);
+    }.bind(this);
+}
+```
+
+**[建议] 如果文件导出一个类，文件名应该与类名完全相同。**
+
+示例：
+
+```javascript
+// file contents
+class CheckBox {
+  // ...
+}
+module.exports = CheckBox;
+
+// in some other file
+// bad
+var CheckBox = require('./checkBox');
+
+// bad
+var CheckBox = require('./check_box');
+
+// good
+var CheckBox = require('./CheckBox');
 ```
 
 ### 2.4 注释
@@ -1359,6 +1643,116 @@ function kv2List(source) {
 }
 ```
 
+其中需要注意的几个 JS `变量声明提升` 特性是：
+
+- 变量声明会提升至作用域顶部，但赋值不会。
+
+示例：
+
+```javascript
+// 我们知道这样不能正常工作（假设这里没有名为 notDefined 的全局变量）
+function example() {
+    console.log(notDefined); // => throws a ReferenceError
+}
+
+// 但由于变量声明提升的原因，在一个变量引用后再创建它的变量声明将可以正常工作。
+// 注：变量赋值为 `true` 不会提升。
+function example() {
+    console.log(declaredButNotAssigned); // => undefined
+    var declaredButNotAssigned = true;
+}
+
+// 解释器会把变量声明提升到作用域顶部，意味着我们的例子将被重写成：
+function example() {
+    var declaredButNotAssigned;
+    console.log(declaredButNotAssigned); // => undefined
+    declaredButNotAssigned = true;
+}
+```
+
+- 匿名函数表达式会提升它们的变量名，但不会提升函数的赋值。
+
+示例：
+
+```javascript
+function example() {
+    console.log(anonymous); // => undefined
+    anonymous(); // => TypeError anonymous is not a function
+    var anonymous = function () {
+        console.log('anonymous function expression');
+    };
+}
+```
+
+- 命名函数表达式会提升变量名，但不会提升函数名或函数体。
+
+示例：
+
+```javascript
+function example() {
+    console.log(named); // => undefined
+    named(); // => TypeError named is not a function
+    superPower(); // => ReferenceError superPower is not defined
+
+    var named = function superPower() {
+        console.log('Flying');
+    };
+}
+
+// 当函数名跟变量名一样时，表现也是如此。
+function example() {
+    console.log(named); // => undefined
+    named(); // => TypeError named is not a function
+
+    var named = function named() {
+        console.log('named');
+    }
+}
+```
+
+- 函数声明提升它们的名字和函数体。
+
+示例：
+
+```javascript
+function example() {
+    superPower(); // => Flying
+
+    function superPower() {
+        console.log('Flying');
+    }
+}
+```
+
+**[建议] 最后再声明未赋值的变量。**
+
+解释：
+
+当需要引用前面的变量赋值时，这种做法将很有帮助。
+
+示例：
+
+```javascript
+// bad
+var i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+var i;
+var items = getItems();
+var dragonball;
+var goSportsTeam = true;
+var len;
+
+// good
+var items = getItems();
+var goSportsTeam = true;
+var dragonball;
+var length;
+var i;
+```
+
 ### 3.2 条件
 
 **[强制] 在 Equality Expression 中使用类型严格的 `===`。仅当判断 null 或 undefined 时，允许使用 `== null`。**
@@ -1455,6 +1849,15 @@ if (noValue === null || typeof noValue === 'undefined') {
 }
 ```
 
+条件表达式，例如 `if` 语句通过抽象方法 `ToBoolean` 强制计算它们的表达式，并且总是遵守下面的规则：
+
+- `对象` 被计算为 `true` ， `数组` 或 `函数` 都属于 `对象`
+- `undefined` 被计算为 `false`
+- `null` 被计算为 `false`
+- `布尔值` 被计算为 `布尔的值`
+- `数字` 如果是 `+0` 、 `-0` 或 `NaN` 被计算为 `fale` ，否则为 `true`
+- `字符串` 如果是空字符串 `''` 被计算为 `false` ，否则为 `true`
+
 **[建议] 按执行频率排列分支的顺序。**
 
 解释：
@@ -1537,7 +1940,6 @@ for (var i = 0, len = elements.length; i < len; i++) {
     addListener(element, 'click', clicker);
 }
 
-
 // bad
 for (var i = 0, len = elements.length; i < len; i++) {
     var element = elements[i];
@@ -1557,7 +1959,6 @@ for (var i = 0, len = elements.length; i < len; i++) {
     element.style.width = width;
     // ......
 }
-
 
 // bad
 for (var i = 0, len = elements.length; i < len; i++) {
@@ -1829,7 +2230,7 @@ String.prototype.trim = function () {
 };
 ```
 
-**[建议] 属性访问时，尽量使用 `.`。**
+**[建议] 属性访问时，尽量使用 `.`，当通过变量访问属性时使用 `[expr]`。**
 
 解释：
 
@@ -1842,6 +2243,17 @@ String.prototype.trim = function () {
 ```javascript
 info.age;
 info['more-info'];
+
+var stu = {
+    status: true,
+    age: 13
+};
+
+function getProp(prop) {
+    return stu[prop];
+}
+
+var isStatusOk = getProp('status');
 ```
 
 **[建议] `for in` 遍历对象时, 使用 `hasOwnProperty` 过滤掉原型中的属性。**
@@ -1855,6 +2267,45 @@ for (var key in info) {
         newInfo[key] = info[key];
     }
 }
+```
+
+**[强制] 不要使用 [`保留字`][2] 作为键名，它们在 IE8下不工作。**
+
+示例：
+
+```javascript
+// bad
+var superman = {
+    default: { clark: 'kent' },
+    private: true
+};
+
+// good
+var superman = {
+    defaults: { clark: 'kent' },
+    hidden: true
+};
+```
+
+**[建议] 使用同义词替换需要使用的保留字**
+
+示例：
+
+```javascript
+// bad
+var superman = {
+    class: 'alien'
+};
+
+// bad
+var superman = {
+    klass: 'alien'
+};
+
+// good
+var superman = {
+    type: 'alien'
+};
 ```
 
 ### 3.7 数组
@@ -1905,9 +2356,91 @@ for (i in arr) {
 
 **[建议] 清空数组使用 `.length = 0`。**
 
+**[建议] 向数组增加元素时使用 `Array#push` 来替代直接赋值**
+
+示例：
+
+```javascript
+var someStack = [];
+
+// bad
+someStack[someStack.length] = 'abracadabra';
+
+// good
+someStack.push('abracadabra');
+```
+
+**[建议] 当需要拷贝数组时，使用 `Array#slice` 。**
+
+示例：
+
+```javascript
+var len = items.length;
+var itemsCopy = [];
+var i;
+
+// bad
+for (i = 0; i < len; i++) {
+    itemsCopy[i] = items[i];
+}
+
+// good
+itemsCopy = items.slice();
+```
+
 ### 3.8 函数
 
-#### 3.8.1 函数长度
+**[强制] 禁止在一个 `非函数代码块（if、while等）` 中声明一个函数，如果需要，则把函数赋值给一个变量。**
+
+解释：
+
+浏览器允许这么操作，但不同厂商产品之间的解析存在不一致。
+
+示例：
+
+```javascript
+// bad
+if (currentUser) {
+    function testFun() {
+        console.log('Nope.');
+    }
+}
+
+// good
+var test;
+if (currentUser) {
+    test = function testFun() {
+        console.log('Yup.');
+    };
+}
+```
+
+#### 3.8.1 函数表达式
+
+解释：
+
+分3种写法，匿名、命名以及立即执行函数表达式。
+
+示例：
+
+```javascript
+// 匿名函数表达式
+var anonymous = function() {
+    return true;
+};
+
+// 命名函数表达式
+var named = function named() {
+    return true;
+};
+
+// 立即调用的函数表达式（IIFE）
+(function () {
+    console.log('Welcome to the Internet. Please follow me.');
+}());
+```
+
+#### 3.8.2 函数长度
 
 **[建议] 一个函数的长度控制在 `50` 行以内。**
 
@@ -1966,7 +2499,7 @@ function checkAAvailability() {
 }
 ```
 
-#### 3.8.2 参数设计
+#### 3.8.3 参数设计
 
 **[建议] 一个函数的参数控制在 `6` 个以内。**
 
@@ -2023,7 +2556,27 @@ function removeElement(element, options) {
 -   当配置项有增长时，无需无休止地增加参数个数，不会出现 removeElement(element, true, false, false, 3) 这样难以理解的调用代码。
 -   当部分配置参数可选时，多个参数的形式非常难处理重载逻辑，而使用一个 options 对象只需判断属性是否存在，实现得以简化。
 
-#### 3.8.3 闭包
+**[强制] 禁止将参数命名为 `arguments` 。**
+
+解释：
+
+如此命名，会将函数作用域内的 `arguments` 对象取代。
+
+示例：
+
+```javascript
+// bad
+function nope(name, options, arguments) {
+    // ...stuff...
+}
+
+// good
+function yup(name, options, args) {
+    // ...stuff...
+}
+```
+
+#### 3.8.4 闭包
 
 **[建议] 在适当的时候将闭包内大对象置为 `null`。**
 
@@ -2100,7 +2653,7 @@ while (len--) {
 }
 ```
 
-#### 3.8.4 空函数
+#### 3.8.5 空函数
 
 **[建议] 空函数不使用 `new Function()` 的形式。**
 
@@ -2188,6 +2741,94 @@ function TextNode(value, engine) {
 
 TextNode.prototype.clone = function () {
     return this;
+};
+```
+
+**[强制] 给对象原型分配方法，而不是使用一个新对象覆盖原型。**
+
+解释：
+
+覆盖原型将导致继承出现问题：重设原型将覆盖原有原型。
+
+示例：
+
+```javascript
+function Jedi() {
+    console.log('new jedi');
+}
+
+// bad
+Jedi.prototype = {
+    fight: function fight() {
+        console.log('fighting');
+    },
+
+    block: function block() {
+        console.log('blocking');
+    }
+};
+
+// good
+Jedi.prototype.fight = function fight() {
+    console.log('fighting');
+};
+
+Jedi.prototype.block = function block() {
+    console.log('blocking');
+};
+```
+
+**[建议] 方法可以返回 `this` 来实现方法链式操作。**
+
+示例：
+
+```javascript
+// bad
+Jedi.prototype.jump = function jump() {
+    this.jumping = true;
+    return true;
+};
+
+Jedi.prototype.setHeight = function setHeight(height) {
+    this.height = height;
+};
+
+var luke = new Jedi();
+luke.jump(); // => true
+luke.setHeight(20); // => undefined
+
+// good
+Jedi.prototype.jump = function jump() {
+    this.jumping = true;
+    return this;
+};
+
+Jedi.prototype.setHeight = function setHeight(height) {
+    this.height = height;
+    return this;
+};
+
+var luke = new Jedi();
+
+luke.jump().setHeight(20);
+```
+
+**[建议] 可以自定义 `toString()` 方法，但确保其可以正常工作且不会产生副作用。**
+
+示例：
+
+```javascript
+function Jedi(options) {
+    options || (options = {});
+    this.name = options.name || 'no name';
+}
+
+Jedi.prototype.getName = function getName() {
+    return this.name;
+};
+
+Jedi.prototype.toString = function toString() {
+    return 'Jedi - ' + this.getName();
 };
 ```
 
@@ -2334,6 +2975,64 @@ Tree.prototype.selectNode = function (id) {
 -   如果一个属性被设计为 boolean 类型，则不要使用 1 / 0 作为其值。对于标识性的属性，如对代码体积有严格要求，可以从一开始就设计为 number 类型且将 0 作为否定值。
 -   从 DOM 中取出的值通常为 string 类型，如果有对象或函数的接收类型为 number 类型，提前作好转换，而不是期望对象、函数可以处理多类型的值。
 
+### 3.11 存取器
+
+**[建议] 属性的存取函数不是必须的。**
+
+**[建议] 如需要存取函数，使用 `getVal()` 和 `setVal()` 。**
+
+示例：
+
+```javascript
+// bad
+dragon.age();
+
+// good
+dragon.getAge();
+
+// bad
+dragon.age(25);
+
+// good
+dragon.setAge(25);
+```
+
+**[建议] 如属性是布尔值 ，使用 `isVal()` 和 `hasVal()` 。**
+
+示例：
+
+```javascript
+// bad
+if (!dragon.age()) {
+    return false;
+}
+
+// good
+if (!dragon.hasAge()) {
+    return false;
+}
+```
+
+**[建议] 创建 `get()` 和 `set()` 函数是可以的，但要保持一致。**
+
+示例：
+
+```javascript
+function Jedi(options) {
+    options || (options = {});
+    var lightsaber = options.lightsaber || 'blue';
+    this.set('lightsaber', lightsaber);
+}
+
+Jedi.prototype.set = function set(key, val) {
+    this[key] = val;
+};
+
+Jedi.prototype.get = function get(key) {
+    return this[key];
+};
+```
+
 ## 4 浏览器环境
 
 ### 4.1 模块化
@@ -2349,7 +3048,7 @@ AMD 作为由社区认可的模块定义形式，提供多种重载提供灵活�
 目前，比较成熟的 AMD Loader 有：
 
 -   官方实现的 [requirejs](http://requirejs.org/)
--   百度自己实现的 [esl](https://github.com/ecomfe/esl)
+-   百度实现的 [esl](https://github.com/ecomfe/esl)
 
 **[强制] 模块 `id` 必须符合标准。**
 
@@ -2558,3 +3257,5 @@ expando 属性绑定事件容易导致互相覆盖。
 **[建议] 在没有事件自动管理的框架支持下，应持有监听器函数的引用，在适当时候（元素释放、页面卸载等）移除添加的监听器。**
 
 [1]: https://zh.wikipedia.org/zh-cn/%E9%A7%9D%E5%B3%B0%E5%BC%8F%E5%A4%A7%E5%B0%8F%E5%AF%AB
+[2]: http://es5.github.io/#x7.6.1
+[3]: http://es5.github.io/#D
