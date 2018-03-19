@@ -3256,6 +3256,276 @@ expando 属性绑定事件容易导致互相覆盖。
 
 **[建议] 在没有事件自动管理的框架支持下，应持有监听器函数的引用，在适当时候（元素释放、页面卸载等）移除添加的监听器。**
 
+## 5 jQuery
+
+### 5.1 jQuery 变量
+
+**[强制] 所有使用或缓存 jQuery 对象的变量应该以 `$` 开头。**
+
+示例：
+
+```javascript
+// bad
+var sidebar = $('.sidebar');
+
+// good
+var $sidebar = $('.sidebar');
+```
+
+**[建议] 将 jQuery 选择器返回的对象缓存到本地变量中以复用。**
+
+解释：
+
+选中某一个页面元素，开销很大。所以，使用选择器的次数应该越少越好，对于多次需要操作的元素，尽可能缓存选中的结果，节省其开销。
+
+示例：
+
+```javascript
+// bad
+function setSidebar() {
+    $('.sidebar').hide();
+
+    // ...stuff...
+    $('.sidebar').css({
+      'background-color': 'pink'
+    });
+}
+
+// good
+function setSidebar() {
+    var $sidebar = $('.sidebar');
+    $sidebar.hide();
+
+    // ...stuff...
+    $sidebar.css({
+      'background-color': 'pink'
+    });
+}
+```
+
+### 5.2 选择器
+
+**选择器的性能排序：**
+
+* 最快的选择器：ID 选择器和元素标签选择器
+  举例来说，下面的语句性能最佳：
+  ```javascript
+  $("#id");
+  $("form");
+  $("input");
+  ```
+  因为遇到这些选择器，jQuery 内部会自动调用浏览器原生方法，所以执行速度快。
+* 较慢的选择器：class 选择器
+  `$(".className")` 的性能，取决于不同的浏览器。Chrome、Firefox、Safari、Opera 浏览器，都有原生方法 `getElementByClassName()` ，所以速度并不慢。但是，IE5-IE8 都没有部署这个方法，所以这个选择器在 IE 中会相当慢，jQuery 历次更新对 IE8 之前的版本来说是没有用处的。
+* 最慢的选择器：伪类选择器和属性选择器
+  如 `$(":hidden")` ，找出网页中所有隐藏元素；属性选择器例子 `$("[attribute=value]")` 。这两种语句是最慢的，因为浏览器没有针对它们的原生方法。但一些浏览器的新版本，增加了 `querySelector()` 和 `querySelectorAll()` 方法，因此会使这类选择器的性能大幅提高。
+
+**子元素和父元素关系：**
+
+常见子、父元素写法：
+```javascript
+$('.child', $parent);
+$parent.find('.child');
+$parent.children('.child');
+$('#parent > .child');
+$('#parent .child');
+$('.child', $('#parent'));
+```
+以上几种写法，其速度比较：
+* `$('.child', $parent)`
+  作用是：给定一个 DOM 对象，然后从中选择一个子元素。jQuery 会自动把这条语句转成 `$.parent.find('.child')` ，这会导致一定的性能损失，比最快方案慢 5%~10% 。
+* `$parent.find('.child')`
+  这是一种最优方案。
+  `find()` 方法会调用浏览器的原生方法（`getElementById`，`getElementByName`，`getElementByTagName` 等），因此速度最优。
+* `$parent.children('.child')`
+  jQuery 内部会使用 `$.sibling()` 和 javascript 的 `nextSibling()` 方法，一个个遍历节点，比最快方案慢 50% 。
+* `$('#parent > .child')`
+  jQuery 内部使用 [Sizzle][4] 引擎，处理各种选择器。Sizzle 引擎的选择顺序是从右到左，所以这条语句是先选 `.chile` ，然后再一个个过滤出父元素 `#parent` ，因此，该写法相比最快方案慢 70% 。
+* `$('#parent .child')`
+  本条与上一条情况相同，但是，上一条只选择直接的子元素，这里可以用于选择多级子元素，所以速度更慢，相比最快方案慢 77% 。
+* `$('.child', $('#parent'))`
+  jQuery 内部会将其转换为 `$('#parent').find('.child')` ，比最快方案慢 20% 。
+
+因此，几种不同写法中，最佳选择是：`$parent.find('.child')` 。
+
+**[建议] ID 选择器可用时，使用 ID 选择。**
+
+解释：
+
+在 jQuery 内部，使用 `document.getElementById()` 。
+
+**[建议] 使用类/伪类选择器时，给选择器附上元素类型来避免扫描整个 DOM 树。**
+
+示例：
+
+```javascript
+// bad
+// 在整个DOM树中扫描"products"类名
+var $products = $(".products");
+
+// good
+// 只在DIV元素中扫描"products"类名
+var $products = $("div.products");
+```
+
+**[建议] 在 `ID > 子节点` 层级选择器中使用 `find()` 方法。**
+
+解释：
+
+因为前半部分选择器没使用到 [`Sizzle`][4] 选择器引擎来查找元素。
+
+示例：
+
+```javascript
+// bad
+// Sizzle 选择器引擎查找层级
+var $productIds = $("#products div.id");
+
+// good
+// 只有 div.id 走 Sizzle 选择器引擎
+var $productIds = $("#products").find("div.id");
+```
+
+**[建议] 选择器后半部分比前半部分明确。**
+
+示例：
+
+```javascript
+// bad
+// 未优化
+$("div.data .gonzalez");
+
+// good
+// 优化
+$(".data td.gonzalez");
+```
+
+**[建议] 避免冗余选择器。**
+
+示例：
+
+```javascript
+// bad
+$(".data table.attendees td.gonzalez");
+
+// good
+// 有必要时要去掉中间不必要的内容
+$(".data td.gonzalez");
+```
+
+**[建议] 给选择器添加上下文。**
+
+示例：
+
+```javascript
+// bad
+// 要扫描整个DOM树寻找
+$('.class');
+
+// good
+// 只在#class-container里扫描
+$('.class', '#class-container');
+// 更为高效的写法
+$('#class-container').find('.class');
+```
+
+**[强制] 禁止使用通配符选择器。**
+
+示例：
+
+```javascript
+// bad
+$('div.container > *');
+
+// good
+$('div.container').children();
+```
+
+**[强制] 禁止使用隐式通配选择器。**
+
+解释：
+
+采用隐式通配选择器时，会隐式的使用通配符选择器。
+
+示例：
+
+```javascript
+// bad
+$('div.someclass :radio');
+
+// good
+$('div.someclass input:radio');
+```
+
+**[强制] ID 选择器禁止嵌套。**
+
+示例：
+
+```javascript
+// bad
+$('#outer #inner');
+$('div#inner');
+$('.outer-container #inner');
+
+// good
+$('#inner');
+```
+
+### 5.3 DOM 操作
+
+**[建议] 始终先 `detach` 现有 DOM 元素后进行操作，再将其 `append` DOM 中。**
+
+解释：
+
+`detach` 提取出元素后，我们可以在这个元素上进行相关操作，而不是在整个 DOM 文档中进行操作。这样可以减少对整个 DOM 文档的修改，从而减少页面重绘。
+
+示例：
+
+```javascript
+//事件代理
+$('#container').on('click',function( event ) {
+    console.log( $(event.target).text() );
+});
+//利用detach将container从dom文档中剥离开
+var $container = $('#container').detach();
+var child1 = '<div>I am Monkey</div>';
+var child2 = '<div>Monkey is me</div>';
+//将child1、child2插入container中
+$($container).append( child1 ).append( child2 );
+//将container重新插入body中
+$('body').append( $container );
+```
+
+**[建议] 使用字符串连接 `+` 或者 `array.join()` ，而不是 `.append()` 方法。**
+
+示例：
+
+```javascript
+// bad
+var $myList = $("#list");
+for (var i = 0; i < 10000; i++) {
+    $myList.append("<li>"+i+"</li>");
+}
+
+// good
+var $myList = $("#list");
+var list = "";
+for (var i = 0; i < 10000; i++) {
+    list += "<li>"+i+"</li>";
+}
+$myList.html(list);
+
+// better
+var array = [];
+for (var i = 0; i < 10000; i++) {
+    array[i] = "<li>"+i+"</li>";
+}
+$myList.html(array.join(''));
+```
+
+
+
 [1]: https://zh.wikipedia.org/zh-cn/%E9%A7%9D%E5%B3%B0%E5%BC%8F%E5%A4%A7%E5%B0%8F%E5%AF%AB
 [2]: http://es5.github.io/#x7.6.1
 [3]: http://es5.github.io/#D
+[4]: http://sizzlejs.com/
