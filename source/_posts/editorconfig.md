@@ -80,7 +80,7 @@ trim_trailing_whitespace = true
 
 [*.{less,scss}]
 indent_style = space
-indent_size 2
+indent_size = 2
 trim_trailing_whitespace = true
 
 [{package.json,.travis.yml}]
