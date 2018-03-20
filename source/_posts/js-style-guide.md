@@ -1647,82 +1647,82 @@ function kv2List(source) {
 
 - 变量声明会提升至作用域顶部，但赋值不会。
 
-示例：
+  示例：
 
-```javascript
-// 我们知道这样不能正常工作（假设这里没有名为 notDefined 的全局变量）
-function example() {
-    console.log(notDefined); // => throws a ReferenceError
-}
+    ```javascript
+    // 我们知道这样不能正常工作（假设这里没有名为 notDefined 的全局变量）
+    function example() {
+        console.log(notDefined); // => throws a ReferenceError
+    }
 
-// 但由于变量声明提升的原因，在一个变量引用后再创建它的变量声明将可以正常工作。
-// 注：变量赋值为 `true` 不会提升。
-function example() {
-    console.log(declaredButNotAssigned); // => undefined
-    var declaredButNotAssigned = true;
-}
+    // 但由于变量声明提升的原因，在一个变量引用后再创建它的变量声明将可以正常工作。
+    // 注：变量赋值为 `true` 不会提升。
+    function example() {
+        console.log(declaredButNotAssigned); // => undefined
+        var declaredButNotAssigned = true;
+    }
 
-// 解释器会把变量声明提升到作用域顶部，意味着我们的例子将被重写成：
-function example() {
-    var declaredButNotAssigned;
-    console.log(declaredButNotAssigned); // => undefined
-    declaredButNotAssigned = true;
-}
-```
+    // 解释器会把变量声明提升到作用域顶部，意味着我们的例子将被重写成：
+    function example() {
+        var declaredButNotAssigned;
+        console.log(declaredButNotAssigned); // => undefined
+        declaredButNotAssigned = true;
+    }
+    ```
 
 - 匿名函数表达式会提升它们的变量名，但不会提升函数的赋值。
 
-示例：
+  示例：
 
-```javascript
-function example() {
-    console.log(anonymous); // => undefined
-    anonymous(); // => TypeError anonymous is not a function
-    var anonymous = function () {
-        console.log('anonymous function expression');
-    };
-}
-```
+    ```javascript
+    function example() {
+        console.log(anonymous); // => undefined
+        anonymous(); // => TypeError anonymous is not a function
+        var anonymous = function () {
+            console.log('anonymous function expression');
+        };
+    }
+    ```
 
 - 命名函数表达式会提升变量名，但不会提升函数名或函数体。
 
-示例：
+  示例：
 
-```javascript
-function example() {
-    console.log(named); // => undefined
-    named(); // => TypeError named is not a function
-    superPower(); // => ReferenceError superPower is not defined
+    ```javascript
+    function example() {
+        console.log(named); // => undefined
+        named(); // => TypeError named is not a function
+        superPower(); // => ReferenceError superPower is not defined
 
-    var named = function superPower() {
-        console.log('Flying');
-    };
-}
-
-// 当函数名跟变量名一样时，表现也是如此。
-function example() {
-    console.log(named); // => undefined
-    named(); // => TypeError named is not a function
-
-    var named = function named() {
-        console.log('named');
+        var named = function superPower() {
+            console.log('Flying');
+        };
     }
-}
-```
+
+    // 当函数名跟变量名一样时，表现也是如此。
+    function example() {
+        console.log(named); // => undefined
+        named(); // => TypeError named is not a function
+
+        var named = function named() {
+            console.log('named');
+        }
+    }
+    ```
 
 - 函数声明提升它们的名字和函数体。
 
-示例：
+  示例：
 
-```javascript
-function example() {
-    superPower(); // => Flying
+    ```javascript
+    function example() {
+        superPower(); // => Flying
 
-    function superPower() {
-        console.log('Flying');
+        function superPower() {
+            console.log('Flying');
+        }
     }
-}
-```
+    ```
 
 **[建议] 最后再声明未赋值的变量。**
 
@@ -2164,12 +2164,12 @@ var str2 = '' // 建议第一个为空字符串, 第二个换行开始并缩进�
 1.  在开发过程中专注于数据，将视图生成的过程由另外一个层级维护，使程序逻辑结构更清晰。
 2.  优秀的模板引擎，通过模板编译技术和高质量的编译产物，能获得比手工拼接字符串更高的性能。
 
--   artTemplate: 体积较小，在所有环境下性能高，语法灵活。
--   dot.js: 体积小，在现代浏览器下性能高，语法灵活。
--   etpl: 体积较小，在所有环境下性能高，模板复用性高，语法灵活。
--   handlebars: 体积大，在所有环境下性能高，扩展性高。
--   hogon: 体积小，在现代浏览器下性能高。
--   nunjucks: 体积较大，性能一般，模板复用性高。
+- artTemplate: 体积较小，在所有环境下性能高，语法灵活。
+- dot.js: 体积小，在现代浏览器下性能高，语法灵活。
+- etpl: 体积较小，在所有环境下性能高，模板复用性高，语法灵活。
+- handlebars: 体积大，在所有环境下性能高，扩展性高。
+- hogon: 体积小，在现代浏览器下性能高。
+- nunjucks: 体积较大，性能一般，模板复用性高。
 
 ### 3.6 对象
 
@@ -2552,9 +2552,9 @@ function removeElement(element, options) {
 
 这种模式有几个显著的优势：
 
--   boolean 型的配置项具备名称，从调用的代码上更易理解其表达的逻辑意义。
--   当配置项有增长时，无需无休止地增加参数个数，不会出现 removeElement(element, true, false, false, 3) 这样难以理解的调用代码。
--   当部分配置参数可选时，多个参数的形式非常难处理重载逻辑，而使用一个 options 对象只需判断属性是否存在，实现得以简化。
+- boolean 型的配置项具备名称，从调用的代码上更易理解其表达的逻辑意义。
+- 当配置项有增长时，无需无休止地增加参数个数，不会出现 removeElement(element, true, false, false, 3) 这样难以理解的调用代码。
+- 当部分配置参数可选时，多个参数的形式非常难处理重载逻辑，而使用一个 options 对象只需判断属性是否存在，实现得以简化。
 
 **[强制] 禁止将参数命名为 `arguments` 。**
 
@@ -2588,9 +2588,9 @@ function yup(name, options, args) {
 
 首先一个较为明确的结论是，以下内容会影响到闭包内变量的回收：
 
--   嵌套的函数中是否有使用该变量。
--   嵌套的函数中是否有 **直接调用eval**。
--   是否使用了 with 表达式。
+- 嵌套的函数中是否有使用该变量。
+- 嵌套的函数中是否有 **直接调用eval**。
+- 是否使用了 with 表达式。
 
 Chakra、V8 和 SpiderMonkey 将受以上因素的影响，表现出不尽相同又较为相似的回收策略，而JScript.dll和Carakan则完全没有这方面的优化，会完整保留整个 LexicalEnvironment 中的所有变量绑定，造成一定的内存消耗。
 
@@ -2972,8 +2972,8 @@ Tree.prototype.selectNode = function (id) {
 
 解释：
 
--   如果一个属性被设计为 boolean 类型，则不要使用 1 / 0 作为其值。对于标识性的属性，如对代码体积有严格要求，可以从一开始就设计为 number 类型且将 0 作为否定值。
--   从 DOM 中取出的值通常为 string 类型，如果有对象或函数的接收类型为 number 类型，提前作好转换，而不是期望对象、函数可以处理多类型的值。
+- 如果一个属性被设计为 boolean 类型，则不要使用 1 / 0 作为其值。对于标识性的属性，如对代码体积有严格要求，可以从一开始就设计为 number 类型且将 0 作为否定值。
+- 从 DOM 中取出的值通常为 string 类型，如果有对象或函数的接收类型为 number 类型，提前作好转换，而不是期望对象、函数可以处理多类型的值。
 
 ### 3.11 存取器
 
@@ -3047,8 +3047,8 @@ AMD 作为由社区认可的模块定义形式，提供多种重载提供灵活�
 
 目前，比较成熟的 AMD Loader 有：
 
--   官方实现的 [requirejs](http://requirejs.org/)
--   百度实现的 [esl](https://github.com/ecomfe/esl)
+- 官方实现的 [requirejs](http://requirejs.org/)
+- 百度实现的 [esl](https://github.com/ecomfe/esl)
 
 **[强制] 模块 `id` 必须符合标准。**
 
@@ -3165,7 +3165,7 @@ define(
 
 #### 4.2.1 元素获取
 
-**[建议] 对于单个元素，尽可能使用 `document.getElementById` 获取，避免使用`document.all`。**
+**[建议] 对于单个元素，尽可能使用 `document.getElementById` 获取，避免使用 `document.all` 。**
 
 **[建议] 对于多个元素的集合，尽可能使用 `context.getElementsByTagName` 获取。其中 `context` 可以为 `document` 或其他元素。指定 `tagName` 参数为 `*` 可以获得所有子元素。**
 
@@ -3196,11 +3196,11 @@ alert(elements[0].tagName);
 </script>
 ```
 
-**[建议] 获取元素的直接子元素时使用 `children`。避免使用`childNodes`，除非预期是需要包含文本、注释和属性类型的节点。**
+**[建议] 获取元素的直接子元素时使用 `children`。避免使用 `childNodes` ，除非预期是需要包含文本、注释和属性类型的节点。**
 
 #### 4.2.2 样式获取
 
-**[建议] 获取元素实际样式信息时，应使用 `getComputedStyle` 或 `currentStyle`。**
+**[建议] 获取元素实际样式信息时，应使用 `getComputedStyle` 或 `currentStyle` 。**
 
 解释：
 
@@ -3224,10 +3224,10 @@ alert(elements[0].tagName);
 
 页面 reflow 是非常耗时的行为，非常容易导致性能瓶颈。下面一些场景会触发浏览器的reflow：
 
--   DOM元素的添加、修改（内容）、删除。
--   应用新的样式或者修改任何影响元素布局的属性。
--   Resize浏览器窗口、滚动页面。
--   读取元素的某些属性（offsetLeft、offsetTop、offsetHeight、offsetWidth、scrollTop/Left/Width/Height、clientTop/Left/Width/Height、getComputedStyle()、currentStyle(in IE)) 。
+- DOM元素的添加、修改（内容）、删除。
+- 应用新的样式或者修改任何影响元素布局的属性。
+- Resize浏览器窗口、滚动页面。
+- 读取元素的某些属性（offsetLeft、offsetTop、offsetHeight、offsetWidth、scrollTop/Left/Width/Height、clientTop/Left/Width/Height、getComputedStyle()、currentStyle(in IE)) 。
 
 **[建议] 尽量减少 `DOM` 操作。**
 
@@ -3307,7 +3307,7 @@ function setSidebar() {
 
 **选择器的性能排序：**
 
-* 最快的选择器：ID 选择器和元素标签选择器
+- 最快的选择器：ID 选择器和元素标签选择器
   举例来说，下面的语句性能最佳：
   ```javascript
   $("#id");
@@ -3315,9 +3315,9 @@ function setSidebar() {
   $("input");
   ```
   因为遇到这些选择器，jQuery 内部会自动调用浏览器原生方法，所以执行速度快。
-* 较慢的选择器：class 选择器
+- 较慢的选择器：class 选择器
   `$(".className")` 的性能，取决于不同的浏览器。Chrome、Firefox、Safari、Opera 浏览器，都有原生方法 `getElementByClassName()` ，所以速度并不慢。但是，IE5-IE8 都没有部署这个方法，所以这个选择器在 IE 中会相当慢，jQuery 历次更新对 IE8 之前的版本来说是没有用处的。
-* 最慢的选择器：伪类选择器和属性选择器
+- 最慢的选择器：伪类选择器和属性选择器
   如 `$(":hidden")` ，找出网页中所有隐藏元素；属性选择器例子 `$("[attribute=value]")` 。这两种语句是最慢的，因为浏览器没有针对它们的原生方法。但一些浏览器的新版本，增加了 `querySelector()` 和 `querySelectorAll()` 方法，因此会使这类选择器的性能大幅提高。
 
 **子元素和父元素关系：**
@@ -3332,18 +3332,19 @@ $('#parent .child');
 $('.child', $('#parent'));
 ```
 以上几种写法，其速度比较：
-* `$('.child', $parent)`
+
+- `$('.child', $parent)`
   作用是：给定一个 DOM 对象，然后从中选择一个子元素。jQuery 会自动把这条语句转成 `$.parent.find('.child')` ，这会导致一定的性能损失，比最快方案慢 5%~10% 。
-* `$parent.find('.child')`
+- `$parent.find('.child')`
   这是一种最优方案。
   `find()` 方法会调用浏览器的原生方法（`getElementById`，`getElementByName`，`getElementByTagName` 等），因此速度最优。
-* `$parent.children('.child')`
+- `$parent.children('.child')`
   jQuery 内部会使用 `$.sibling()` 和 javascript 的 `nextSibling()` 方法，一个个遍历节点，比最快方案慢 50% 。
-* `$('#parent > .child')`
+- `$('#parent > .child')`
   jQuery 内部使用 [Sizzle][4] 引擎，处理各种选择器。Sizzle 引擎的选择顺序是从右到左，所以这条语句是先选 `.chile` ，然后再一个个过滤出父元素 `#parent` ，因此，该写法相比最快方案慢 70% 。
-* `$('#parent .child')`
+- `$('#parent .child')`
   本条与上一条情况相同，但是，上一条只选择直接的子元素，这里可以用于选择多级子元素，所以速度更慢，相比最快方案慢 77% 。
-* `$('.child', $('#parent'))`
+- `$('.child', $('#parent'))`
   jQuery 内部会将其转换为 `$('#parent').find('.child')` ，比最快方案慢 20% 。
 
 因此，几种不同写法中，最佳选择是：`$parent.find('.child')` 。
@@ -3483,17 +3484,17 @@ $('#inner');
 
 ```javascript
 //事件代理
-$('#container').on('click',function( event ) {
-    console.log( $(event.target).text() );
+$('#container').on('click',function(event) {
+    console.log($(event.target).text());
 });
 //利用detach将container从dom文档中剥离开
 var $container = $('#container').detach();
 var child1 = '<div>I am Monkey</div>';
 var child2 = '<div>Monkey is me</div>';
 //将child1、child2插入container中
-$($container).append( child1 ).append( child2 );
+$($container).append(child1).append(child2);
 //将container重新插入body中
-$('body').append( $container );
+$('body').append($container);
 ```
 
 **[建议] 使用字符串连接 `+` 或者 `array.join()` ，而不是 `.append()` 方法。**
@@ -3522,6 +3523,334 @@ for (var i = 0; i < 10000; i++) {
 }
 $myList.html(array.join(''));
 ```
+
+**[建议] 不操作未知元素。**
+
+示例：
+
+```javascript
+// bad
+// 这个函数内部要先执行3个函数，才发现选择器选择到的可能是空内容
+$("#nosuchthing").slideUp();
+
+// good
+var $mySelection = $("#nosuchthing");
+if ($ Selection.length) {
+    $mySelection.slideUp();
+}
+```
+
+**[建议] 尽量少生成 jQuery 对象。**
+
+解释：
+
+每当你使用一次选择器（如：`$('#id')`），就会生成一个 jQuery 对象。jQuery 对象是一个很庞大的对象，带有很多的属性和方法，会占用不少的资源。所以，尽量少生成 jQuery 对象。
+许多 jQuery 方法都有两个版本：
+
+- 供 jQuery 对象使用的版本
+- 供 jQuery 函数使用的版本
+
+由于后一种针对 jQuery 函数的版本不通过 jQuery 对象操作，所以相对开销较小，速度比较快。
+
+示例：
+
+```javascript
+// bad
+var $text = $("#text");
+var str = $text.text();
+
+// good
+var $text = $("#text");
+var str = $.text($text);
+
+//bad
+var $elem = $('#elem');
+$elem.data(key, value);
+
+// good
+var $elem = $('#elem');
+$.data($elem, key, value);
+```
+
+**[建议] 优先采用原生写法实现循环。**
+
+解释：
+
+循环是一种比较耗时的操作，javascript 原生循环方法 `for` 和 `while` ，要比 jQuery 的 `.each()` 方法快，所以优先采用原生方法。
+
+**[建议] 参数尽量使用对象字面量。**
+
+示例：
+
+```javascript
+// bad
+$myLink.attr("href", "#").attr("title", "my link").attr("rel", "external");
+
+// good
+$myList.attr({
+    href: "#",
+    title: "my link",
+    rel: "external"
+});
+```
+
+**[建议] 不要把 CSS 混入 jQuery 代码。**
+
+示例：
+
+```javascript
+// bad
+$("#mydiv").css({'color':red, 'font-weight':'bold'});
+
+// good
+.error { color: red; font-weight: bold; }
+$("#mydiv").addClass("error");
+```
+
+### 5.4 事件
+
+**[强制] 每个页面只使用一个 Document Ready 函数，便于调试。**
+
+**[建议] 不使用匿名函数绑定事件。**
+
+解释：
+
+匿名函数不利于调试、维护、测试和复用。
+
+示例：
+
+```javascript
+// bad
+$("#myLink").on('click', function() {
+    // ...
+});
+
+// good
+function myLinkClickHandler() {
+    // ...
+}
+
+$("#myLink").on("click", myLinkClickHandler);
+```
+
+**[建议] Document Ready 函数不使用匿名函数。**
+
+示例：
+
+```javascript
+// bad
+// 不易复用和测试
+$(function() {
+    // ...
+});
+
+// good
+$(initPage);
+// or
+$(document).ready(initPage);
+
+function initPage() {
+    // ...
+}
+```
+
+**[建议] Document Ready 函数写在外部函数里，在其他初始化设置之后，在行内 JS 里调用这些函数。**
+
+示例：
+
+```html
+<script src="my-document-ready.js"></script>
+<script>
+  // 任何其他需要设置的全局变量
+  $(document).ready(initPage);
+  // or $(initPage);
+</script>
+```
+
+**[强制] 不在 HTML 文件里添加行内 JS 。**
+
+示例：
+
+```html
+<!-- bad -->
+<a id="myLink" href="#" onclick="myEventHandler();">my link</a>
+
+<!-- good -->
+<script>
+    $("#myLink").on("click", myEventHandler);
+</script>
+```
+
+**[建议] 在特定情况下，对事件使用自定义命名空间。**
+
+解释：
+
+有利于解绑某 DOM 元素上特定的事件而不会影响到该 DOM 元素上其他的事件。
+
+示例：
+
+```javascript
+$("#myLink").on("click.mySpecialClick", myEventHandler);
+// 后面会很容易的解绑这个特定的点击事件
+$("#myLink").unbind("click.mySpecialClick");
+```
+
+**[建议] 采用事件的委托处理。**
+
+解释：
+
+javascript 的事件模型，采用”冒泡”模式，也就是说，子元素的事件会逐级向上”冒泡”，成为父元素的事件。
+利用这一点，可以大大简化事件的绑定。比如，有一个表格（ table 元素），里面有100个格子（ td 元素），现在要求在每个格子上面绑定一个点击事件（ click ），请问是否需要将下面的命令执行100次？
+回答是不需要，我们只要把这个事件绑定在 table 元素上面就可以了，因为 td 元素发生点击事件之后，这个事件会”冒泡”到父元素 table 上面，从而被监听到。
+因此，这个事件只需要在父元素绑定1次即可，而不需要在子元素上绑定100次，从而大大提高性能。这就叫事件的”委托处理”，也就是子元素”委托”父元素处理这个事件。
+具体的写法有两种。
+
+- 采用 `.delegate()` 方法
+- 采用 `.live()` 方法
+
+示例：
+
+```javascript
+// bad
+$("td").bind("click", function() {
+    $(this).toggleClass("click");
+});
+
+// good
+// fun 1
+$("table").delegate("td", "click", function() {
+    $(this).toggleClass("click");
+});
+// fun 2
+$("table").each(function() {
+    $("td", this).live("click", function() {
+        $(this).toggleClass("click");
+    });
+});
+```
+
+这两种写法基本等价。唯一的区别在于， `.delegate()` 是当事件冒泡到指定的父元素时触发， `.live()` 则是当事件冒泡到文档的根元素后触发，因此 `.delegate()` 比 `.live()` 稍快一点。此外，这两种方法相比传统的 `.bind()` 方法还有一个好处，那就是对动态插入的元素也有效， `.bind()` 只对已经存在的DOM元素有效，对动态插入的元素无效。
+根据测试，委托处理比不委托处理，快了几十倍。在委托处理的情况下， `.delegate()` 又比 `.live()` 大约快26%。
+
+### 5.5 Ajax
+
+**[建议] 直接使用 `$.ajax()` ,避免使用 `.getJSON()` 和 `.get()` 。**
+
+解释：
+
+`.getJSON()` 和 `.get()` 都是在内部调用 `$.ajax()` 实现。
+
+**[建议] 不要在 https 的站点使用 http 请求，采用无模式的 url （在 url 上去掉 http/https）。**
+
+**[强制] 禁止请求参数放在 url 里，而是放在 data 对象。**
+
+示例：
+
+```javascript
+// bad
+// 不可读
+$.ajax({
+    url: "something.php?param1=test1&param2=test2",
+    //....
+});
+
+// good
+// 可读
+$.ajax({
+    url: "something.php",
+    data: {
+        param1: test1,
+        param2: test2
+    }
+});
+```
+
+**[建议] 明确设置数据的类型 `dataType` 据。**
+
+解释：
+
+这样很容易知道当前正在处理什么样的数。
+
+**[建议] 对 Ajax 加载的 DOM 元素绑定事件时尽量使用事件代理。**
+
+解释：
+
+事件代理的优势是对于 Ajax 后来添加到 DOM 的元素也能响应事件。
+
+示例：
+
+```javascript
+$("#parent-container").on("click", "a", delegatedClickHandlerForAjax);
+```
+
+**[建议] 使用 Promise 。**
+
+示例：
+
+```javascript
+$.ajax({
+    // ...
+}).then(
+    successHandler,
+    failureHandler
+);
+
+// or
+var jqxhr = $.ajax({
+    // ...
+});
+jqxhr.done(successHandler);
+jqxhr.fail(failureHandler);
+```
+
+**[建议] Ajax 参考模板。**
+
+示例：
+
+```javascript
+var jqxhr = $.ajax({
+    url: url,
+    type: "GET",      // 默认值GET，可根据需要配置
+    cache: true,      // 默认值true, dataType是'script'或'jsonp'时为false，可根据需要配置
+    data: {},         // 请求参数对象
+    dataType: "json", // 设置数据类型
+    jsonp: "callback",// 只在操作JSONP时设置此项
+    statusCode: {     // 针对特定错误码的回调处理函数
+        404: handler404,
+        500: handler500
+    }
+});
+jqxhr.done(successHandler);
+jqxhr.fail(failureHandler);
+```
+
+### 5.6 链式写法
+
+**[建议] 尽量使用链式写法，而不是用变量缓存或者多次选择器方法。**
+
+示例：
+
+```javascript
+// bad
+$("#myDiv").addClass("error");
+$("#myDiv").show();
+
+// good
+$("#myDiv").addClass("error").show();
+```
+
+**[建议] 当链式写法超过三次或者因为事件绑定变得复杂后，使用换行和缩进保持代码可读性。**
+
+示例：
+
+```javascript
+$("#myLink")
+    .addClass("bold")
+    .on("click", myClickHandler)
+    .on("mouseover", myMouseOverHandler)
+    .show();
+```
+
 
 
 
