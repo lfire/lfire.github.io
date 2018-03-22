@@ -1,4 +1,4 @@
 
-# lfire's blog
+# lfire's blog [![Build Status](https://travis-ci.org/lfire/lfire.github.io.svg?branch=src)](https://travis-ci.org/lfire/lfire.github.io)
 
-construct by hexo with theme of next.
+Construct by hexo with theme of next.
