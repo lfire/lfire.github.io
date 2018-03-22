@@ -77,20 +77,25 @@ set LANG=zh_CN.utf-8
 ```
 
 ### 2.3 相关工具的配置
+
 **git 配置**
+
 在 git 命令行下，主要是与：
 
 * i18n.commitencoding
 * i18n.logoutputencoding
 
 两个配置参数有关，我们可以通过以下命令进行配置：
+
 ```bash
 λ git config --global i18n.commitencoding utf-8
 λ git config --global i18n.logoutputencoding utf-8
 ```
 
 **VIM 配置**
+
 vim 是终端下最为常见的文档编辑器，我们可以在 VIM 的配置文件中加入如下配置：
+
 ```ini
 set fileencoding=cp936
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
