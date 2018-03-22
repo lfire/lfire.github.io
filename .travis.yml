@@ -25,7 +25,7 @@ after_script:
     - git checkout master
     - mv .git/ ../public/
     - cd ../public
-    - rm -rf ../deploy_github
+    - rm -rf ../.deploy_github
     - git config user.name "lfire"
     - git config user.email "yunzhi.li.08@gmail.com"
     - git add .
