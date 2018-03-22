@@ -14,19 +14,20 @@ install:
     - npm install
 
 before_script:
-    - git clone --branch master https://github.com/lfire/lfire.github.io.git public
+    - git clone --branch master https://${GH_REF} .deploy_github
 
 script:
     - hexo cl
     - hexo g
 
 after_script:
-    - cd ./public
-    - git init
+    - cd .deploy_github
+    - git checkout master
+    - mv .git/ ../public/
     - git config user.name "lfire"
     - git config user.email "yunzhi.li.08@gmail.com"
     - git add .
-    - git commit -m "Travis-CI commit"
+    - git commit -m "Travis-CI auto commit"
     - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
 branches:
