@@ -35,5 +35,5 @@ branches:
 
 env:
     global:
-        - GH_REF: https://github.com/lfire/lfire.github.io.git
+        - GH_REF: github.com/lfire/lfire.github.io.git
         - secure: "JirAsshwyk/bk8gfyc/REDj6ZdpVoexfL3ESidznAvwJzuXMX5u591ZPn/eHhld793xX05l+oefKB/hZkPT6De55WSKDK/CiVIaOCePTnjHtIo3T8Rt5lehN+3kY5t0WERQcAlck4IUCGBegvPxMBmS0LsB3SizVuzXLtxWqSNrlSUnwV9siaNI9SGp3FTPD26OVlmPCA3yPwu4fqq7HJSnKNJO7RmsBL0RcejtTgNb5xDMGRAMJ8Dvs3DV0axtsw5gnJ4ixslb8epSKuLles0qFv0Cy3JaazcCZ7TeI5SEozuNWUd8tVIJcklj02mxyRFLJgljCzDk8PvhVxDvT5/JpyPb1CV/aFOMJKohXrbYyXDWqE65YjURys9JBiDnIxgqCiunt4dYsF682ONRZzcWVtcW/hhx+wF9r7VBzNXCRx0nrwQRh1U9FhrZvaREYHxpDUYSYqeM7WlxWpnyUNzl7CVzfZcCX9yX5E8Gk205Syn41NFG8hW0OFWbZyxBWcGkQrSOdGJbEYVYExuS2wbBObx4ow3j6nwJXeaYThrmep46W8ElElSP/zhxtgHCkmkMRclgClnWNgN2Fn4GM3ocbEC0X12bnEoHbGI7i5bDtfXmXyWNx02BZbWb629bg8Xt+IqnnCU1YHQyywdJk6kjIy/EX2Xm3CmoS7rtebtI="
