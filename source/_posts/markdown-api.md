@@ -67,7 +67,7 @@ categories:
 | password | 是   | string | 密码       |
 **返回示例：**
 
-```js
+```json
 {
     'res': 1
 }

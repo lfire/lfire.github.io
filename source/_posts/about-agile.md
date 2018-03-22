@@ -148,6 +148,6 @@ Scrum作为软件开发过程框架，是这样一种方式：大家一拥而上
 - **故事点计算**：故事点估算用于评估为了交付一个用户故事所包含的所有努力（team effort），用户故事的复杂度（complexity），风险，以及所有其他需要考虑的元素
 - **需求订单（产品订单）**：一张记录用户需求的列表，包括产品所有需要的特征
 
-  [1]: http://static.zybuluo.com/lfire/odpurt8c7iwoq5w6ykv4j08f/successRates2013.jpg
-  [2]: http://static.zybuluo.com/lfire/gz6bhwzi4ohpf027z5dl1wfi/forum_1499308033_52.png
-  [3]: http://static.zybuluo.com/lfire/o6z7ew8a7n7zpn44djk6i8we/image_1c0ic8351s25cai1f0un73bqb15.png
+[1]: http://static.zybuluo.com/lfire/odpurt8c7iwoq5w6ykv4j08f/successRates2013.jpg
+[2]: http://static.zybuluo.com/lfire/gz6bhwzi4ohpf027z5dl1wfi/forum_1499308033_52.png
+[3]: http://static.zybuluo.com/lfire/o6z7ew8a7n7zpn44djk6i8we/image_1c0ic8351s25cai1f0un73bqb15.png

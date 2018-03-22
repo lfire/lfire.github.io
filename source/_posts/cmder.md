@@ -112,9 +112,9 @@ ls=ls --show-control-chars -F --color $*
 为方便大家直接使用，我将当前我所使用的版本，以及配置整体打包分享出来。
 [推荐大家使用，提取密码: 1aix](http://pan.baidu.com/s/1nuKTEe1)
 
-  [1]: http://static.zybuluo.com/lfire/kjx599up3fkhyp66w8u1thk1/image_1ba6bg7io1baabambl16t6164l9.png
-  [2]: http://static.zybuluo.com/lfire/c7lnguz1rbyw3ptfc25t1nsa/image_1ba6dr9s21t1b1va83kag7r14eqm.png
-  [3]: http://static.zybuluo.com/lfire/popnb072z38727c023futjay/image_1ba6enhov1l3gqh41bfa1ktupf91g.png
-  [4]: http://static.zybuluo.com/lfire/tqjuairc92zf58e0a6rxrwe3/image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png
-  [5]: http://static.zybuluo.com/lfire/mckot5pvachk05wtrvm1rvpt/image_1ba6n59vr7a8se716vu16jhrbn2a.png
-  [6]: http://static.zybuluo.com/lfire/oatt6pao27tfbbkne7j7pgv5/image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png
+[1]: http://static.zybuluo.com/lfire/kjx599up3fkhyp66w8u1thk1/image_1ba6bg7io1baabambl16t6164l9.png
+[2]: http://static.zybuluo.com/lfire/c7lnguz1rbyw3ptfc25t1nsa/image_1ba6dr9s21t1b1va83kag7r14eqm.png
+[3]: http://static.zybuluo.com/lfire/popnb072z38727c023futjay/image_1ba6enhov1l3gqh41bfa1ktupf91g.png
+[4]: http://static.zybuluo.com/lfire/tqjuairc92zf58e0a6rxrwe3/image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png
+[5]: http://static.zybuluo.com/lfire/mckot5pvachk05wtrvm1rvpt/image_1ba6n59vr7a8se716vu16jhrbn2a.png
+[6]: http://static.zybuluo.com/lfire/oatt6pao27tfbbkne7j7pgv5/image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png

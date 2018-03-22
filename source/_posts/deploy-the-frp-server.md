@@ -66,7 +66,7 @@ log_max_days = 3
 
 ### 3.2 nginx 反向代理配置
 其中，因为我的服务器上有相关其他的程序共用，80 端口上交给了 nginx ，而在微信的接口配置时，只能是 80 or 443 端口，因此，这里我还借用了 nginx 的反向代理功能，配置如下：
-```ini
+```nginx
 server {
   listen 80;
   server_name frp.domain.com *.frp.domain.com;
@@ -87,7 +87,7 @@ server {
 这里启用了泛域名解析，考虑的是，这个服务开启后，我们可以通过这种方式提供给多人使用，不同的人员，可以启用一个对应的子域名，如：张三（zhangsan.frp.domain.com）、李四（lisi.frp.domain.com）、...
 
 ### 3.3 服务端启动
-```shell
+```bash
 # 常规启动
 ./frps -c frps.ini
 # 或者，使用 nohup 方式，启用后台运行模式，这样就可以避免命令行工具关闭后，服务中断的情况
@@ -120,7 +120,7 @@ custom_domains = frp.domain.com
 
 ### 4.2 本机 wamp 环境 & 虚拟主机配置
 示例中主要是针对 B/S 架构的应用进行解释，因此，这里我在本地通过 wamp 搭建了一个基本的 WEB 服务，并开启了一个相应的虚拟主机，配置如下：
-```ini
+```apache
 <VirtualHost *:80>
     ServerName frp.domain.com
     ServerAlias liyz.frp.domain.com
@@ -136,7 +136,7 @@ custom_domains = frp.domain.com
 这只是基本的服务配置，大家可以根据自己的实际应用需要，进行更多相关配置。
 
 ### 4.3 客户端启动
-```shell
+```bash
 .\frpc.exe -c frpc.ini
 ```
 

@@ -35,14 +35,14 @@ categories:
 
 ## 3 配置参数说明
 1. ***-l***  指定绑定监听到具体哪个 ip (私用，不共享)
-2. ***-u***  用户名参数，当未设置 -u 参数时，且计算机用户名为 *^[a-zA-Z0-9]+$* 时，使用计算机用户名作为 idea 用户名
+2. ***-u***  用户名参数，当未设置 -u 参数时，且计算机用户名为 *^\[a-zA-Z0-9]+$* 时，使用计算机用户名作为 idea 用户名
 3. ***-p***  指定监听的端口
 4. ***-prolongationPeriod***  指定过期时间参数
 
 ## 4 结合 nginx & 自有域名 配置
 要记住某一服务器的 IP 地址，总是不那么容易，而相对的，记住一个相应的域名就要容易得多。
 因此，我们如果有一个域名，如：*your.domain.com*，我们希望直接使用该域名地址来实现激活服务，但同时，对于 80 端口，一般常用的 WEB 服务，都是基于该端口来提供服务，因此，如果某一程序独占该端口过于浪费，这样，我们可以借用 nginx 的虚拟主机和反向代理能力，将 *your.domain.com:80* 上的请求，直接转发到我们的激活服务地址和端口。
-```conf
+```nginx
 server {
   listen 80;
   server_name your.domain.com;
@@ -62,9 +62,11 @@ server {
 ```
 经过如上配置后，你就可以直接使用 *http://your.domain.com* 直接充当激活服务器了。
 
-  [1]: http://blog.lanyus.com/archives/314.html
-  [2]: http://blog.lanyus.com/archives/174.html
-  [3]: https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY
-  [4]: http://static.zybuluo.com/lfire/iuwa7up8t5s3al6nt3gans2w/image_1busn3u1urfekhh6tq1n48g3u9.png
-  [5]: https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY
-  [6]: http://static.zybuluo.com/lfire/y14rx1cok7mit5fsd7vjar0w/image_1buso1b3av8ricp1nkmp116ram.png
+
+
+[1]: http://blog.lanyus.com/archives/314.html
+[2]: http://blog.lanyus.com/archives/174.html
+[3]: https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY
+[4]: http://static.zybuluo.com/lfire/iuwa7up8t5s3al6nt3gans2w/image_1busn3u1urfekhh6tq1n48g3u9.png
+[5]: https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY
+[6]: http://static.zybuluo.com/lfire/y14rx1cok7mit5fsd7vjar0w/image_1buso1b3av8ricp1nkmp116ram.png

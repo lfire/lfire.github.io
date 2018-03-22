@@ -134,22 +134,22 @@ JS部分中，我们需要整理和注意的点其实非常的多，其中所涉
 
 工程化的过程，其实就是模块化、自动化之间的一种更业务层次的组合，每一个复杂业务场景出现时，最为直接的问题解决方向就是**如何便于人的理解，又能便于机器的执行**，这些不同层次问题的思考解决过程，其实就是我们所需要的思考模型。
 
-  [1]: http://static.zybuluo.com/lfire/6k58gyrj6avlmblciis11x4t/dafuweng.gif
-  [2]: http://static.zybuluo.com/lfire/fwiihz6mb8gpn80objovvy77/%E6%B5%81%E9%87%8F%E5%A4%A7%E5%AF%8C%E7%BF%81%E6%B5%81%E7%A8%8B%E5%9B%BEV3.jpg
-  [3]: https://github.com/amfe/lib-flexible
-  [4]: https://www.npmjs.com/package/px2rem
-  [5]: http://static.zybuluo.com/lfire/tei794jibswdxau2rj8pvgfu/image_1btr83j1pgq11ku01lbds56uu9.png
-  [6]: http://static.zybuluo.com/lfire/hzqzqrd3s17q2plyjgvntnqo/image_1btr85vr41a6g1osg175v1klc1vrkm.png
-  [7]: https://github.com/cssdream/cssgrace
-  [8]: http://static.zybuluo.com/lfire/grm8t8gp3gy1p1fn84iv51xj/image_1btre3le61qujv7818nu1pfeks813.png
-  [9]: http://static.zybuluo.com/lfire/xrhsyx8jbr7lg3jxud9btzrx/image_1btre4qr21m01rlk16528rj791g.png
-  [10]: http://static.zybuluo.com/lfire/orjfl3q08kij10fnukltnk1t/image_1btt70pk11sigibgs691hnv1886p.png
-  [11]: http://static.zybuluo.com/lfire/jwk1lb2wdovz28rqt0cf80ue/image_1btt7nj9aa1a1k7l660mvt1es416.png
-  [12]: http://lesscss.org/
-  [13]: http://static.zybuluo.com/lfire/n10a2v5jn5eci9jkc0u3nueu/image_1btt8j3s91brq5o31pcgk52c641j.png
-  [14]: http://static.zybuluo.com/lfire/fw7ztripqgtlggaasiy5fqcg/image_1bttb02h511hi12ta18vm94e1dh020.png
-  [15]: http://mozilla.github.io/nunjucks/
-  [16]: http://static.zybuluo.com/lfire/ut6a9w8w4xs4a51iyn3p6d4t/image_1bttc7re91nfi1la814fv1c1u79s2d.png
-  [17]: http://www.commonjs.org/
-  [18]: http://requirejs.org/docs/whyamd.html
-  [19]: https://www.npmjs.com/package/gulp-less
+[1]: http://static.zybuluo.com/lfire/6k58gyrj6avlmblciis11x4t/dafuweng.gif
+[2]: http://static.zybuluo.com/lfire/fwiihz6mb8gpn80objovvy77/%E6%B5%81%E9%87%8F%E5%A4%A7%E5%AF%8C%E7%BF%81%E6%B5%81%E7%A8%8B%E5%9B%BEV3.jpg
+[3]: https://github.com/amfe/lib-flexible
+[4]: https://www.npmjs.com/package/px2rem
+[5]: http://static.zybuluo.com/lfire/tei794jibswdxau2rj8pvgfu/image_1btr83j1pgq11ku01lbds56uu9.png
+[6]: http://static.zybuluo.com/lfire/hzqzqrd3s17q2plyjgvntnqo/image_1btr85vr41a6g1osg175v1klc1vrkm.png
+[7]: https://github.com/cssdream/cssgrace
+[8]: http://static.zybuluo.com/lfire/grm8t8gp3gy1p1fn84iv51xj/image_1btre3le61qujv7818nu1pfeks813.png
+[9]: http://static.zybuluo.com/lfire/xrhsyx8jbr7lg3jxud9btzrx/image_1btre4qr21m01rlk16528rj791g.png
+[10]: http://static.zybuluo.com/lfire/orjfl3q08kij10fnukltnk1t/image_1btt70pk11sigibgs691hnv1886p.png
+[11]: http://static.zybuluo.com/lfire/jwk1lb2wdovz28rqt0cf80ue/image_1btt7nj9aa1a1k7l660mvt1es416.png
+[12]: http://lesscss.org/
+[13]: http://static.zybuluo.com/lfire/n10a2v5jn5eci9jkc0u3nueu/image_1btt8j3s91brq5o31pcgk52c641j.png
+[14]: http://static.zybuluo.com/lfire/fw7ztripqgtlggaasiy5fqcg/image_1bttb02h511hi12ta18vm94e1dh020.png
+[15]: http://mozilla.github.io/nunjucks/
+[16]: http://static.zybuluo.com/lfire/ut6a9w8w4xs4a51iyn3p6d4t/image_1bttc7re91nfi1la814fv1c1u79s2d.png
+[17]: http://www.commonjs.org/
+[18]: http://requirejs.org/docs/whyamd.html
+[19]: https://www.npmjs.com/package/gulp-less

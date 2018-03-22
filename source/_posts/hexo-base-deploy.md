@@ -87,4 +87,4 @@ hexo g -d
 hexo d -g
 ```
 
-  [1]: http://static.zybuluo.com/lfire/tldkxmb2dhy0cni66z4jrsvc/image_1bsk41i721c8d1d9f1p761dop2159.png
+[1]: http://static.zybuluo.com/lfire/tldkxmb2dhy0cni66z4jrsvc/image_1bsk41i721c8d1d9f1p761dop2159.png

@@ -10,6 +10,7 @@ categories:
 - 工具
 - shell
 ---
+
 @[TOC]
 
 <!-- more -->
@@ -69,6 +70,12 @@ LC_MESSAGES="zh_CN.utf-8"
 LC_ALL=
 ```
 
+**在新版本 V 1.3.5 中发现无法通过界面设置环境变量保存成功，下面提供另一种实现方法：**
+在安装目录下找到用户配置文件路径 `config/user-profile.cmd` ，打开编辑，在其中加入环境变量配置语句：
+```bash
+set LANG=zh_CN.utf-8
+```
+
 ### 2.3 相关工具的配置
 **git 配置**
 在 git 命令行下，主要是与：
@@ -121,11 +128,11 @@ cmder 是一种终端集成器，它同样可以将 cygwin 集成到其内部窗
 ![image_1bam8k79o8kk1jmg3ah5tkqo234.png-73.2kB][8]
 
 
-  [1]: http://static.zybuluo.com/lfire/tj8269jbtkqtfykvgy5zjq6e/image_1balsa4i04rc1qfi1ve13q94ss9.png
-  [2]: http://static.zybuluo.com/lfire/uajwkvwfokfmi91x60b6ntwh/image_1balthlad1ksn14qb1jg13551l8om.png
-  [3]: http://static.zybuluo.com/lfire/9dynqnoliilgilonji2mo8jc/image_1baltov1i1s8t1v3h1pqg1k2010cg13.png
-  [4]: http://static.zybuluo.com/lfire/s4b2vn4jwjnexkenrh523c4k/image_1balvfe7crb3rmutbr10e715211g.png
-  [5]: http://static.zybuluo.com/lfire/sg7wj11r10qijeg44gl54wme/image_1balvh3up1c1dmrg6ko5jovn01t.png
-  [6]: http://static.zybuluo.com/lfire/onwbhz11og0ocin9z3fe3irq/image_1bam88jme1gt21lt41v5n8j37gh2a.png
-  [7]: http://static.zybuluo.com/lfire/ns46ophzsvpq10ws01hqqhqv/image_1bam8ffjp11t71te51p34183e102n.png
-  [8]: http://static.zybuluo.com/lfire/8c4i86w8lyvj98vx7931pg11/image_1bam8k79o8kk1jmg3ah5tkqo234.png
+[1]: http://static.zybuluo.com/lfire/tj8269jbtkqtfykvgy5zjq6e/image_1balsa4i04rc1qfi1ve13q94ss9.png
+[2]: http://static.zybuluo.com/lfire/uajwkvwfokfmi91x60b6ntwh/image_1balthlad1ksn14qb1jg13551l8om.png
+[3]: http://static.zybuluo.com/lfire/9dynqnoliilgilonji2mo8jc/image_1baltov1i1s8t1v3h1pqg1k2010cg13.png
+[4]: http://static.zybuluo.com/lfire/s4b2vn4jwjnexkenrh523c4k/image_1balvfe7crb3rmutbr10e715211g.png
+[5]: http://static.zybuluo.com/lfire/sg7wj11r10qijeg44gl54wme/image_1balvh3up1c1dmrg6ko5jovn01t.png
+[6]: http://static.zybuluo.com/lfire/onwbhz11og0ocin9z3fe3irq/image_1bam88jme1gt21lt41v5n8j37gh2a.png
+[7]: http://static.zybuluo.com/lfire/ns46ophzsvpq10ws01hqqhqv/image_1bam8ffjp11t71te51p34183e102n.png
+[8]: http://static.zybuluo.com/lfire/8c4i86w8lyvj98vx7931pg11/image_1bam8k79o8kk1jmg3ah5tkqo234.png

@@ -54,7 +54,7 @@ source/_data/next.yml
 ### 2.3 自定义样式
 对于 NexT 主题，在某些情况下，个人还是希望能对其样式有所修改，同时期望不会影响到 NexT 本身的升级，因此，可以借助数据文件夹的思路，将个性化的样式表，建于此处。
 **配置路径**
-```ba
+```bash
 source/_data/styles.styl
 ```
 
@@ -65,7 +65,7 @@ source/_data/styles.styl
 
 ### 3.1 git ignore 配置
 工程目录下，因包含有很多编译输出的结果，以及 nodejs 模块目录，而这些内容，是不需要提交到仓库的。
-```conf
+```bash
 # .gitignore
 .idea
 .deploy_git

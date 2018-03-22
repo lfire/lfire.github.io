@@ -34,5 +34,5 @@ I am using Windows 10 Insider build 15025 - the problem was with modification th
 这样配置完成后，我们重新打开 cmder 一次，** OK，问题解决 **。
 
 
-  [1]: http://static.zybuluo.com/lfire/39hqqx5xswsstbpa6ayc620y/image_1bas246jq19641o3ffbjncm14ea9.png
-  [2]: http://static.zybuluo.com/lfire/xew1dq4a9von8309oqczgpij/image_1bas34bfun11ip51bot1am71ute9.png
+[1]: http://static.zybuluo.com/lfire/39hqqx5xswsstbpa6ayc620y/image_1bas246jq19641o3ffbjncm14ea9.png
+[2]: http://static.zybuluo.com/lfire/xew1dq4a9von8309oqczgpij/image_1bas34bfun11ip51bot1am71ute9.png
