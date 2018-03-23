@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lfire.github.io/"/>
-  <updated>2018-03-23T08:37:29.487Z</updated>
+  <updated>2018-03-23T08:42:46.313Z</updated>
   <id>https://lfire.github.io/</id>
   
   <author>
@@ -21,13 +21,14 @@
     <link href="https://lfire.github.io/2018/03/23/gitlab-config-for-email/"/>
     <id>https://lfire.github.io/2018/03/23/gitlab-config-for-email/</id>
     <published>2018-03-23T10:18:42.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;ul class=&quot;markdownIt-TOC&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;#1-%E8%83%8C%E6%99%AF&quot;&gt;1 背景&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#gitlab-%E9%85%8D%E7%BD%AE&quot;&gt;gitlab 配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-gitlab-%E9%85%8D%E7%BD%AE&quot;&gt;2 gitlab 配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3-%E6%89%A7%E8%A1%8C%E6%95%88%E6%9E%9C&quot;&gt;3 执行效果&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;
     
@@ -53,7 +54,7 @@
     <link href="https://lfire.github.io/2018/03/20/html-style-guide/"/>
     <id>https://lfire.github.io/2018/03/20/html-style-guide/</id>
     <published>2018-03-20T16:05:21.000Z</published>
-    <updated>2018-03-23T08:37:29.491Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -112,7 +113,7 @@
     <link href="https://lfire.github.io/2018/03/20/css-style-guide/"/>
     <id>https://lfire.github.io/2018/03/20/css-style-guide/</id>
     <published>2018-03-20T15:41:34.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -187,7 +188,7 @@
     <link href="https://lfire.github.io/2018/03/13/js-style-guide/"/>
     <id>https://lfire.github.io/2018/03/13/js-style-guide/</id>
     <published>2018-03-13T14:55:13.000Z</published>
-    <updated>2018-03-23T08:37:29.491Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -316,7 +317,7 @@
     <link href="https://lfire.github.io/2018/03/12/editorconfig/"/>
     <id>https://lfire.github.io/2018/03/12/editorconfig/</id>
     <published>2018-03-12T12:33:01.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -345,7 +346,7 @@
     <link href="https://lfire.github.io/2018/02/27/update-hexo-blog/"/>
     <id>https://lfire.github.io/2018/02/27/update-hexo-blog/</id>
     <published>2018-02-27T11:08:39.000Z</published>
-    <updated>2018-03-23T08:37:29.491Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -388,7 +389,7 @@
     <link href="https://lfire.github.io/2017/12/05/about-agile/"/>
     <id>https://lfire.github.io/2017/12/05/about-agile/</id>
     <published>2017-12-05T09:44:15.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.309Z</updated>
     
     <summary type="html">
     
@@ -436,7 +437,7 @@
     <link href="https://lfire.github.io/2017/11/15/deploy-the-frp-server/"/>
     <id>https://lfire.github.io/2017/11/15/deploy-the-frp-server/</id>
     <published>2017-11-15T14:06:38.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -491,7 +492,7 @@
     <link href="https://lfire.github.io/2017/11/10/jetbrains-ide-active-server/"/>
     <id>https://lfire.github.io/2017/11/10/jetbrains-ide-active-server/</id>
     <published>2017-11-10T17:12:32.000Z</published>
-    <updated>2018-03-23T08:37:29.491Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -523,7 +524,7 @@
     <link href="https://lfire.github.io/2017/10/31/game-with-h5/"/>
     <id>https://lfire.github.io/2017/10/31/game-with-h5/</id>
     <published>2017-10-31T14:58:52.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -563,7 +564,7 @@
     <link href="https://lfire.github.io/2017/10/23/markdown-api/"/>
     <id>https://lfire.github.io/2017/10/23/markdown-api/</id>
     <published>2017-10-23T10:01:30.000Z</published>
-    <updated>2018-03-23T08:37:29.491Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -593,7 +594,7 @@
     <link href="https://lfire.github.io/2017/10/13/hexo-base-deploy/"/>
     <id>https://lfire.github.io/2017/10/13/hexo-base-deploy/</id>
     <published>2017-10-13T14:12:05.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -632,7 +633,7 @@
     <link href="https://lfire.github.io/2017/03/10/cmder-chinese-win10/"/>
     <id>https://lfire.github.io/2017/03/10/cmder-chinese-win10/</id>
     <published>2017-03-10T20:05:24.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.309Z</updated>
     
     <summary type="html">
     
@@ -664,7 +665,7 @@
     <link href="https://lfire.github.io/2017/03/08/cmder-cygwin-chinese/"/>
     <id>https://lfire.github.io/2017/03/08/cmder-cygwin-chinese/</id>
     <published>2017-03-08T09:54:46.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -710,7 +711,7 @@
     <link href="https://lfire.github.io/2017/03/02/cmder/"/>
     <id>https://lfire.github.io/2017/03/02/cmder/</id>
     <published>2017-03-02T09:12:42.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
@@ -755,7 +756,7 @@
     <link href="https://lfire.github.io/2017/03/01/hello-world/"/>
     <id>https://lfire.github.io/2017/03/01/hello-world/</id>
     <published>2017-03-01T16:34:00.000Z</published>
-    <updated>2018-03-23T08:37:29.487Z</updated>
+    <updated>2018-03-23T08:42:46.313Z</updated>
     
     <summary type="html">
     
