@@ -22,7 +22,6 @@ script:
 
 after_script:
     - cd .deploy_github
-    - git checkout master
     - mv .git/ ../public/
     - cd ../public
     - rm -rf ../.deploy_github
