@@ -15,7 +15,7 @@ install:
 
 before_script:
     - git clone --branch master https://${GH_REF} .deploy_github
-    - git clone --branch master https://github.com/iissnan/hexo-theme-next themes/next-reloaded
+    - git clone --branch master https://github.com/theme-next/hexo-theme-next.git themes/next-reloaded
 
 script:
     - hexo cl
