@@ -105,18 +105,21 @@
 
 
 
-  <meta name="description" content="在牛逼的路上越走越远">
+  <meta name="description" content="1 背景 gitlab 配置">
 <meta name="keywords" content="工具,git,gitlab,邮件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gitlab 配置邮件发送功能">
+<meta property="og:title" content="gitlab 配置腾讯企业邮箱邮件发送功能">
 <meta property="og:url" content="https://lfire.github.io/2018/03/23/gitlab-config-for-email/index.html">
 <meta property="og:site_name" content="lfire">
-<meta property="og:description" content="在牛逼的路上越走越远">
+<meta property="og:description" content="1 背景 gitlab 配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-23T03:41:23.301Z">
+<meta property="og:image" content="http://pic.hqmmw.com/b217fba6bec7b316c3ec009ff2e1f3df.png">
+<meta property="og:image" content="http://pic.hqmmw.com/bf1107f363e3099b84acad0ff3d8fedb.png">
+<meta property="og:updated_time" content="2018-03-23T08:37:29.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gitlab 配置邮件发送功能">
-<meta name="twitter:description" content="在牛逼的路上越走越远">
+<meta name="twitter:title" content="gitlab 配置腾讯企业邮箱邮件发送功能">
+<meta name="twitter:description" content="1 背景 gitlab 配置">
+<meta name="twitter:image" content="http://pic.hqmmw.com/b217fba6bec7b316c3ec009ff2e1f3df.png">
 
 
 
@@ -135,7 +138,7 @@
   };
 </script>
 
-  <title>gitlab 配置邮件发送功能 | lfire</title>
+  <title>gitlab 配置腾讯企业邮箱邮件发送功能 | lfire</title>
   
 
 
@@ -390,7 +393,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">gitlab 配置邮件发送功能</h1>
+          <h1 class="post-title" itemprop="name headline">gitlab 配置腾讯企业邮箱邮件发送功能</h1>
         
 
         <div class="post-meta">
@@ -469,7 +472,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">0</span>
+                <span title="字数统计">1.1k</span>
               
 
               
@@ -503,7 +506,31 @@
       
 
       
-        
+        <p><ul class="markdownIt-TOC">
+<li><a href="#1-%E8%83%8C%E6%99%AF">1 背景</a></li>
+<li><a href="#gitlab-%E9%85%8D%E7%BD%AE">gitlab 配置</a></li>
+</ul>
+</p>
+<a id="more"></a>
+<p>在 gitlab 安装完成后，在实际的应用操作过程中，很多相关的功能依赖邮件服务，因此，将 gitlab 的邮件发送服务配置好，应用该工具很重要的一个部分。<br>
+在国内市场上，目前好用的邮箱产品有好几款，而这里所要使用的是 <a href="https://exmail.qq.com" target="_blank" rel="noopener">腾讯企业邮箱</a> ，我们只需要有一个独立掌控的域名就非常容易开通一个。</p>
+<h2 id="1-背景"><a class="markdownIt-Anchor" href="#1-背景"></a> 1 背景</h2>
+<p>举例域名：<code>demo.com</code><br>
+举例账号：<code>server@demo.com</code><br>
+账号密码：<code>123456</code><br>
+邮件发送显示名：<code>Server</code></p>
+<p><strong>注意</strong><br>
+在企业邮箱账号添加后，你需要登录一次邮箱，系统会让你再次修改一次密码，而这会影响之后的配置中的参数值。</p>
+<p>登录到邮箱后，进入设置面板，需要将 SMTP 功能打开，以及相关的通讯端口也会有显示，如下图：<br>
+<img src="http://pic.hqmmw.com/b217fba6bec7b316c3ec009ff2e1f3df.png" alt="QQ邮箱设置"></p>
+<h2 id="gitlab-配置"><a class="markdownIt-Anchor" href="#gitlab-配置"></a> gitlab 配置</h2>
+<p>配置文件路径：<code>/etc/gitlab/gitlab.rb</code></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab 发信人</span></span><br><span class="line">user[<span class="string">'git_user_name'</span>] = <span class="string">"Server"</span></span><br><span class="line">user[<span class="string">'git_user_email'</span>] = <span class="string">"server@demo.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_from'</span>] = <span class="string">'server@demo.com'</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_display_name'</span>] = <span class="string">'Server'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 SMTP 方式发送邮件</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_address'</span>] = <span class="string">"smtp.exmail.qq.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_port'</span>] = <span class="number">465</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮箱账号&amp;密码</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_user_name'</span>] = <span class="string">"server@demo.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_password'</span>] = <span class="string">"123456"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_domain'</span>] = <span class="string">"exmail.qq.com"</span></span><br><span class="line"></span><br><span class="line">gitlab_rails[<span class="string">'smtp_authentication'</span>] = <span class="string">"login"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable_starttls_auto'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_tls'</span>] = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>配置完成后，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 刷新 gitlab 配置</span></span><br><span class="line">gitlab-ctl reconfigure</span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
+<p>当在 gitlab 平台操作 SSH Key 时，系统会发出如下邮件提醒：</p>
+<p><img src="http://pic.hqmmw.com/bf1107f363e3099b84acad0ff3d8fedb.png" alt="gitlab email"></p>
+
       
     </div>
 
@@ -646,8 +673,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -850,6 +886,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-背景"><span class="nav-text"> 1 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitlab-配置"><span class="nav-text"> gitlab 配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -875,7 +927,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">109k</span>
+    <span title="站点总字数">110k</span>
   
 
   
@@ -884,7 +936,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">1:49</span>
+    <span title="站点总阅读时长">1:50</span>
   
 </div>
 
@@ -1035,7 +1087,7 @@
       var disqus_config = function () {
         this.page.url = 'https://lfire.github.io/2018/03/23/gitlab-config-for-email/';
         this.page.identifier = '2018/03/23/gitlab-config-for-email/';
-        this.page.title = 'gitlab 配置邮件发送功能';
+        this.page.title = 'gitlab 配置腾讯企业邮箱邮件发送功能';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
