@@ -3,12 +3,15 @@
 
 
 
-<html class="theme-next mist" lang="">
+<html class="theme-next mist" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -70,42 +73,7 @@
 
 
 
-  <meta name="keywords" content="前端开发,HTML5," />
 
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
-
-
-
-
-
-
-<meta name="description" content="1 项目效果演示 2 为什么可以说复杂  2.1 整体的游戏执行流程 2.2 界面中元素众多 2.3 界面元素涉及状态切换&amp;amp;动画执行   3 需要如何考虑  3.1 样式部分 3.2 HTML部分 3.3 JS部分 3.4 什么能交给工具">
-<meta name="keywords" content="前端开发,HTML5">
-<meta property="og:type" content="article">
-<meta property="og:title" content="复杂前端项目开发思考模型——H5小游戏">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/game-with-h5/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 项目效果演示 2 为什么可以说复杂  2.1 整体的游戏执行流程 2.2 界面中元素众多 2.3 界面元素涉及状态切换&amp;amp;动画执行   3 需要如何考虑  3.1 样式部分 3.2 HTML部分 3.3 JS部分 3.4 什么能交给工具">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/6k58gyrj6avlmblciis11x4t/dafuweng.gif">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/fwiihz6mb8gpn80objovvy77/%E6%B5%81%E9%87%8F%E5%A4%A7%E5%AF%8C%E7%BF%81%E6%B5%81%E7%A8%8B%E5%9B%BEV3.jpg">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/tei794jibswdxau2rj8pvgfu/image_1btr83j1pgq11ku01lbds56uu9.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/hzqzqrd3s17q2plyjgvntnqo/image_1btr85vr41a6g1osg175v1klc1vrkm.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/grm8t8gp3gy1p1fn84iv51xj/image_1btre3le61qujv7818nu1pfeks813.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/xrhsyx8jbr7lg3jxud9btzrx/image_1btre4qr21m01rlk16528rj791g.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/orjfl3q08kij10fnukltnk1t/image_1btt70pk11sigibgs691hnv1886p.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/jwk1lb2wdovz28rqt0cf80ue/image_1btt7nj9aa1a1k7l660mvt1es416.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/n10a2v5jn5eci9jkc0u3nueu/image_1btt8j3s91brq5o31pcgk52c641j.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/fw7ztripqgtlggaasiy5fqcg/image_1bttb02h511hi12ta18vm94e1dh020.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/ut6a9w8w4xs4a51iyn3p6d4t/image_1bttc7re91nfi1la814fv1c1u79s2d.png">
-<meta property="og:updated_time" content="2018-03-23T03:31:29.298Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="复杂前端项目开发思考模型——H5小游戏">
-<meta name="twitter:description" content="1 项目效果演示 2 为什么可以说复杂  2.1 整体的游戏执行流程 2.2 界面中元素众多 2.3 界面元素涉及状态切换&amp;amp;动画执行   3 需要如何考虑  3.1 样式部分 3.2 HTML部分 3.3 JS部分 3.4 什么能交给工具">
-<meta name="twitter:image" content="http://static.zybuluo.com/lfire/6k58gyrj6avlmblciis11x4t/dafuweng.gif">
 
 
 
@@ -117,12 +85,10 @@
     version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    fastclick: true,
+    lazyload: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -134,15 +100,56 @@
 </script>
 
 
-
-  <link rel="canonical" href="http://yoursite.com/2017/10/31/game-with-h5/"/>
-
-
-
-
-
-  <title>复杂前端项目开发思考模型——H5小游戏 | Hexo</title>
   
+
+
+
+
+  <meta name="description" content="1 项目效果演示 2 为什么可以说复杂  2.1 整体的游戏执行流程 2.2 界面中元素众多 2.3 界面元素涉及状态切换&amp;amp;动画执行   3 需要如何考虑  3.1 样式部分 3.2 HTML部分 3.3 JS部分 3.4 什么能交给工具">
+<meta name="keywords" content="前端开发,HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复杂前端项目开发思考模型——H5小游戏">
+<meta property="og:url" content="https://lfire.github.io/2017/10/31/game-with-h5/index.html">
+<meta property="og:site_name" content="lfire">
+<meta property="og:description" content="1 项目效果演示 2 为什么可以说复杂  2.1 整体的游戏执行流程 2.2 界面中元素众多 2.3 界面元素涉及状态切换&amp;amp;动画执行   3 需要如何考虑  3.1 样式部分 3.2 HTML部分 3.3 JS部分 3.4 什么能交给工具">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/6k58gyrj6avlmblciis11x4t/dafuweng.gif">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/fwiihz6mb8gpn80objovvy77/%E6%B5%81%E9%87%8F%E5%A4%A7%E5%AF%8C%E7%BF%81%E6%B5%81%E7%A8%8B%E5%9B%BEV3.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/tei794jibswdxau2rj8pvgfu/image_1btr83j1pgq11ku01lbds56uu9.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/hzqzqrd3s17q2plyjgvntnqo/image_1btr85vr41a6g1osg175v1klc1vrkm.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/grm8t8gp3gy1p1fn84iv51xj/image_1btre3le61qujv7818nu1pfeks813.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/xrhsyx8jbr7lg3jxud9btzrx/image_1btre4qr21m01rlk16528rj791g.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/orjfl3q08kij10fnukltnk1t/image_1btt70pk11sigibgs691hnv1886p.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/jwk1lb2wdovz28rqt0cf80ue/image_1btt7nj9aa1a1k7l660mvt1es416.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/n10a2v5jn5eci9jkc0u3nueu/image_1btt8j3s91brq5o31pcgk52c641j.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/fw7ztripqgtlggaasiy5fqcg/image_1bttb02h511hi12ta18vm94e1dh020.png">
+<meta property="og:image" content="http://static.zybuluo.com/lfire/ut6a9w8w4xs4a51iyn3p6d4t/image_1bttc7re91nfi1la814fv1c1u79s2d.png">
+<meta property="og:updated_time" content="2018-03-23T03:41:23.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="复杂前端项目开发思考模型——H5小游戏">
+<meta name="twitter:description" content="1 项目效果演示 2 为什么可以说复杂  2.1 整体的游戏执行流程 2.2 界面中元素众多 2.3 界面元素涉及状态切换&amp;amp;动画执行   3 需要如何考虑  3.1 样式部分 3.2 HTML部分 3.3 JS部分 3.4 什么能交给工具">
+<meta name="twitter:image" content="http://static.zybuluo.com/lfire/6k58gyrj6avlmblciis11x4t/dafuweng.gif">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lfire" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://lfire.github.io/2017/10/31/game-with-h5/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>复杂前端项目开发思考模型——H5小游戏 | lfire</title>
+  
+
 
 
 
@@ -161,9 +168,36 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -174,14 +208,16 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">lfire</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -191,7 +227,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -206,44 +242,40 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Startseite
-          </a>
-        </li>
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archiv
-          </a>
-        </li>
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Kategorien
-          </a>
-        </li>
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
 
       
@@ -252,13 +284,34 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Suche
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
   
 
   
@@ -274,7 +327,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -288,13 +341,31 @@
 </nav>
 
 
+  
+
+
 
  </div>
     </header>
 
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/lfire" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -307,12 +378,14 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/31/game-with-h5/">
+    <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2017/10/31/game-with-h5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lfire">
@@ -321,7 +394,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="lfire">
     </span>
 
     
@@ -339,13 +412,12 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-31T14:58:52+00:00">
-                2017-10-31
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-31T14:58:52+00:00">2017-10-31</time>
             
 
+            
             
 
             
@@ -360,14 +432,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
 
                 
                 
@@ -395,6 +463,34 @@
 
           
 
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">4.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:04</span>
+              
+            </div>
           
 
           
@@ -525,6 +621,9 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 
       
     </div>
+
+    
+
     
     
     
@@ -544,21 +643,21 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div>折腾中，痛并快乐着！</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
+    <span>打赏</span>
   </button>
   <div id="QR" style="display: none;">
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/uploads/pay_wx_300.png" alt="lfire WeChat Pay"/>
-        <p>WeChat Pay</p>
+        <img id="wechat_qr" src="/uploads/pay_wx_300.png" alt="lfire 微信支付"/>
+        <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/uploads/pay_ali_300.png" alt="lfire Alipay"/>
-        <p>Alipay</p>
+        <img id="alipay_qr" src="/uploads/pay_ali_300.png" alt="lfire 支付宝"/>
+        <p>支付宝</p>
       </div>
     
 
@@ -629,9 +728,6 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
           </div>
           
 
-
-          
-
   
     <div class="comments" id="comments">
       <div id="disqus_thread">
@@ -667,10 +763,10 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -687,42 +783,156 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
               <p class="site-description motion-element" itemprop="description">在牛逼的路上越走越远</p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">Artikel</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">Kategorien</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
-                  <span class="site-state-item-name">Tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -735,19 +945,17 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 
           
             <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/lfire" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="http://www.weibo.com/leefire" target="_blank" title="微博">
-                      
-                        <i class="fa fa-fw fa-weibo"></i>微博</a>
-                  </span>
-                
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/lfire" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.weibo.com/leefire" target="_blank" title="微博"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                  
+                </span>
+              
             </div>
           
 
@@ -757,6 +965,9 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
           
           
 
+          
+            
+          
           
 
         </div>
@@ -793,11 +1004,27 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
+  <span class="with-love" id="animate"> 
+    <i class="fa fa-"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">lfire</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">109k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">1:49</span>
   
 </div>
 
@@ -809,7 +1036,10 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 
 
 
+
+
         
+
 
 
 
@@ -844,6 +1074,13 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 
 
 
+  
+
+
+
+  
+
+
 
 
 
@@ -851,7 +1088,10 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
   
 
 
+
   
+
+
 
 
 
@@ -926,28 +1166,29 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 
   
 
-
+  
+    <script id="dsq-count-scr" src="https://lfire-github-io.disqus.com/count.js" async></script>
   
 
-    
-      <script id="dsq-count-scr" src="https://lfire-github-io.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/10/31/game-with-h5/';
-          this.page.identifier = '2017/10/31/game-with-h5/';
-          this.page.title = '复杂前端项目开发思考模型——H5小游戏';
-        };
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://lfire.github.io/2017/10/31/game-with-h5/';
+        this.page.identifier = '2017/10/31/game-with-h5/';
+        this.page.title = '复杂前端项目开发思考模型——H5小游戏';
+      };
+      function loadComments () {
         var d = document, s = d.createElement('script');
         s.src = 'https://lfire-github-io.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script>
-    
-
+      }
+      
+        loadComments();
+      
+    </script>
   
+
 
 
 
@@ -959,8 +1200,6 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 
 
   
-
-
 
 
 
@@ -1024,6 +1263,8 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1057,6 +1298,7 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1318,6 +1560,17 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 
 
   
+  
+
+  
+  
+
+  
+
+
+  
+  
+
   
 
   
