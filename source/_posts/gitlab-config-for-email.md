@@ -31,7 +31,7 @@ categories:
 登录到邮箱后，进入设置面板，需要将 SMTP 功能打开，以及相关的通讯端口也会有显示，如下图：
 ![QQ邮箱设置](http://pic.hqmmw.com/b217fba6bec7b316c3ec009ff2e1f3df.png)
 
-## gitlab 配置
+## 2 gitlab 配置
 
 配置文件路径：`/etc/gitlab/gitlab.rb`
 
@@ -65,6 +65,8 @@ gitlab-ctl reconfigure
 # 重启服务
 gitlab-ctl restart
 ```
+
+## 3 执行效果
 
 当在 gitlab 平台操作 SSH Key 时，系统会发出如下邮件提醒：
 
