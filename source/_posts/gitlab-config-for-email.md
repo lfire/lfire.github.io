@@ -35,7 +35,7 @@ categories:
 
 配置文件路径：`/etc/gitlab/gitlab.rb`
 
-```ruby
+```ruby {.line-numbers}
 # gitlab 发信人
 user['git_user_name'] = "Server"
 user['git_user_email'] = "server@demo.com"

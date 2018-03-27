@@ -21,7 +21,7 @@ categories:
 EditorConfig 文件使用 INI 格式，允许在分段名（section names）中使用 **and**，分段名是全局的文件路径，格式类似于 **gitignore**。斜杠（/）作为路径分隔符，# 或 ; 作为注释。注释应该单独占一行。
 EditorConfig 文件使用 utf-8 格式，crlf 或 lf 作为换行符。
 
-```ini
+```ini {.line-numbers}
 # 表明是最顶层配置文件，发现设为 true 时，才会停止查找 .editorconfig 文件
 root = true
 
@@ -66,7 +66,7 @@ insert_final_newline = true
 
 ## 3 配置示例
 
-```ini
+```ini {.line-numbers}
 root = true
 
 [*]
