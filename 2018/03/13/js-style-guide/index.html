@@ -3,6 +3,9 @@
 
 
 
+
+
+
 <html class="theme-next mist" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
@@ -55,19 +58,19 @@
 
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=6.0.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=6.0.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
 
 
 
@@ -82,7 +85,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.0.3',
+    version: '6.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     fastclick: true,
@@ -113,7 +116,7 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="1 背景 2 代码风格  2.1 文件 2.2 结构  2.2.1 缩进 2.2.2 空格 2.2.3 换行 2.2.4 语句 2.2.5 块 2.2.6 逗号 2.2.7 分号   2.3 命名 2.4 注释  2.4.1 单行注释 2.4.2 多行注释 2.4.3 文档化注释 2.4.4 类型定义 2.4.5 文件注释 2.4.6 命名空间注释 2.4.7 类注释 2.4.8 函数/方法注释">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-07T09:17:30.342Z">
+<meta property="og:updated_time" content="2018-04-28T03:30:26.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 开发规范指导手册">
 <meta name="twitter:description" content="1 背景 2 代码风格  2.1 文件 2.2 结构  2.2.1 缩进 2.2.2 空格 2.2.3 换行 2.2.4 语句 2.2.5 块 2.2.6 逗号 2.2.7 分号   2.3 命名 2.4 注释  2.4.1 单行注释 2.4.2 多行注释 2.4.3 文档化注释 2.4.4 类型定义 2.4.5 文件注释 2.4.6 命名空间注释 2.4.7 类注释 2.4.8 函数/方法注释">
@@ -196,9 +199,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> 
-
-<div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -223,53 +224,47 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
         
+        
           
-  
-  <li class="menu-item menu-item-home">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-</li>
-
-      
+  </li>
+        
         
         
           
-  
-  <li class="menu-item menu-item-archives">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-</li>
-
-      
+  </li>
+        
         
         
           
-  
-  <li class="menu-item menu-item-tags">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-</li>
-
-      
+  </li>
+        
         
         
           
-  
-  <li class="menu-item menu-item-categories">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-</li>
+  </li>
 
       
-
       
         <li class="menu-item menu-item-search">
           
@@ -284,25 +279,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -333,11 +309,12 @@
 </nav>
 
 
+
   
 
 
 
- </div>
+</div>
     </header>
 
     
@@ -394,11 +371,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS 开发规范指导手册</h1>
+          <h1 class="post-title" itemprop="name headline">JS 开发规范指导手册
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -406,10 +391,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T14:55:13+00:00">2018-03-13</time>
-            
 
-            
+              
+                
+              
+
+              <time title="创建时间：2018-03-13 22:55:13" itemprop="dateCreated datePublished" datetime="2018-03-13T22:55:13+08:00">2018-03-13</time>
             
 
             
@@ -431,7 +418,7 @@
 
                 
                 
-                  ， 
+                  ，
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发规范/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
@@ -471,9 +458,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计：</span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="字数统计">58k</span>
+                <span title="本文字数">58k</span>
               
 
               
@@ -485,7 +472,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">0:58</span>
               
@@ -2086,7 +2073,7 @@ jQuery 内部会将其转换为 <code>$('#parent').find('.child')</code> ，比�
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">1:51</span>
+    <span title="站点阅读时长">1:51</span>
   
 </div>
 
@@ -2204,25 +2191,25 @@ jQuery 内部会将其转换为 <code>$('#parent').find('.child')</code> ，比�
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.0.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
 
 
 
@@ -2631,6 +2618,8 @@ jQuery 内部会将其转换为 <code>$('#parent').find('.child')</code> ，比�
 
 
   
+  
+
   
 
   
