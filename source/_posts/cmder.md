@@ -60,7 +60,7 @@ pwd ll ls whoami where cp rm unzip ...
 ### 3.3 支持命令别名(Aliases)配置
 这是 cmder 所提供的一个非常方便的功能，我们可以很个性化的设置我们个人喜欢的命令，来完成某些长命令的输入。
 以下是我别名配置的一个片段，大家可参考：
-```bash
+```bash {.line-numbers}
 pwd=cd
 clear=cls
 history=cat "%CMDER_ROOT%\config\.history"
