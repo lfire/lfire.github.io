@@ -1972,6 +1972,17 @@ pre .javascript .function {
   max-width: 96px;
   height: auto;
   border: 2px solid #333;
+  opacity: 1;
+}
+img:hover {
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  -ms-transform: rotateZ(360deg);
+  -o-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -2055,7 +2066,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6b9a73;
+  background: #0073d5;
 }
 .links-of-blogroll {
   font-size: 13px;
