@@ -14,7 +14,7 @@ install:
     - npm install
 
 before_script:
-    - git clone --branch master https://${GH_REF} .deploy_github
+    - git clone --branch master http://${GL_REF} .deploy_gitlab
     - git clone --branch master https://github.com/theme-next/hexo-theme-next.git themes/next-reloaded
 
 script:
@@ -22,15 +22,15 @@ script:
     - hexo g
 
 after_script:
-    - cd .deploy_github
+    - cd .deploy_gitlab
     - mv .git/ ../public/
     - cd ../public
-    - rm -rf ../.deploy_github
-    - git config user.name "lfire"
-    - git config user.email "yunzhi.li.08@gmail.com"
+    - rm -rf ../.deploy_gitlab
+    - git config user.name "liyz8"
+    - git config user.email "liyz8@asiainfo.com"
     - git add .
     - git commit -m "Travis-CI auto commit"
-    - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+    - git push --force --quiet "http://${GL_TOKEN}@${GL_REF}" master:master
 
 branches:
     only:
@@ -38,5 +38,5 @@ branches:
 
 env:
     global:
-        - GH_REF: github.com/lfire/lfire.github.io.git
+        - GL_REF: 10.19.10.89:8088/liyz8/lfireblog.git
         - secure: "JirAsshwyk/bk8gfyc/REDj6ZdpVoexfL3ESidznAvwJzuXMX5u591ZPn/eHhld793xX05l+oefKB/hZkPT6De55WSKDK/CiVIaOCePTnjHtIo3T8Rt5lehN+3kY5t0WERQcAlck4IUCGBegvPxMBmS0LsB3SizVuzXLtxWqSNrlSUnwV9siaNI9SGp3FTPD26OVlmPCA3yPwu4fqq7HJSnKNJO7RmsBL0RcejtTgNb5xDMGRAMJ8Dvs3DV0axtsw5gnJ4ixslb8epSKuLles0qFv0Cy3JaazcCZ7TeI5SEozuNWUd8tVIJcklj02mxyRFLJgljCzDk8PvhVxDvT5/JpyPb1CV/aFOMJKohXrbYyXDWqE65YjURys9JBiDnIxgqCiunt4dYsF682ONRZzcWVtcW/hhx+wF9r7VBzNXCRx0nrwQRh1U9FhrZvaREYHxpDUYSYqeM7WlxWpnyUNzl7CVzfZcCX9yX5E8Gk205Syn41NFG8hW0OFWbZyxBWcGkQrSOdGJbEYVYExuS2wbBObx4ow3j6nwJXeaYThrmep46W8ElElSP/zhxtgHCkmkMRclgClnWNgN2Fn4GM3ocbEC0X12bnEoHbGI7i5bDtfXmXyWNx02BZbWb629bg8Xt+IqnnCU1YHQyywdJk6kjIy/EX2Xm3CmoS7rtebtI="
