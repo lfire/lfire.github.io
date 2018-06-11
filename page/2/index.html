@@ -357,6 +357,222 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2017/10/31/game-with-h5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfire">
+      <meta itemprop="description" content="在牛逼的路上越走越远">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lfire">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/31/game-with-h5/" itemprop="url">
+                  复杂前端项目开发思考模型——H5小游戏
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-31 22:58:52" itemprop="dateCreated datePublished" datetime="2017-10-31T22:58:52+08:00">2017-10-31</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/31/game-with-h5/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/31/game-with-h5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">0:04</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><ul class="markdownIt-TOC">
+<li><a href="#1-%E9%A1%B9%E7%9B%AE%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA">1 项目效果演示</a></li>
+<li><a href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E8%AF%B4%E5%A4%8D%E6%9D%82">2 为什么可以说复杂</a>
+<ul>
+<li><a href="#21-%E6%95%B4%E4%BD%93%E7%9A%84%E6%B8%B8%E6%88%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B">2.1 整体的游戏执行流程</a></li>
+<li><a href="#22-%E7%95%8C%E9%9D%A2%E4%B8%AD%E5%85%83%E7%B4%A0%E4%BC%97%E5%A4%9A">2.2 界面中元素众多</a></li>
+<li><a href="#23-%E7%95%8C%E9%9D%A2%E5%85%83%E7%B4%A0%E6%B6%89%E5%8F%8A%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2%E5%8A%A8%E7%94%BB%E6%89%A7%E8%A1%8C">2.3 界面元素涉及状态切换&amp;动画执行</a></li>
+</ul>
+</li>
+<li><a href="#3-%E9%9C%80%E8%A6%81%E5%A6%82%E4%BD%95%E8%80%83%E8%99%91">3 需要如何考虑</a>
+<ul>
+<li><a href="#31-%E6%A0%B7%E5%BC%8F%E9%83%A8%E5%88%86">3.1 样式部分</a></li>
+<li><a href="#32-html%E9%83%A8%E5%88%86">3.2 HTML部分</a></li>
+<li><a href="#33-js%E9%83%A8%E5%88%86">3.3 JS部分</a></li>
+<li><a href="#34-%E4%BB%80%E4%B9%88%E8%83%BD%E4%BA%A4%E7%BB%99%E5%B7%A5%E5%85%B7">3.4 什么能交给工具</a></li>
+</ul>
+</li>
+</ul>
+</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/31/game-with-h5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2017/10/23/markdown-api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1679,7 +1895,7 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1724,7 +1940,9 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1815,7 +2033,13 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
                     
                       
                     
-                    <span class="site-state-item-count">39</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1888,7 +2112,7 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">111k</span>
+    <span title="站点总字数">113k</span>
   
 
   
@@ -1897,7 +2121,7 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:51</span>
+    <span title="站点阅读时长">1:53</span>
   
 </div>
 
@@ -2416,6 +2640,8 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
 
   
   
+    
+      
     
       
     

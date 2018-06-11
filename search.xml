@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Docker 和 vmware 共存工作]]></title>
+    <url>%2F2018%2F06%2F09%2Fdocker-work-with-vmware%2F</url>
+    <content type="text"><![CDATA[1 起因 2 解决方案 3 更好的办法 4 bcdedit 简单用法 1 起因 在之前装好系统环境后，想要在工作平台上模拟服务器的环境，来进行一下相关的实验，因此，系统上装好有 vmware 软件，该软件下的快照功能，让我对于相关的实验环境有一个很好的备份操作，很是 nice。 而另一个方面，当前 docker 的活跃程度，也让我这个技术屌丝，内心有点点萌动，想了解一下，如果可以玩出点花样，那也是极好的。 但是，当我尝试了在 windows 环境下，安装好了 docker 后，提示要开启 Hyper-V ，开启后，正常启动 docker 服务。（控制面板-&gt;程序-&gt;程序和功能-&gt;启用或关闭 Windows 功能） 某天的某天，再次捡起 vmware 时，确报出了错误。 后面查阅了相关资料，原来，Hyper-V 与 vmware 有冲突，只能二选一。 2 解决方案 当需要使用 vmware 时，我们按开启的方式，再次关闭 Hyper-V ，这样，软件就能正常的打开了。 但这样操作，有一个不好的地方，每开启或关闭一次，系统都必需要重启一次，这导致每次系统都进行了一次程序的安装和卸载，费时不高效。 3 更好的办法 建立两个启动项，一个开启了 Hyper-V，而另一个则关闭，这样，我们可以在需要该功能时，在系统启动界面自由的选择相应的启动项，而不用频繁的安装和卸载 Hyper-V。 建立新的启动项，并将 Hyper-V 功能关闭，命令如下： 1234# win + X 开启命令行，注意：必须以管理员身份执行bcdedit /copy &#123;default&#125; /d "Windows 10 Without Hyper-V"# 以上命令得到输出 &#123;xxxxxxxxxxxxxxxxxxx&#125;bcdedit /set &#123;xxxxxxxxxxxxxxxxxxx&#125; hypervisorlaunchtype off 如图： 我们可以通过命令：bcdedit /enum，查看启动项列表。 4 bcdedit 简单用法 以上的操作中，用到了一个很重要的命令：bcdedit，其主要功能是建立和重新配置 bootloader。（Boot Configuration Data Edit） 有一些常用的用法： 1234567891011121314151617181920212223242526272829303132# 查看帮助bcdedit /?# 查看启动项列表bcdedit /enum# or 查看所有bcdedit /enum all# 设置某个启动项配置值bcdedit /set &#123;xxxx&#125; description "Windows 10 With Hyper-V"# orbcdedit /set &#123;xxxx&#125; hypervisorlaunchtype on# 设置启动项显示排列顺序bcdedit /displayorder &#123;current&#125; &#123;xxxxx&#125; &#123;xxxxxx&#125;# 创建新的启动项bcdedit /create /d "A New One"# 复制启动项bcdedit /copy &#123;xxxx&#125; /d "A Copy One"# 删除启动项bcdedit /delete &#123;xxxx&#125;# or 彻底删除bcdedit /delete /cleanup &#123;xxxx&#125;# 设置默认启动项bcdedit /default &#123;xxxxx&#125;# 设置默认的启动菜单显示时间，单位秒bcdedit /timeout 10]]></content>
+      <categories>
+        <category>系统环境</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>vmware</tag>
+        <tag>Hyper-V</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[gitlab 配置腾讯企业邮箱邮件发送功能]]></title>
     <url>%2F2018%2F03%2F23%2Fgitlab-config-for-email%2F</url>
     <content type="text"><![CDATA[1 背景 2 gitlab 配置 3 执行效果 在 gitlab 安装完成后，在实际的应用操作过程中，很多相关的功能依赖邮件服务，因此，将 gitlab 的邮件发送服务配置好，应用该工具很重要的一个部分。 在国内市场上，目前好用的邮箱产品有好几款，而这里所要使用的是 腾讯企业邮箱 ，我们只需要有一个独立掌控的域名就非常容易开通一个。 1 背景 举例域名：demo.com 举例账号：server@demo.com 账号密码：123456 邮件发送显示名：Server 注意 在企业邮箱账号添加后，你需要登录一次邮箱，系统会让你再次修改一次密码，而这会影响之后的配置中的参数值。 登录到邮箱后，进入设置面板，需要将 SMTP 功能打开，以及相关的通讯端口也会有显示，如下图： 2 gitlab 配置 配置文件路径：/etc/gitlab/gitlab.rb &#123;.line-numbers&#125;12345678910111213141516171819# gitlab 发信人user['git_user_name'] = "Server"user['git_user_email'] = "server@demo.com"gitlab_rails['gitlab_email_from'] = 'server@demo.com'gitlab_rails['gitlab_email_display_name'] = 'Server'# 通过 SMTP 方式发送邮件gitlab_rails['smtp_enable'] = truegitlab_rails['smtp_address'] = "smtp.exmail.qq.com"gitlab_rails['smtp_port'] = 465# 邮箱账号&amp;密码gitlab_rails['smtp_user_name'] = "server@demo.com"gitlab_rails['smtp_password'] = "123456"gitlab_rails['smtp_domain'] = "exmail.qq.com"gitlab_rails['smtp_authentication'] = "login"gitlab_rails['smtp_enable_starttls_auto'] = truegitlab_rails['smtp_tls'] = true 配置完成后，执行以下命令： 1234# 刷新 gitlab 配置gitlab-ctl reconfigure# 重启服务gitlab-ctl restart 3 执行效果 当在 gitlab 平台操作 SSH Key 时，系统会发出如下邮件提醒：]]></content>
