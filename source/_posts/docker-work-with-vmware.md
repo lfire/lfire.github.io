@@ -18,6 +18,7 @@ categories:
 在之前装好系统环境后，想要在工作平台上模拟服务器的环境，来进行一下相关的实验，因此，系统上装好有 vmware 软件，该软件下的快照功能，让我对于相关的实验环境有一个很好的备份操作，很是 nice。
 而另一个方面，当前 docker 的活跃程度，也让我这个技术屌丝，内心有点点萌动，想了解一下，如果可以玩出点花样，那也是极好的。
 但是，当我尝试了在 windows 环境下，安装好了 docker 后，提示要开启 Hyper-V ，开启后，正常启动 docker 服务。（`控制面板->程序->程序和功能->启用或关闭 Windows 功能`）
+![cannot start docker](http://pic.hqmmw.com/Snipaste_2018-06-09_07-23-41.png)
 ![start Hyper-V](http://pic.hqmmw.com/markdown-img-paste-20180611095532509.png)
 某天的某天，再次捡起 vmware 时，确报出了错误。
 ![vmware 报错](http://pic.hqmmw.com/Snipaste_2018-06-08_21-50-16.png)
