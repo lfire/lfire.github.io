@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Centos rpm 包]]></title>
+    <url>%2F2018%2F06%2F12%2Fcentos-rpm%2F</url>
+    <content type="text"><![CDATA[1 RPM 包与源码包的区别 软件包分类 源码包 RPM 包 2 RPM 包命名 &amp; 依赖性 命名规则 依赖性 3 RPM 包的安装、升级、卸载和查询 包全名 ＆ 包名对比说明 安装 升级 查询 RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。 1 RPM 包与源码包的区别 软件包分类 源码包：C 源代码包 rpm 包：编译之后的二进制包 源码包 优点：开源，并可以自由选择所需功能，可看源代码，卸载方便（直接删除安装位置）; 缺点：安装步骤繁琐，编译时间过长。 RPM 包 优点：使用简单，只需要几个命令就可以实现包的安装、升级、查询、卸载，安装速度快； 缺点：不能看源代码，功能选择不如源代码灵活，依赖性。 2 RPM 包命名 &amp; 依赖性 命名规则 12# 举例包名httpd-2.4.6-67.el7.centos.x86_64.rpm 命名分段 说明 httpd 软件包名 2.4.6 软件版本 67 发行次数 el7.centos 适合的 linux 平台 x86_64 适合的硬件平台 rpm 扩展名 依赖性 树形依赖：a-&gt;b-&gt;c，即 a 依赖 b ， b 依赖 c 。 环形依赖：a-&gt;b-&gt;c-&gt;a 模块依赖：模块依赖查询网站，www.rpmfind.net 3 RPM 包的安装、升级、卸载和查询 包全名 ＆ 包名对比说明 包全名 包名 例如：httpd-2.4.6-67.el7.centos.x86_64.rpm 例如：httpd 操作包时为没有安装的软件包时，使用 包全名。 操作包时为已经安装的软件包时，使用 包名。 安装、升级时使用 查询、卸载时使用 安装 123456789rpm -ivh [包全名]# 选项：# -i(install) 安装# -v(verbose) 显示详细信息# -h(hash) 显示进度# --nodeps 不检测依赖性# 如rpm -ivh httpd-2.4.6-67.el7.centos.x86_64.rpm 注：可能会有很多依赖性问题出现，根据一个个依赖性继续 rpm 安装即可。 升级 123456789101112rpm -e [包名]# 选项：# -e(erase) 卸载# --nodeps 不检测依赖性# 如rpm -e httpd# 报错信息# 错误：依赖检测失败：# httpd = 2.4.6-67.el7.centos 被 (已安裝) httpd-devel-2.4.6-67.el7.centos.x86_64 需要rpm -e httpd-develrpm -e httpd 注：卸载要按照安装依赖性的反方向卸载。 查询 12345678910111213141516171819202122232425# 查询是否安装rpm -q [包名]# 选项：# -q(query) 查询# -a(all) 所有# 查询软件包的详细信息rpm -qi [包名]# 选项：# -i(information) 查询软件包信息# 查询包中文件安装位置rpm -ql [包名]# 选项：# -l(list) 列表# 查询系统文件属于哪个 rpm 包rpm -qf [系统文件名]# 选项：# -f(file) 查询系统文件属于哪个 rpm 包# 查询软件包的依赖性rpm -qR [包名]# 选项：# -R(requires) 查询软件包的依赖性]]></content>
+      <categories>
+        <category>系统环境</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>rpm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Centos 源 & yum 管理命令]]></title>
     <url>%2F2018%2F06%2F11%2Fcentos-yum-repo-admin%2F</url>
     <content type="text"><![CDATA[1 yum 源 2 网络源 3 光盘源 4 yum 命令 1 yum 源 源，是 linux 系统中，用于管理相关软件来源的一个配置，而 yum 源，则是 red 系列的一个管理特例。 源的目录位置：/etc/yum.repo.d/ 如上图中，如果系统能与外网相通，则使用默认的网络 yum 源文件 CentOS-Base.repo；若只能内网通信，则使用光盘 yum 源文件 CentOS-Media.repo。 源文件配置说明： 参数 说明 [base] 容器名称，一定要放在 [] 中 mirrorlist 镜像站点，用这个地址或下面那个地址都行 baseurl yum 源服务器地址。默认是 CentOS 官方的 yum 源服务器，是可以使用的，如若访问速度很慢，可以改为合适的地址。 enabled 此容器是否生效，如果不配置，或配置为 enabled=1 表示生效；配置为 enabled=0 表示不生效。 gpgcheck 配置 RPM 数字证书是否生效， gpgcheck=1：代表生效； gpgcheck=0：代表不生效。 gpgkey 数字证书的公钥文件保存位置，一般不用修改。 2 网络源 12# 查看网络源配置vim /etc/yum.repos.d/CentOS-Base.repo 3 光盘源 当处于离线状态时，我们需要从其他源来安装软件，如：光盘。 相关的步骤如下： 挂载光盘 12345# 新建光盘挂载点mkdir /mnt/cdrom# 把设备文件名挂载到挂载点mount /dev/cdrom /mnt/cdrom 让网络 yum 源失效 12345# 进入 yum 源配置文件夹cd /etc/yum.repos.d/# 将 yum 网络源备份mv CentOS-Base.repo CentOS-Base.repo.bak 注：网络 yum 源失效后，系统默认使用光盘 yum 源。 修改光盘 yum 源 1vim CentOS-Media.repo 12345678910[c7-media]name=CentOS-$releasever - Mediabaseurl=file:///mnt/cdrom# file:///media/cdrom/# file:///media/cdrecorder/# 注释这两个不存在的地址gpgcheck=1enabled=1# 把 enabled=0 改为1，让这个yum源配置文件生效gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 4 yum 命令 在 linux 日常使用过程中， yum 操作经常会涉及到，以下对常用的方式进行总结： 查询 12345# 在远程服务器上查询所有可用的软件包列表yum list# 搜索远程服务器上所有和关键字相关的包yum search [keywords] 安装 1234yum -y install [package-name]# 选项：# install 安装# -y 自动回复 yes 升级 1234yum -y update [package-name]# 选项：# update 升级# -y 自动回复 yes 卸载 1234yum -y remove [package-name]# 选项：# remove 卸载# -y 自动回复 yes]]></content>
