@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Centos 源 & yum 管理命令]]></title>
+    <url>%2F2018%2F06%2F11%2Fcentos-yum-repo-admin%2F</url>
+    <content type="text"><![CDATA[1 yum 源 2 网络源 3 光盘源 4 yum 命令 1 yum 源 源，是 linux 系统中，用于管理相关软件来源的一个配置，而 yum 源，则是 red 系列的一个管理特例。 源的目录位置：/etc/yum.repo.d/ 如上图中，如果系统能与外网相通，则使用默认的网络 yum 源文件 CentOS-Base.repo；若只能内网通信，则使用光盘 yum 源文件 CentOS-Media.repo。 源文件配置说明： 参数 说明 [base] 容器名称，一定要放在 [] 中 mirrorlist 镜像站点，用这个地址或下面那个地址都行 baseurl yum 源服务器地址。默认是 CentOS 官方的 yum 源服务器，是可以使用的，如若访问速度很慢，可以改为合适的地址。 enabled 此容器是否生效，如果不配置，或配置为 enabled=1 表示生效；配置为 enabled=0 表示不生效。 gpgcheck 配置 RPM 数字证书是否生效， gpgcheck=1：代表生效； gpgcheck=0：代表不生效。 gpgkey 数字证书的公钥文件保存位置，一般不用修改。 2 网络源 12# 查看网络源配置vim /etc/yum.repos.d/CentOS-Base.repo 3 光盘源 当处于离线状态时，我们需要从其他源来安装软件，如：光盘。 相关的步骤如下： 挂载光盘 12345# 新建光盘挂载点mkdir /mnt/cdrom# 把设备文件名挂载到挂载点mount /dev/cdrom /mnt/cdrom 让网络 yum 源失效 12345# 进入 yum 源配置文件夹cd /etc/yum.repos.d/# 将 yum 网络源备份mv CentOS-Base.repo CentOS-Base.repo.bak 注：网络 yum 源失效后，系统默认使用光盘 yum 源。 修改光盘 yum 源 1vim CentOS-Media.repo 12345678910[c7-media]name=CentOS-$releasever - Mediabaseurl=file:///mnt/cdrom# file:///media/cdrom/# file:///media/cdrecorder/# 注释这两个不存在的地址gpgcheck=1enabled=1# 把 enabled=0 改为1，让这个yum源配置文件生效gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 4 yum 命令 在 linux 日常使用过程中， yum 操作经常会涉及到，以下对常用的方式进行总结： 查询 12345# 在远程服务器上查询所有可用的软件包列表yum list# 搜索远程服务器上所有和关键字相关的包yum search [keywords] 安装 1234yum -y install [package-name]# 选项：# install 安装# -y 自动回复 yes 升级 1234yum -y update [package-name]# 选项：# update 升级# -y 自动回复 yes 卸载 1234yum -y remove [package-name]# 选项：# remove 卸载# -y 自动回复 yes]]></content>
+      <categories>
+        <category>系统环境</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>yum</tag>
+        <tag>源管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker 和 vmware 共存工作]]></title>
     <url>%2F2018%2F06%2F09%2Fdocker-work-with-vmware%2F</url>
     <content type="text"><![CDATA[1 起因 2 解决方案 3 更好的办法 4 bcdedit 简单用法 1 起因 在之前装好系统环境后，想要在工作平台上模拟服务器的环境，来进行一下相关的实验，因此，系统上装好有 vmware 软件，该软件下的快照功能，让我对于相关的实验环境有一个很好的备份操作，很是 nice。 而另一个方面，当前 docker 的活跃程度，也让我这个技术屌丝，内心有点点萌动，想了解一下，如果可以玩出点花样，那也是极好的。 但是，当我尝试了在 windows 环境下，安装好了 docker 后，提示要开启 Hyper-V ，开启后，正常启动 docker 服务。（控制面板-&gt;程序-&gt;程序和功能-&gt;启用或关闭 Windows 功能） 某天的某天，再次捡起 vmware 时，确报出了错误。 后面查阅了相关资料，原来，Hyper-V 与 vmware 有冲突，只能二选一。 2 解决方案 当需要使用 vmware 时，我们按开启的方式，再次关闭 Hyper-V ，这样，软件就能正常的打开了。 但这样操作，有一个不好的地方，每开启或关闭一次，系统都必需要重启一次，这导致每次系统都进行了一次程序的安装和卸载，费时不高效。 3 更好的办法 建立两个启动项，一个开启了 Hyper-V，而另一个则关闭，这样，我们可以在需要该功能时，在系统启动界面自由的选择相应的启动项，而不用频繁的安装和卸载 Hyper-V。 建立新的启动项，并将 Hyper-V 功能关闭，命令如下： 1234# win + X 开启命令行，注意：必须以管理员身份执行bcdedit /copy &#123;default&#125; /d "Windows 10 Without Hyper-V"# 以上命令得到输出 &#123;xxxxxxxxxxxxxxxxxxx&#125;bcdedit /set &#123;xxxxxxxxxxxxxxxxxxx&#125; hypervisorlaunchtype off 如图： 我们可以通过命令：bcdedit /enum，查看启动项列表。 4 bcdedit 简单用法 以上的操作中，用到了一个很重要的命令：bcdedit，其主要功能是建立和重新配置 bootloader。（Boot Configuration Data Edit） 有一些常用的用法： 1234567891011121314151617181920212223242526272829303132# 查看帮助bcdedit /?# 查看启动项列表bcdedit /enum# or 查看所有bcdedit /enum all# 设置某个启动项配置值bcdedit /set &#123;xxxx&#125; description "Windows 10 With Hyper-V"# orbcdedit /set &#123;xxxx&#125; hypervisorlaunchtype on# 设置启动项显示排列顺序bcdedit /displayorder &#123;current&#125; &#123;xxxxx&#125; &#123;xxxxxx&#125;# 创建新的启动项bcdedit /create /d "A New One"# 复制启动项bcdedit /copy &#123;xxxx&#125; /d "A Copy One"# 删除启动项bcdedit /delete &#123;xxxx&#125;# or 彻底删除bcdedit /delete /cleanup &#123;xxxx&#125;# 设置默认启动项bcdedit /default &#123;xxxxx&#125;# 设置默认的启动菜单显示时间，单位秒bcdedit /timeout 10]]></content>
