@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Centos yum 源]]></title>
+    <url>%2F2018%2F06%2F12%2Fcentos-yum-repository%2F</url>
+    <content type="text"><![CDATA[1 EPEL 源 &amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源 在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。 1 EPEL 源 &amp; WEBTATIC 源 在 启用和安装 EPEL & WEBTATIC 源 一文中，详细介绍我解释了该两种源的安装方法，其中 EPEL 源的启用，是很多其他源安装的基础。 其中 WEBTATIC 源中，包含有我们 WEB 服务中常用的软件，如：PHP等。 2 Nginx 源 Nginx 是 web 开发过程中，最为常见的一种服务软件，因此，添加相应的源，并安装成了日常 web 服务运维过程中最为常见的操作。 进入 Nginx 官网，点击右侧的 download 链接，进入下载页面，找到页面中 Pre-Built Packages 项，选择其中的 mainline version ，进入到相应的说明页面。 针对于 RHEL/CentOS 系列 Linux ，我们新建文件 /etc/yum.repos.d/nginx.repo，配置内容如下： 12345[nginx]name=nginx repobaseurl=http://nginx.org/packages/mainline/OS/OSRELEASE/$basearch/gpgcheck=0enabled=1 注：根据系统类型，将 OS 替换为对应值：rhel 或 centos ；其中 OSRELEASE 依据系统的实际版本，替换为：6 或 7 ，分别针对于 6.x 或 7.x 系列的系统。 3 Mysql 源 系统本身包含 mysql ，但其版本相对较低，为了能使用较新的版本，我们可以使用官方提供的源进行安装。 进入 官方获取 yum 源，查看系统版本，下载对应的安装文件。 1234# 如本机为 centos 7.xwget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm# 安装源rpm -ivh mysql80-community-release-el7-1.noarch.rpm 4 REMI 源 Remi 源，软件几乎都是最新稳定版，其主要贡献成员都是一群 Linux 骨灰级玩家编译好放入源里的，对于系统环境和软件编译参数的熟悉程度毋庸置疑。 添加 Remi 源：进入其官网，可以选择对应地区的源，如本例中选择 CN ，由此而确定源地址为：https://mirrors.tuna.tsinghua.edu.cn/remi ，再根据系统版本，执行如下命令。 1234567yum install epel-release# CentOS 6.xrpm -ivh https://mirrors.tuna.tsinghua.edu.cn/remi/enterprise/remi-release-6.rpm# CentOS 7.xrpm -ivh https://mirrors.tuna.tsinghua.edu.cn/remi/enterprise/remi-release-7.rpm 注：默认情况下，Remi 源没有启用，我们需要手动启动相应源。打开 /etc/yum.repos.d/remi.repo 文件，将容器 [remi] 下的 enabled=0 修改为 enabled=1，其他容器下的不用修改。（相关参数的详细说明可参考 CentOS 源 & yum 管理命令）]]></content>
+      <categories>
+        <category>系统环境</category>
+        <category>centos</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>yum</tag>
+        <tag>php</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[启用和安装 EPEL & WEBTATIC 源]]></title>
     <url>%2F2018%2F06%2F12%2Fepel-and-webtatic-for-linux%2F</url>
     <content type="text"><![CDATA[1 EPEL 特点 2 EPEL 启用 3 查询 EPEL 包含内容 4 安装 WEBTATIC 源 EPEL(Extra Packages for Enterprise Linux, 企业版 Linux 附加软件包) 是一个 Fedora 特别兴趣小组，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集，面向的对象包括但不限于红帽企业版 Linux (RHEL)、 CentOS、Scientific Linux (SL)、Oracle Linux (OL) 。 Webtatic Yum repository，是一个 CentOS/RHEL 软件存储库，其中包含较新的与 WEB 相关的软件包。 1 EPEL 特点 EPEL 的软件包通常不会与企业版 Linux 官方源中的软件包发生冲突，或者互相替换文件。EPEL 项目与 Fedora 基本一致，包含完整的构建系统、升级管理器、镜像管理器等等。另外，其在使用过程中，有以下特点： 不用去换原来 yum 源，安装后会产生新的 repo； EPEL 会有很多源地址，如果一个下载不成功，会去另外的地址下载； 更新时，如果下载的包不全，就不会进行安装，保证了依赖完整性。 2 EPEL 启用 1234# 查找软件名称yum search epel# 安装yum install epel-release 注：yum 搜索的结果中 epel-release.noarch 就是我们需要的软件包。安装可以不用包含软件包名称中 . 之后的部分，当然包含也没有问题。. 后的部分表示软件包适应系统构架。noarch 表示通用型；x86_64 表示 64 位系统；i686 表示 32 位系统。 3 查询 EPEL 包含内容 在 CentOS rpm 包 中介绍过 rpm 包相关内容及命令，这里可以使用 rpm 查询命令查看 EPEL 包含的内容。 1rpm -ql epel-release 4 安装 WEBTATIC 源 对于服务器而言，最为常见的即是提供 web 服务，而对于 web 服务中常用的一些软件，在系统默认的源下，一般版本较低，如若需要使用相对较新的版本（如 PHP），WEBTATIC 源是一个很好的选择。 1234567# CentOS/RHEL 7.x:yum install epel-releaserpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm# CentOS/RHEL 6.x:yum install epel-releaserpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm]]></content>

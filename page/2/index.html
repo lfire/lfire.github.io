@@ -357,6 +357,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2018/02/27/update-hexo-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfire">
+      <meta itemprop="description" content="在牛逼的路上越走越远">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lfire">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/27/update-hexo-blog/" itemprop="url">
+                  hexo 博客升级并上传 github
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-02-27 19:08:39" itemprop="dateCreated datePublished" datetime="2018-02-27T19:08:39+08:00">2018-02-27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/27/update-hexo-blog/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/27/update-hexo-blog/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">0:02</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><ul class="markdownIt-TOC">
+<li><a href="#1-%E9%97%AE%E9%A2%98%E6%9C%89%E5%93%AA%E4%BA%9B">1 问题有哪些</a></li>
+<li><a href="#2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%88%86%E6%95%A3%E4%B8%8E%E5%8D%87%E7%BA%A7%E7%9A%84%E7%9F%9B%E7%9B%BE">2 配置文件分散与升级的矛盾</a>
+<ul>
+<li><a href="#21-hexo-%E9%85%8D%E7%BD%AE">2.1 hexo 配置</a></li>
+<li><a href="#22-next-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE">2.2 NexT 主题配置</a></li>
+<li><a href="#23-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F">2.3 自定义样式</a></li>
+</ul>
+</li>
+<li><a href="#3-github-%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E6%BA%90%E7%A0%81%E4%B8%8E%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9">3 github 同时托管源码与静态站点</a>
+<ul>
+<li><a href="#31-git-ignore-%E9%85%8D%E7%BD%AE">3.1 git ignore 配置</a></li>
+<li><a href="#32-github-%E9%85%8D%E7%BD%AE">3.2 github 配置</a></li>
+</ul>
+</li>
+<li><a href="#4-%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E7%BC%96%E8%BE%91%E5%99%A8">4 博客编写编辑器</a></li>
+</ul>
+</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/27/update-hexo-blog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2017/12/05/about-agile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2294,230 +2516,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2017/03/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfire">
-      <meta itemprop="description" content="在牛逼的路上越走越远">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lfire">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/01/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-03-02 00:34:00" itemprop="dateCreated datePublished" datetime="2017-03-02T00:34:00+08:00">2017-03-02</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/init/" itemprop="url" rel="index"><span itemprop="name">init</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/01/hello-world/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/01/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">0:02</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><ul class="markdownIt-TOC">
-<li><a href="#quick-start">Quick Start</a>
-<ul>
-<li><a href="#create-a-new-post">Create a new post</a></li>
-<li><a href="#run-server">Run server</a></li>
-<li><a href="#generate-static-files">Generate static files</a></li>
-<li><a href="#deploy-to-remote-sites">Deploy to remote sites</a></li>
-</ul>
-</li>
-<li><a href="#test-the-application">Test the application</a>
-<ul>
-<li><a href="#%E5%88%B6%E4%BD%9C%E4%B8%80%E4%BB%BD%E5%BE%85%E5%8A%9E%E4%BA%8B%E5%AE%9C-todo-%E5%88%97%E8%A1%A8">制作一份待办事宜 Todo 列表</a></li>
-<li><a href="#%E4%B9%A6%E5%86%99%E4%B8%80%E4%B8%AA%E8%B4%A8%E8%83%BD%E5%AE%88%E6%81%92%E5%85%AC%E5%BC%8F">书写一个质能守恒公式[^LaTeX]</a></li>
-<li><a href="#%E9%AB%98%E4%BA%AE%E4%B8%80%E6%AE%B5%E4%BB%A3%E7%A0%81">高亮一段代码[^code]</a></li>
-<li><a href="#%E9%AB%98%E6%95%88%E7%BB%98%E5%88%B6-%E6%B5%81%E7%A8%8B%E5%9B%BE">高效绘制 <code>流程图</code></a></li>
-<li><a href="#%E7%BB%98%E5%88%B6%E8%A1%A8%E6%A0%BC">绘制表格</a></li>
-</ul>
-</li>
-</ul>
-<br>
-Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/01/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2560,7 +2563,7 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2609,7 +2612,9 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2718,7 +2723,11 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
                     
                       
                     
-                    <span class="site-state-item-count">48</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2791,7 +2800,7 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">117k</span>
+    <span title="站点总字数">119k</span>
   
 
   
@@ -2800,7 +2809,7 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:57</span>
+    <span title="站点阅读时长">1:59</span>
   
 </div>
 
