@@ -59,8 +59,20 @@ rpm -ivh https://mirrors.tuna.tsinghua.edu.cn/remi/enterprise/remi-release-7.rpm
 ```
 > 注：默认情况下，Remi 源没有启用，我们需要手动启动相应源。打开 `/etc/yum.repos.d/remi.repo` 文件，将容器 `[remi]` 下的 `enabled=0` 修改为 `enabled=1`，其他容器下的不用修改。（相关参数的详细说明可参考 {% post_link centos-yum-repo-admin CentOS 源 & yum 管理命令 %}）
 
+## 5 CODEIT 源
+[Codeit][6] 是一个软件公司，其制作发布了一个相关软件的源，主要是针对 CentOS 。其特点是，包含有较新版本的 httpd、nginx 等。
+```bash
+# 依赖 epel
+yum install epel-release
+
+# 自动判断系统版本，并下载对应源
+# 亦可自行进入目录，手动下载对应版本源
+cd /etc/yum.repos.d && wget https://repo.codeit.guru/codeit.el`rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release)`.repo
+```
+
 [1]: http://nginx.org/
 [2]: http://nginx.org/en/download.html
 [3]: http://nginx.org/en/linux_packages.html#mainline
 [4]: https://dev.mysql.com/downloads/repo/yum/
 [5]: http://rpms.famillecollet.com/
+[6]: https://codeit.guru/en_US/
