@@ -72,6 +72,13 @@ rpm -ivh httpd-2.4.6-67.el7.centos.x86_64.rpm
 
 ## 升级 ##
 ```bash
+rpm -Uvh [包全名]
+# 选项：
+#       -U(upgrade)     升级
+```
+
+## 卸载 ##
+```bash
 rpm -e [包名]
 # 选项：
 #       -e(erase)       卸载
