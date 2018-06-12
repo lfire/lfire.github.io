@@ -114,19 +114,19 @@
 
 
 
-  <meta name="description" content="1 EPEL 源 &amp;amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源   在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。">
+  <meta name="description" content="1 EPEL 源 &amp;amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源 5 CODEIT 源   在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。">
 <meta name="keywords" content="centos,yum,php,nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos yum 源">
 <meta property="og:url" content="https://lfire.github.io/2018/06/12/centos-yum-repository/index.html">
 <meta property="og:site_name" content="lfire">
-<meta property="og:description" content="1 EPEL 源 &amp;amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源   在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。">
+<meta property="og:description" content="1 EPEL 源 &amp;amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源 5 CODEIT 源   在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180612220835880.png">
-<meta property="og:updated_time" content="2018-06-12T15:19:38.160Z">
+<meta property="og:updated_time" content="2018-06-12T23:05:22.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos yum 源">
-<meta name="twitter:description" content="1 EPEL 源 &amp;amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源   在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。">
+<meta name="twitter:description" content="1 EPEL 源 &amp;amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源 5 CODEIT 源   在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。">
 <meta name="twitter:image" content="http://pic.hqmmw.com/markdown-img-paste-20180612220835880.png">
 
 
@@ -466,7 +466,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.6k</span>
+                <span title="本文字数">1.9k</span>
               
 
               
@@ -505,6 +505,7 @@
 <li><a href="#2-nginx-%E6%BA%90">2 Nginx 源</a></li>
 <li><a href="#3-mysql-%E6%BA%90">3 Mysql 源</a></li>
 <li><a href="#4-remi-%E6%BA%90">4 REMI 源</a></li>
+<li><a href="#5-codeit-%E6%BA%90">5 CODEIT 源</a></li>
 </ul>
 </p>
 <p>在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。</p>
@@ -532,6 +533,9 @@
 <blockquote>
 <p>注：默认情况下，Remi 源没有启用，我们需要手动启动相应源。打开 <code>/etc/yum.repos.d/remi.repo</code> 文件，将容器 <code>[remi]</code> 下的 <code>enabled=0</code> 修改为 <code>enabled=1</code>，其他容器下的不用修改。（相关参数的详细说明可参考 <a href="/2018/06/11/centos-yum-repo-admin/" title="CentOS 源 & yum 管理命令">CentOS 源 & yum 管理命令</a>）</p>
 </blockquote>
+<h2 id="5-codeit-源"><a class="markdownIt-Anchor" href="#5-codeit-源"></a> 5 CODEIT 源</h2>
+<p><a href="https://codeit.guru/en_US/" target="_blank" rel="noopener">Codeit</a> 是一个软件公司，其制作发布了一个相关软件的源，主要是针对 CentOS 。其特点是，包含有较新版本的 httpd、nginx 等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 依赖 epel</span></span><br><span class="line">yum install epel-release</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动判断系统版本，并下载对应源</span></span><br><span class="line"><span class="comment"># 亦可自行进入目录，手动下载对应版本源</span></span><br><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d &amp;&amp; wget https://repo.codeit.guru/codeit.el`rpm -q --qf <span class="string">"%&#123;VERSION&#125;"</span> $(rpm -q --whatprovides redhat-release)`.repo</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -921,7 +925,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-epel-源-webtatic-源"><span class="nav-text"> 1 EPEL 源 &amp; WEBTATIC 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-nginx-源"><span class="nav-text"> 2 Nginx 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-mysql-源"><span class="nav-text"> 3 Mysql 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-remi-源"><span class="nav-text"> 4 REMI 源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-epel-源-webtatic-源"><span class="nav-text"> 1 EPEL 源 &amp; WEBTATIC 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-nginx-源"><span class="nav-text"> 2 Nginx 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-mysql-源"><span class="nav-text"> 3 Mysql 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-remi-源"><span class="nav-text"> 4 REMI 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-codeit-源"><span class="nav-text"> 5 CODEIT 源</span></a></li></ol></div>
             
 
           </div>
