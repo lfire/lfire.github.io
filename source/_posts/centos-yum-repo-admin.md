@@ -40,7 +40,7 @@ vim /etc/yum.repos.d/CentOS-Base.repo
 ## 3 光盘源
 当处于离线状态时，我们需要从其他源来安装软件，如：光盘。
 相关的步骤如下：
-* 1. 挂载光盘
+* 挂载光盘
 ```bash
 # 新建光盘挂载点
 mkdir /mnt/cdrom
@@ -49,7 +49,7 @@ mkdir /mnt/cdrom
 mount /dev/cdrom /mnt/cdrom
 ```
 
-* 2. 让网络 yum 源失效
+* 让网络 yum 源失效
 ```bash
 # 进入 yum 源配置文件夹
 cd /etc/yum.repos.d/
@@ -59,7 +59,7 @@ mv CentOS-Base.repo CentOS-Base.repo.bak
 ```
 > 注：网络 yum 源失效后，系统默认使用光盘 yum 源。
 
-* 3. 修改光盘 yum 源
+* 修改光盘 yum 源
 ```bash
 vim CentOS-Media.repo
 ```
@@ -78,7 +78,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 ## 4 yum 命令
 在 linux 日常使用过程中， yum 操作经常会涉及到，以下对常用的方式进行总结：
-* 1. 查询
+* 查询
 ```bash
 # 在远程服务器上查询所有可用的软件包列表
 yum list
@@ -87,7 +87,7 @@ yum list
 yum search [keywords]
 ```
 
-* 2. 安装
+* 安装
 ```bash
 yum -y install [package-name]
 # 选项：
@@ -95,7 +95,7 @@ yum -y install [package-name]
 #       -y          自动回复 yes
 ```
 
-* 3. 升级
+* 升级
 ```bash
 yum -y update [package-name]
 # 选项：
@@ -103,7 +103,7 @@ yum -y update [package-name]
 #       -y          自动回复 yes
 ```
 
-* 4. 卸载
+* 卸载
 ```bash
 yum -y remove [package-name]
 # 选项：
