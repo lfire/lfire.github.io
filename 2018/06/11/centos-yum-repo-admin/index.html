@@ -124,7 +124,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180611163911778.png">
 <meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180612091852727.png">
-<meta property="og:updated_time" content="2018-06-12T01:53:28.339Z">
+<meta property="og:updated_time" content="2018-06-12T01:59:29.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos 源 &amp; yum 管理命令">
 <meta name="twitter:description" content="1 yum 源 2 网络源 3 光盘源 4 yum 命令">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.6k</span>
+                <span title="本文字数">1.5k</span>
               
 
               
@@ -556,65 +556,37 @@
 <p>当处于离线状态时，我们需要从其他源来安装软件，如：光盘。<br>
 相关的步骤如下：</p>
 <ul>
-<li>
-<ol>
 <li>挂载光盘</li>
-</ol>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建光盘挂载点</span></span><br><span class="line">mkdir /mnt/cdrom</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把设备文件名挂载到挂载点</span></span><br><span class="line">mount /dev/cdrom /mnt/cdrom</span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<ol start="2">
 <li>让网络 yum 源失效</li>
-</ol>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入 yum 源配置文件夹</span></span><br><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 yum 网络源备份</span></span><br><span class="line">mv CentOS-Base.repo CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注：网络 yum 源失效后，系统默认使用光盘 yum 源。</p>
 </blockquote>
 <ul>
-<li>
-<ol start="3">
 <li>修改光盘 yum 源</li>
-</ol>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim CentOS-Media.repo</span><br></pre></td></tr></table></figure>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[c7-media]</span></span><br><span class="line"><span class="attr">name</span>=CentOS-<span class="variable">$releasever</span> - Media</span><br><span class="line"><span class="attr">baseurl</span>=file:///mnt/cdrom</span><br><span class="line"><span class="comment"># file:///media/cdrom/</span></span><br><span class="line"><span class="comment"># file:///media/cdrecorder/</span></span><br><span class="line"><span class="comment"># 注释这两个不存在的地址</span></span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br><span class="line"><span class="comment"># 把 enabled=0 改为1，让这个yum源配置文件生效</span></span><br><span class="line"><span class="attr">gpgkey</span>=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-<span class="number">7</span></span><br></pre></td></tr></table></figure>
 <h2 id="4-yum-命令"><a class="markdownIt-Anchor" href="#4-yum-命令"></a> 4 yum 命令</h2>
 <p>在 linux 日常使用过程中， yum 操作经常会涉及到，以下对常用的方式进行总结：</p>
 <ul>
-<li>
-<ol>
 <li>查询</li>
-</ol>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在远程服务器上查询所有可用的软件包列表</span></span><br><span class="line">yum list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索远程服务器上所有和关键字相关的包</span></span><br><span class="line">yum search [keywords]</span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<ol start="2">
 <li>安装</li>
-</ol>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install [package-name]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       install     安装</span></span><br><span class="line"><span class="comment">#       -y          自动回复 yes</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<ol start="3">
 <li>升级</li>
-</ol>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y update [package-name]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       update      升级</span></span><br><span class="line"><span class="comment">#       -y          自动回复 yes</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<ol start="4">
 <li>卸载</li>
-</ol>
-</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove [package-name]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       remove      卸载</span></span><br><span class="line"><span class="comment">#       -y          自动回复 yes</span></span><br></pre></td></tr></table></figure>
 
