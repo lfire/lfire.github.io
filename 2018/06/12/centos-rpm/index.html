@@ -114,18 +114,18 @@
 
 
 
-  <meta name="description" content="1 RPM 包与源码包的区别 软件包分类 源码包 RPM 包 2 RPM 包命名 &amp;amp; 依赖性 命名规则 依赖性 3 RPM 包的安装、升级、卸载和查询 包全名 ＆ 包名对比说明 安装 升级 卸载 查询   RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。">
+  <meta name="description" content="1 RPM 包与源码包的区别 2 RPM 包命名 &amp;amp; 依赖性 3 RPM 包的安装、升级、卸载和查询   RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。">
 <meta name="keywords" content="centos,rpm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos rpm 包">
 <meta property="og:url" content="https://lfire.github.io/2018/06/12/centos-rpm/index.html">
 <meta property="og:site_name" content="lfire">
-<meta property="og:description" content="1 RPM 包与源码包的区别 软件包分类 源码包 RPM 包 2 RPM 包命名 &amp;amp; 依赖性 命名规则 依赖性 3 RPM 包的安装、升级、卸载和查询 包全名 ＆ 包名对比说明 安装 升级 卸载 查询   RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。">
+<meta property="og:description" content="1 RPM 包与源码包的区别 2 RPM 包命名 &amp;amp; 依赖性 3 RPM 包的安装、升级、卸载和查询   RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-12T03:21:48.973Z">
+<meta property="og:updated_time" content="2018-06-12T03:25:42.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos rpm 包">
-<meta name="twitter:description" content="1 RPM 包与源码包的区别 软件包分类 源码包 RPM 包 2 RPM 包命名 &amp;amp; 依赖性 命名规则 依赖性 3 RPM 包的安装、升级、卸载和查询 包全名 ＆ 包名对比说明 安装 升级 卸载 查询   RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。">
+<meta name="twitter:description" content="1 RPM 包与源码包的区别 2 RPM 包命名 &amp;amp; 依赖性 3 RPM 包的安装、升级、卸载和查询   RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。">
 
 
 
@@ -500,40 +500,30 @@
       
         <p><ul class="markdownIt-TOC">
 <li><a href="#1-rpm-%E5%8C%85%E4%B8%8E%E6%BA%90%E7%A0%81%E5%8C%85%E7%9A%84%E5%8C%BA%E5%88%AB">1 RPM 包与源码包的区别</a></li>
-<li><a href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%88%86%E7%B1%BB">软件包分类</a></li>
-<li><a href="#%E6%BA%90%E7%A0%81%E5%8C%85">源码包</a></li>
-<li><a href="#rpm-%E5%8C%85">RPM 包</a></li>
 <li><a href="#2-rpm-%E5%8C%85%E5%91%BD%E5%90%8D-%E4%BE%9D%E8%B5%96%E6%80%A7">2 RPM 包命名 &amp; 依赖性</a></li>
-<li><a href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99">命名规则</a></li>
-<li><a href="#%E4%BE%9D%E8%B5%96%E6%80%A7">依赖性</a></li>
 <li><a href="#3-rpm-%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85-%E5%8D%87%E7%BA%A7-%E5%8D%B8%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2">3 RPM 包的安装、升级、卸载和查询</a></li>
-<li><a href="#%E5%8C%85%E5%85%A8%E5%90%8D-%E5%8C%85%E5%90%8D%E5%AF%B9%E6%AF%94%E8%AF%B4%E6%98%8E">包全名 ＆ 包名对比说明</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
-<li><a href="#%E5%8D%87%E7%BA%A7">升级</a></li>
-<li><a href="#%E5%8D%B8%E8%BD%BD">卸载</a></li>
-<li><a href="#%E6%9F%A5%E8%AF%A2">查询</a></li>
 </ul>
 </p>
 <p>RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。</p>
 <a id="more"></a>
 <h2 id="1-rpm-包与源码包的区别"><a class="markdownIt-Anchor" href="#1-rpm-包与源码包的区别"></a> 1 RPM 包与源码包的区别</h2>
-<h2 id="软件包分类"><a class="markdownIt-Anchor" href="#软件包分类"></a> 软件包分类</h2>
+<p><strong>软件包分类</strong></p>
 <ul>
 <li>源码包：C 源代码包</li>
 <li>rpm 包：编译之后的二进制包</li>
 </ul>
-<h2 id="源码包"><a class="markdownIt-Anchor" href="#源码包"></a> 源码包</h2>
+<p><strong>源码包</strong></p>
 <ul>
 <li>优点：开源，并可以自由选择所需功能，可看源代码，卸载方便（直接删除安装位置）;</li>
 <li>缺点：安装步骤繁琐，编译时间过长。</li>
 </ul>
-<h2 id="rpm-包"><a class="markdownIt-Anchor" href="#rpm-包"></a> RPM 包</h2>
+<p><strong>RPM 包</strong></p>
 <ul>
 <li>优点：使用简单，只需要几个命令就可以实现包的安装、升级、查询、卸载，安装速度快；</li>
 <li>缺点：不能看源代码，功能选择不如源代码灵活，依赖性。</li>
 </ul>
 <h2 id="2-rpm-包命名-依赖性"><a class="markdownIt-Anchor" href="#2-rpm-包命名-依赖性"></a> 2 RPM 包命名 &amp; 依赖性</h2>
-<h2 id="命名规则"><a class="markdownIt-Anchor" href="#命名规则"></a> 命名规则</h2>
+<p><strong>命名规则</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 举例包名</span></span><br><span class="line">httpd-2.4.6-67.el7.centos.x86_64.rpm</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -569,14 +559,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="依赖性"><a class="markdownIt-Anchor" href="#依赖性"></a> 依赖性</h2>
+<p><strong>依赖性</strong></p>
 <ul>
 <li>树形依赖：<code>a-&gt;b-&gt;c</code>，即 a 依赖 b ， b 依赖 c 。</li>
 <li>环形依赖：<code>a-&gt;b-&gt;c-&gt;a</code></li>
 <li>模块依赖：模块依赖查询网站，<a href="http://www.rpmfind.net" target="_blank" rel="noopener">www.rpmfind.net</a></li>
 </ul>
 <h2 id="3-rpm-包的安装-升级-卸载和查询"><a class="markdownIt-Anchor" href="#3-rpm-包的安装-升级-卸载和查询"></a> 3 RPM 包的安装、升级、卸载和查询</h2>
-<h2 id="包全名-包名对比说明"><a class="markdownIt-Anchor" href="#包全名-包名对比说明"></a> 包全名 ＆ 包名对比说明</h2>
+<p><strong>包全名 ＆ 包名对比说明</strong></p>
 <table>
 <thead>
 <tr>
@@ -599,19 +589,19 @@
 </tr>
 </tbody>
 </table>
-<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+<p><strong>安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh [包全名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -i(install)     安装</span></span><br><span class="line"><span class="comment">#       -v(verbose)     显示详细信息</span></span><br><span class="line"><span class="comment">#       -h(hash)        显示进度</span></span><br><span class="line"><span class="comment">#       --nodeps        不检测依赖性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如</span></span><br><span class="line">rpm -ivh httpd-2.4.6-67.el7.centos.x86_64.rpm</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注：可能会有很多依赖性问题出现，根据一个个依赖性继续 rpm 安装即可。</p>
 </blockquote>
-<h2 id="升级"><a class="markdownIt-Anchor" href="#升级"></a> 升级</h2>
+<p><strong>升级</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh [包全名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -U(upgrade)     升级</span></span><br></pre></td></tr></table></figure>
-<h2 id="卸载"><a class="markdownIt-Anchor" href="#卸载"></a> 卸载</h2>
+<p><strong>卸载</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">rpm -e [包名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -e(erase)       卸载</span></span><br><span class="line"><span class="comment">#       --nodeps        不检测依赖性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如</span></span><br><span class="line">rpm -e httpd</span><br><span class="line"><span class="comment"># 报错信息</span></span><br><span class="line"><span class="comment"># 错误：依赖检测失败：</span></span><br><span class="line"><span class="comment">#       httpd = 2.4.6-67.el7.centos 被 (已安裝) httpd-devel-2.4.6-67.el7.centos.x86_64 需要</span></span><br><span class="line">rpm -e httpd-devel</span><br><span class="line">rpm -e httpd</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注：卸载要按照安装依赖性的反方向卸载。</p>
 </blockquote>
-<h2 id="查询"><a class="markdownIt-Anchor" href="#查询"></a> 查询</h2>
+<p><strong>查询</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询是否安装</span></span><br><span class="line">rpm -q [包名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -q(query)       查询</span></span><br><span class="line"><span class="comment">#       -a(all)         所有</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询软件包的详细信息</span></span><br><span class="line">rpm -qi [包名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -i(information) 查询软件包信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询包中文件安装位置</span></span><br><span class="line">rpm -ql [包名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -l(list)        列表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询系统文件属于哪个 rpm 包</span></span><br><span class="line">rpm -qf [系统文件名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -f(file)        查询系统文件属于哪个 rpm 包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询软件包的依赖性</span></span><br><span class="line">rpm -qR [包名]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       -R(requires)    查询软件包的依赖性</span></span><br></pre></td></tr></table></figure>
 
       
@@ -988,7 +978,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-rpm-包与源码包的区别"><span class="nav-text"> 1 RPM 包与源码包的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件包分类"><span class="nav-text"> 软件包分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码包"><span class="nav-text"> 源码包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rpm-包"><span class="nav-text"> RPM 包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-rpm-包命名-依赖性"><span class="nav-text"> 2 RPM 包命名 &amp; 依赖性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名规则"><span class="nav-text"> 命名规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖性"><span class="nav-text"> 依赖性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-rpm-包的安装-升级-卸载和查询"><span class="nav-text"> 3 RPM 包的安装、升级、卸载和查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包全名-包名对比说明"><span class="nav-text"> 包全名 ＆ 包名对比说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text"> 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级"><span class="nav-text"> 升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载"><span class="nav-text"> 卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-text"> 查询</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-rpm-包与源码包的区别"><span class="nav-text"> 1 RPM 包与源码包的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-rpm-包命名-依赖性"><span class="nav-text"> 2 RPM 包命名 &amp; 依赖性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-rpm-包的安装-升级-卸载和查询"><span class="nav-text"> 3 RPM 包的安装、升级、卸载和查询</span></a></li></ol></div>
             
 
           </div>
