@@ -114,17 +114,21 @@
 
 
 
-  <meta name="description" content="在牛逼的路上越走越远">
-<meta name="keywords" content="Hexo, NexT">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lfire">
-<meta property="og:url" content="https://lfire.github.io/tags/frp/index.html">
+  <meta name="description" content="1 EPEL 特点 2 EPEL 启用 3 查询 EPEL 包含内容 4 安装 WEBTATIC 源   EPEL(Extra Packages for Enterprise Linux, 企业版 Linux 附加软件包) 是一个 Fedora 特别兴趣小组，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集，面向的对象包括但不限于红帽企业版 Linux (RHEL)、 Ce">
+<meta name="keywords" content="yum,EPEL,WEBTATIC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="启用和安装 EPEL &amp; WEBTATIC 源">
+<meta property="og:url" content="https://lfire.github.io/2018/06/12/epel-and-webtatic-for-linux/index.html">
 <meta property="og:site_name" content="lfire">
-<meta property="og:description" content="在牛逼的路上越走越远">
+<meta property="og:description" content="1 EPEL 特点 2 EPEL 启用 3 查询 EPEL 包含内容 4 安装 WEBTATIC 源   EPEL(Extra Packages for Enterprise Linux, 企业版 Linux 附加软件包) 是一个 Fedora 特别兴趣小组，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集，面向的对象包括但不限于红帽企业版 Linux (RHEL)、 Ce">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180612154036867.png">
+<meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-2018061216001662.png">
+<meta property="og:updated_time" content="2018-06-12T08:35:41.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lfire">
-<meta name="twitter:description" content="在牛逼的路上越走越远">
+<meta name="twitter:title" content="启用和安装 EPEL &amp; WEBTATIC 源">
+<meta name="twitter:description" content="1 EPEL 特点 2 EPEL 启用 3 查询 EPEL 包含内容 4 安装 WEBTATIC 源   EPEL(Extra Packages for Enterprise Linux, 企业版 Linux 附加软件包) 是一个 Fedora 特别兴趣小组，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集，面向的对象包括但不限于红帽企业版 Linux (RHEL)、 Ce">
+<meta name="twitter:image" content="http://pic.hqmmw.com/markdown-img-paste-20180612154036867.png">
 
 
 
@@ -133,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="https://lfire.github.io/tags/frp/"/>
+  <link rel="canonical" href="https://lfire.github.io/2018/06/12/epel-and-webtatic-for-linux/"/>
 
 
 
@@ -143,7 +147,7 @@
   };
 </script>
 
-  <title>标签: frp | lfire</title>
+  <title>启用和安装 EPEL & WEBTATIC 源 | lfire</title>
   
 
 
@@ -200,7 +204,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,7 +257,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -281,25 +285,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -359,58 +344,314 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>frp<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2018/06/12/epel-and-webtatic-for-linux/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfire">
+      <meta itemprop="description" content="在牛逼的路上越走越远">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lfire">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/11/15/deploy-the-frp-server/" itemprop="url">
-              
-                <span itemprop="name">部署FRP服务 实现内网穿透</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">启用和安装 EPEL & WEBTATIC 源
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-15T22:06:38+08:00"
-              content="2017-11-15" >
-          11-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-12 22:39:07" itemprop="dateCreated datePublished" datetime="2018-06-12T22:39:07+08:00">2018-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/系统环境/" itemprop="url" rel="index"><span itemprop="name">系统环境</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/系统环境/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/12/epel-and-webtatic-for-linux/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/12/epel-and-webtatic-for-linux/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">0:01</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><ul class="markdownIt-TOC">
+<li><a href="#1-epel-%E7%89%B9%E7%82%B9">1 EPEL 特点</a></li>
+<li><a href="#2-epel-%E5%90%AF%E7%94%A8">2 EPEL 启用</a></li>
+<li><a href="#3-%E6%9F%A5%E8%AF%A2-epel-%E5%8C%85%E5%90%AB%E5%86%85%E5%AE%B9">3 查询 EPEL 包含内容</a></li>
+<li><a href="#4-%E5%AE%89%E8%A3%85-webtatic-%E6%BA%90">4 安装 WEBTATIC 源</a></li>
+</ul>
+</p>
+<p><a href="https://fedoraproject.org/wiki/EPEL/zh-cn" target="_blank" rel="noopener">EPEL</a>(Extra Packages for Enterprise Linux, 企业版 Linux 附加软件包) 是一个 Fedora 特别兴趣小组，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集，面向的对象包括但不限于红帽企业版 Linux (RHEL)、 CentOS、Scientific Linux (SL)、Oracle Linux (OL) 。<br>
+<a href="https://webtatic.com/projects/yum-repository/" target="_blank" rel="noopener">Webtatic Yum repository</a>，是一个 CentOS/RHEL 软件存储库，其中包含较新的与 WEB 相关的软件包。</p>
+<a id="more"></a>
+<h2 id="1-epel-特点"><a class="markdownIt-Anchor" href="#1-epel-特点"></a> 1 EPEL 特点</h2>
+<p>EPEL 的软件包通常不会与企业版 Linux 官方源中的软件包发生冲突，或者互相替换文件。EPEL 项目与 Fedora 基本一致，包含完整的构建系统、升级管理器、镜像管理器等等。另外，其在使用过程中，有以下特点：</p>
+<ul>
+<li>不用去换原来 yum 源，安装后会产生新的 repo；</li>
+<li>EPEL 会有很多源地址，如果一个下载不成功，会去另外的地址下载；</li>
+<li>更新时，如果下载的包不全，就不会进行安装，保证了依赖完整性。</li>
+</ul>
+<h2 id="2-epel-启用"><a class="markdownIt-Anchor" href="#2-epel-启用"></a> 2 EPEL 启用</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找软件名称</span></span><br><span class="line">yum search epel</span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure>
+<p><img src="http://pic.hqmmw.com/markdown-img-paste-20180612154036867.png" alt="yum search epel"></p>
+<blockquote>
+<p>注：yum 搜索的结果中 <code>epel-release.noarch</code> 就是我们需要的软件包。安装可以不用包含软件包名称中 <code>.</code> 之后的部分，当然包含也没有问题。<code>.</code> 后的部分表示软件包适应系统构架。<code>noarch</code> 表示通用型；<code>x86_64</code> 表示 64 位系统；<code>i686</code> 表示 32 位系统。</p>
+</blockquote>
+<h2 id="3-查询-epel-包含内容"><a class="markdownIt-Anchor" href="#3-查询-epel-包含内容"></a> 3 查询 EPEL 包含内容</h2>
+<p>在 <a href="/2018/06/12/centos-rpm/" title="CentOS rpm 包">CentOS rpm 包</a> 中介绍过 rpm 包相关内容及命令，这里可以使用 rpm 查询命令查看 EPEL 包含的内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ql epel-release</span><br></pre></td></tr></table></figure>
+<p><img src="http://pic.hqmmw.com/markdown-img-paste-2018061216001662.png" alt="quyer epel-release package"></p>
+<h2 id="4-安装-webtatic-源"><a class="markdownIt-Anchor" href="#4-安装-webtatic-源"></a> 4 安装 WEBTATIC 源</h2>
+<p>对于服务器而言，最为常见的即是提供 web 服务，而对于 web 服务中常用的一些软件，在系统默认的源下，一般版本较低，如若需要使用相对较新的版本（如 PHP），WEBTATIC 源是一个很好的选择。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS/RHEL 7.x:</span></span><br><span class="line">yum install epel-release</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL 6.x:</span></span><br><span class="line">yum install epel-release</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="lfire wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎添加</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>折腾中，痛并快乐着！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/pay_wx_300.png" alt="lfire 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/pay_ali_300.png" alt="lfire 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/yum/" rel="tag"># yum</a>
+          
+            <a href="/tags/EPEL/" rel="tag"># EPEL</a>
+          
+            <a href="/tags/WEBTATIC/" rel="tag"># WEBTATIC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/12/centos-rpm/" rel="next" title="Centos rpm 包">
+                <i class="fa fa-chevron-left"></i> Centos rpm 包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -431,8 +672,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -653,6 +903,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-epel-特点"><span class="nav-text"> 1 EPEL 特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-epel-启用"><span class="nav-text"> 2 EPEL 启用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-查询-epel-包含内容"><span class="nav-text"> 3 查询 EPEL 包含内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-安装-webtatic-源"><span class="nav-text"> 4 安装 WEBTATIC 源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -815,6 +1081,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -829,6 +1099,23 @@
     <script id="dsq-count-scr" src="https://lfire-github-io.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://lfire.github.io/2018/06/12/epel-and-webtatic-for-linux/';
+        this.page.identifier = '2018/06/12/epel-and-webtatic-for-linux/';
+        this.page.title = '启用和安装 EPEL & WEBTATIC 源';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lfire-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 

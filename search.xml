@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[启用和安装 EPEL & WEBTATIC 源]]></title>
+    <url>%2F2018%2F06%2F12%2Fepel-and-webtatic-for-linux%2F</url>
+    <content type="text"><![CDATA[1 EPEL 特点 2 EPEL 启用 3 查询 EPEL 包含内容 4 安装 WEBTATIC 源 EPEL(Extra Packages for Enterprise Linux, 企业版 Linux 附加软件包) 是一个 Fedora 特别兴趣小组，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集，面向的对象包括但不限于红帽企业版 Linux (RHEL)、 CentOS、Scientific Linux (SL)、Oracle Linux (OL) 。 Webtatic Yum repository，是一个 CentOS/RHEL 软件存储库，其中包含较新的与 WEB 相关的软件包。 1 EPEL 特点 EPEL 的软件包通常不会与企业版 Linux 官方源中的软件包发生冲突，或者互相替换文件。EPEL 项目与 Fedora 基本一致，包含完整的构建系统、升级管理器、镜像管理器等等。另外，其在使用过程中，有以下特点： 不用去换原来 yum 源，安装后会产生新的 repo； EPEL 会有很多源地址，如果一个下载不成功，会去另外的地址下载； 更新时，如果下载的包不全，就不会进行安装，保证了依赖完整性。 2 EPEL 启用 1234# 查找软件名称yum search epel# 安装yum install epel-release 注：yum 搜索的结果中 epel-release.noarch 就是我们需要的软件包。安装可以不用包含软件包名称中 . 之后的部分，当然包含也没有问题。. 后的部分表示软件包适应系统构架。noarch 表示通用型；x86_64 表示 64 位系统；i686 表示 32 位系统。 3 查询 EPEL 包含内容 在 CentOS rpm 包 中介绍过 rpm 包相关内容及命令，这里可以使用 rpm 查询命令查看 EPEL 包含的内容。 1rpm -ql epel-release 4 安装 WEBTATIC 源 对于服务器而言，最为常见的即是提供 web 服务，而对于 web 服务中常用的一些软件，在系统默认的源下，一般版本较低，如若需要使用相对较新的版本（如 PHP），WEBTATIC 源是一个很好的选择。 1234567# CentOS/RHEL 7.x:yum install epel-releaserpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm# CentOS/RHEL 6.x:yum install epel-releaserpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm]]></content>
+      <categories>
+        <category>系统环境</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>yum</tag>
+        <tag>EPEL</tag>
+        <tag>WEBTATIC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Centos rpm 包]]></title>
     <url>%2F2018%2F06%2F12%2Fcentos-rpm%2F</url>
     <content type="text"><![CDATA[1 RPM 包与源码包的区别 2 RPM 包命名 &amp; 依赖性 3 RPM 包的安装、升级、卸载和查询 RPM 包，在 CentOS 使用过程中，也是经常会遇到的一种软件包形式，对于该类型包的相关操作进行了解，有助于日常的使用。 1 RPM 包与源码包的区别 软件包分类 源码包：C 源代码包 rpm 包：编译之后的二进制包 源码包 优点：开源，并可以自由选择所需功能，可看源代码，卸载方便（直接删除安装位置）; 缺点：安装步骤繁琐，编译时间过长。 RPM 包 优点：使用简单，只需要几个命令就可以实现包的安装、升级、查询、卸载，安装速度快； 缺点：不能看源代码，功能选择不如源代码灵活，依赖性。 2 RPM 包命名 &amp; 依赖性 命名规则 12# 举例包名httpd-2.4.6-67.el7.centos.x86_64.rpm 命名分段 说明 httpd 软件包名 2.4.6 软件版本 67 发行次数 el7.centos 适合的 linux 平台 x86_64 适合的硬件平台 rpm 扩展名 依赖性 树形依赖：a-&gt;b-&gt;c，即 a 依赖 b ， b 依赖 c 。 环形依赖：a-&gt;b-&gt;c-&gt;a 模块依赖：模块依赖查询网站，www.rpmfind.net 3 RPM 包的安装、升级、卸载和查询 包全名 ＆ 包名对比说明 包全名 包名 例如：httpd-2.4.6-67.el7.centos.x86_64.rpm 例如：httpd 操作包时为没有安装的软件包时，使用 包全名。 操作包时为已经安装的软件包时，使用 包名。 安装、升级时使用 查询、卸载时使用 安装 123456789rpm -ivh [包全名]# 选项：# -i(install) 安装# -v(verbose) 显示详细信息# -h(hash) 显示进度# --nodeps 不检测依赖性# 如rpm -ivh httpd-2.4.6-67.el7.centos.x86_64.rpm 注：可能会有很多依赖性问题出现，根据一个个依赖性继续 rpm 安装即可。 升级 123rpm -Uvh [包全名]# 选项：# -U(upgrade) 升级 卸载 123456789101112rpm -e [包名]# 选项：# -e(erase) 卸载# --nodeps 不检测依赖性# 如rpm -e httpd# 报错信息# 错误：依赖检测失败：# httpd = 2.4.6-67.el7.centos 被 (已安裝) httpd-devel-2.4.6-67.el7.centos.x86_64 需要rpm -e httpd-develrpm -e httpd 注：卸载要按照安装依赖性的反方向卸载。 查询 12345678910111213141516171819202122232425# 查询是否安装rpm -q [包名]# 选项：# -q(query) 查询# -a(all) 所有# 查询软件包的详细信息rpm -qi [包名]# 选项：# -i(information) 查询软件包信息# 查询包中文件安装位置rpm -ql [包名]# 选项：# -l(list) 列表# 查询系统文件属于哪个 rpm 包rpm -qf [系统文件名]# 选项：# -f(file) 查询系统文件属于哪个 rpm 包# 查询软件包的依赖性rpm -qR [包名]# 选项：# -R(requires) 查询软件包的依赖性]]></content>
