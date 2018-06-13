@@ -124,7 +124,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180611163911778.png">
 <meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180612091852727.png">
-<meta property="og:updated_time" content="2018-06-13T01:43:47.001Z">
+<meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180613113014631.png">
+<meta property="og:updated_time" content="2018-06-13T06:20:13.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos 源 &amp; yum 管理命令">
 <meta name="twitter:description" content="1 yum 源 2 网络源 3 光盘源 4 yum 命令">
@@ -467,7 +468,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">1.9k</span>
               
 
               
@@ -576,7 +577,7 @@
 <ul>
 <li>查询</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在远程服务器上查询所有可用的软件包列表</span></span><br><span class="line">yum list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索远程服务器上所有和关键字相关的包</span></span><br><span class="line">yum search [keywords]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看软件包信息</span></span><br><span class="line">yum info [package-name]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在远程服务器上查询所有可用的软件包列表</span></span><br><span class="line">yum list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示本地安装好的软件列表</span></span><br><span class="line">yum list installed</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索远程服务器上所有和关键字相关的包</span></span><br><span class="line">yum search [keywords]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看软件包信息</span></span><br><span class="line">yum info [package-name]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装</li>
 </ul>
@@ -589,6 +590,14 @@
 <li>卸载</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove [package-name]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#       remove      卸载</span></span><br><span class="line"><span class="comment">#       -y          自动回复 yes</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加源后更新</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum update</span><br></pre></td></tr></table></figure>
+<p>5 yum 源优先级<br>
+如若喜欢优先从某个源安装软件，建议使用 <code>yum-priorities</code> 插件，该插件的作用是给多个源排定优先级，当多个源中存在同一软件的时候，软件会优先使用优先级高的源安装。<br>
+安装完成后需要设置 <code>/etc/yum.repos.d/</code> 目录下的 <code>.repo</code> 相关源文件，在文件中插入优先级配置，<code>priority=N</code> ，<code>N</code> 为 1 到 99 正整数，值越小优先级越高。<br>
+<img src="http://pic.hqmmw.com/markdown-img-paste-20180613113014631.png" alt="repository priority setting"></p>
 
       
     </div>
