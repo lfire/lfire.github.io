@@ -83,6 +83,9 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 # 在远程服务器上查询所有可用的软件包列表
 yum list
 
+# 显示本地安装好的软件列表
+yum list installed
+
 # 搜索远程服务器上所有和关键字相关的包
 yum search [keywords]
 
@@ -120,3 +123,14 @@ yum -y remove [package-name]
 #       remove      卸载
 #       -y          自动回复 yes
 ```
+
+* 添加源后更新
+```bash
+yum clean all
+yum update
+```
+
+5 yum 源优先级
+如若喜欢优先从某个源安装软件，建议使用 `yum-priorities` 插件，该插件的作用是给多个源排定优先级，当多个源中存在同一软件的时候，软件会优先使用优先级高的源安装。
+安装完成后需要设置 `/etc/yum.repos.d/` 目录下的 `.repo` 相关源文件，在文件中插入优先级配置，`priority=N` ，`N` 为 1 到 99 正整数，值越小优先级越高。
+![repository priority setting](http://pic.hqmmw.com/markdown-img-paste-20180613113014631.png)
