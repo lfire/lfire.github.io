@@ -85,6 +85,9 @@ yum list
 
 # 搜索远程服务器上所有和关键字相关的包
 yum search [keywords]
+
+# 查看软件包信息
+yum info [package-name]
 ```
 
 * 安装
@@ -97,10 +100,17 @@ yum -y install [package-name]
 
 * 升级
 ```bash
+# 升级某个软件包
 yum -y update [package-name]
 # 选项：
 #       update      升级
 #       -y          自动回复 yes
+
+# 升级所有包，同时升级软件和系统内核
+yum -y update
+
+# 升级所有包，但不升级软件和系统内核
+yum -y upgrade
 ```
 
 * 卸载
