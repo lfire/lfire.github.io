@@ -16,6 +16,8 @@ categories:
 
 在安装使用 VMware Workstation 虚拟机时，创建的虚拟机通常我们需要配置，以使其可以上网，或是达到其他的网络通信条件，这时候我们就经常会接触到虚拟网卡。而在虚拟网中，我们又经常的看到 VMnet0、VMnet1、VMnet8 ，甚至有些还需要更多，VMnet2 ~ VMnet7 和 VMnet9 ，具体这些是什么含义，各有什么功能，又有什么区别？
 
+<!-- more -->
+
 ## 1 VMnet 功能
 在实际使用过程中，默认的情况下， VMware Workstation 中有3个虚拟交换机，分别是：
 - VMnet0 使用桥接网络
