@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vmnet 分类 & 区别]]></title>
+    <url>%2F2018%2F06%2F21%2Fvmnet%2F</url>
+    <content type="text"><![CDATA[1 VMnet 功能 2 VMnet0 3 VMnet1 4 VMnet8 在安装使用 VMware Workstation 虚拟机时，创建的虚拟机通常我们需要配置，以使其可以上网，或是达到其他的网络通信条件，这时候我们就经常会接触到虚拟网卡。而在虚拟网中，我们又经常的看到 VMnet0、VMnet1、VMnet8 ，甚至有些还需要更多，VMnet2 ~ VMnet7 和 VMnet9 ，具体这些是什么含义，各有什么功能，又有什么区别？ 1 VMnet 功能 在实际使用过程中，默认的情况下， VMware Workstation 中有3个虚拟交换机，分别是： VMnet0 使用桥接网络 VMnet1 仅主机网络 VMnet8 NAT 网络 通过 编辑 -&gt; 虚拟网络编辑器 ，调出 VMnet 编辑器，如下图： 2 VMnet0 VMnet0，实际是上一个虚拟的网桥，有若干个端口，一个端口用于连接宿主机 host，一个端口用于连接相应的虚拟机，其位置相应对等，谁也不是谁的网关。因此，在 Bridged 模式下，虚拟机成为了一台与宿主机相同地位的机器。 3 VMnet1 VMnet1，是一种 Host-Only 网络模式，用于建立起一个与外界隔离的网络环境，其也是一个虚拟交换机，交换机的一个端口连接到宿主机，另一个端口连接到虚拟机的 DHCP 服务器上（实际是 VMware 的一个组件），另外剩下的端口就是连接虚拟机了。其可访问的范围即是 Host-Only 模式所指定的网段。 4 VMnet8 VMnet8，是一种 NAT 模式，最简单的组网方式了，从主机的“VMWare Virtual Ethernet Adapter for VMnet8”虚拟网卡出来，连接到vmnet8虚拟交换机，虚拟交换机的另外的口连接到虚拟的NAT服务器（这也是一个Vmware组件），还有一个口连接到虚拟 DHCP 服务器，其他的口连虚拟机，虚拟机的网关即是“VMWare Virtual Ethernet Adapter for VMnet8”网卡所在的机器。相比之下，可以看出来，NAT组网方式和Host-Only方式，区别就在于是否多了一个NAT服务。]]></content>
+      <categories>
+        <category>工具</category>
+        <category>vmware</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
+        <tag>vmnet</tag>
+        <tag>NAT</tag>
+        <tag>桥接</tag>
+        <tag>仅主机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Centos yum 源]]></title>
     <url>%2F2018%2F06%2F12%2Fcentos-yum-repository%2F</url>
     <content type="text"><![CDATA[1 EPEL 源 &amp; WEBTATIC 源 2 Nginx 源 3 Mysql 源 4 REMI 源 5 CODEIT 源 在日常的 linux 使用过程中，安装软件是最为常见的一种操作，而软件的来源，对于 centos 来说，常用的软件工具则是 yum ，本文收集我们在使用过程中，常用的 yum 源。 1 EPEL 源 &amp; WEBTATIC 源 在 启用和安装 EPEL & WEBTATIC 源 一文中，详细介绍我解释了该两种源的安装方法，其中 EPEL 源的启用，是很多其他源安装的基础。 其中 WEBTATIC 源中，包含有我们 WEB 服务中常用的软件，如：PHP等。 2 Nginx 源 Nginx 是 web 开发过程中，最为常见的一种服务软件，因此，添加相应的源，并安装成了日常 web 服务运维过程中最为常见的操作。 进入 Nginx 官网，点击右侧的 download 链接，进入下载页面，找到页面中 Pre-Built Packages 项，选择其中的 mainline version ，进入到相应的说明页面。 针对于 RHEL/CentOS 系列 Linux ，我们新建文件 /etc/yum.repos.d/nginx.repo，配置内容如下： 12345[nginx]name=nginx repobaseurl=http://nginx.org/packages/mainline/OS/OSRELEASE/$basearch/gpgcheck=0enabled=1 注：根据系统类型，将 OS 替换为对应值：rhel 或 centos ；其中 OSRELEASE 依据系统的实际版本，替换为：6 或 7 ，分别针对于 6.x 或 7.x 系列的系统。 3 Mysql 源 系统本身包含 mysql ，但其版本相对较低，为了能使用较新的版本，我们可以使用官方提供的源进行安装。 进入 官方获取 yum 源，查看系统版本，下载对应的安装文件。 1234# 如本机为 centos 7.xwget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm# 安装源rpm -ivh mysql80-community-release-el7-1.noarch.rpm 4 REMI 源 Remi 源，软件几乎都是最新稳定版，其主要贡献成员都是一群 Linux 骨灰级玩家编译好放入源里的，对于系统环境和软件编译参数的熟悉程度毋庸置疑。 添加 Remi 源：进入其官网，可以选择对应地区的源，如本例中选择 CN ，由此而确定源地址为：https://mirrors.tuna.tsinghua.edu.cn/remi ，再根据系统版本，执行如下命令。 1234567yum install epel-release# CentOS 6.xrpm -ivh https://mirrors.tuna.tsinghua.edu.cn/remi/enterprise/remi-release-6.rpm# CentOS 7.xrpm -ivh https://mirrors.tuna.tsinghua.edu.cn/remi/enterprise/remi-release-7.rpm 注：默认情况下，Remi 源没有启用，我们需要手动启动相应源。打开 /etc/yum.repos.d/remi.repo 文件，将容器 [remi] 下的 enabled=0 修改为 enabled=1，其他容器下的不用修改。（相关参数的详细说明可参考 CentOS 源 & yum 管理命令） 5 CODEIT 源 Codeit 是一个软件公司，其制作发布了一个相关软件的源，主要是针对 CentOS 。其特点是，包含有较新版本的 httpd、nginx 等。 123456# 依赖 epelyum install epel-release# 自动判断系统版本，并下载对应源# 亦可自行进入目录，手动下载对应版本源cd /etc/yum.repos.d &amp;&amp; wget https://repo.codeit.guru/codeit.el`rpm -q --qf "%&#123;VERSION&#125;" $(rpm -q --whatprovides redhat-release)`.repo]]></content>
