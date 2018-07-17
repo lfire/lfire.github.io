@@ -16,7 +16,7 @@ categories:
 
 ## 1 nginx 安装
 基础工作的基础，就是先要会安装软件本身—— nginx ，一般分为两种，一种是下载源码包，自行编译安装；另一种，则是通过 yum 源安装。
-在 {% centos-yum-repository CentOS yum 源 %} 一文中，有提到关于 nginx 源如何添加的方法，这里不再赘叙，不清楚的，可以查看相应的文章。
+在 {% post_link centos-yum-repository CentOS yum 源 %} 一文中，有提到关于 nginx 源如何添加的方法，这里不再赘叙，不清楚的，可以查看相应的文章。
 添加源完成后，剩下的安装操作就很简单了：
 ```bash
 # 默认安装的是源中最新的版本
