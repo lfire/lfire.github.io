@@ -114,17 +114,18 @@
 
 
 
-  <meta name="description" content="在牛逼的路上越走越远">
-<meta name="keywords" content="Hexo, NexT">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lfire">
-<meta property="og:url" content="https://lfire.github.io/tags/cmder/index.html">
+  <meta name="description" content="1 nginx 安装 2 nginx 配置  2.1 配置文件 nginx.conf 2.2 常用配置说明  2.2.1 main 全局配置       在常规的使用过程中， nginx 是经常会要用到的一种服务软件，其给基于 web 的服务系统，提供了很大的便利，以及相关方面的基础支持。本文记录一下，在 linux 环境下，安装和配置 nginx 服务的过程。">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx 安装和配置文件">
+<meta property="og:url" content="https://lfire.github.io/2018/06/21/nginx-install-and-config-file/index.html">
 <meta property="og:site_name" content="lfire">
-<meta property="og:description" content="在牛逼的路上越走越远">
+<meta property="og:description" content="1 nginx 安装 2 nginx 配置  2.1 配置文件 nginx.conf 2.2 常用配置说明  2.2.1 main 全局配置       在常规的使用过程中， nginx 是经常会要用到的一种服务软件，其给基于 web 的服务系统，提供了很大的便利，以及相关方面的基础支持。本文记录一下，在 linux 环境下，安装和配置 nginx 服务的过程。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-17T07:36:27.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lfire">
-<meta name="twitter:description" content="在牛逼的路上越走越远">
+<meta name="twitter:title" content="nginx 安装和配置文件">
+<meta name="twitter:description" content="1 nginx 安装 2 nginx 配置  2.1 配置文件 nginx.conf 2.2 常用配置说明  2.2.1 main 全局配置       在常规的使用过程中， nginx 是经常会要用到的一种服务软件，其给基于 web 的服务系统，提供了很大的便利，以及相关方面的基础支持。本文记录一下，在 linux 环境下，安装和配置 nginx 服务的过程。">
 
 
 
@@ -133,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="https://lfire.github.io/tags/cmder/"/>
+  <link rel="canonical" href="https://lfire.github.io/2018/06/21/nginx-install-and-config-file/"/>
 
 
 
@@ -143,7 +144,7 @@
   };
 </script>
 
-  <title>标签: cmder | lfire</title>
+  <title>nginx 安装和配置文件 | lfire</title>
   
 
 
@@ -200,7 +201,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,7 +254,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -281,25 +282,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -359,114 +341,323 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>cmder<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lfire.github.io/2018/06/21/nginx-install-and-config-file/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfire">
+      <meta itemprop="description" content="在牛逼的路上越走越远">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lfire">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/03/10/cmder-chinese-win10/" itemprop="url">
-              
-                <span itemprop="name">win10 升级后 cmder 别名失效修复</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">nginx 安装和配置文件
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-11T04:05:24+08:00"
-              content="2017-03-11" >
-          03-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-22 00:45:10" itemprop="dateCreated datePublished" datetime="2018-06-22T00:45:10+08:00">2018-06-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境配置/" itemprop="url" rel="index"><span itemprop="name">环境配置</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境配置/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/21/nginx-install-and-config-file/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/21/nginx-install-and-config-file/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">0:01</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/08/cmder-cygwin-chinese/" itemprop="url">
-              
-                <span itemprop="name">cmder & cygwin 中文支持解决方案</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-08T17:54:46+08:00"
-              content="2017-03-08" >
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/02/cmder/" itemprop="url">
-              
-                <span itemprop="name">神器 cmder</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-02T17:12:42+08:00"
-              content="2017-03-02" >
-          03-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p><ul class="markdownIt-TOC">
+<li><a href="#1-nginx-%E5%AE%89%E8%A3%85">1 nginx 安装</a></li>
+<li><a href="#2-nginx-%E9%85%8D%E7%BD%AE">2 nginx 配置</a>
+<ul>
+<li><a href="#21-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-nginxconf">2.1 配置文件 <code>nginx.conf</code></a></li>
+<li><a href="#22-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E">2.2 常用配置说明</a>
+<ul>
+<li><a href="#221-main-%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE">2.2.1 <code>main</code> 全局配置</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<p>在常规的使用过程中， nginx 是经常会要用到的一种服务软件，其给基于 web 的服务系统，提供了很大的便利，以及相关方面的基础支持。本文记录一下，在 linux 环境下，安装和配置 nginx 服务的过程。</p>
+<a id="more"></a>
+<h2 id="1-nginx-安装"><a class="markdownIt-Anchor" href="#1-nginx-安装"></a> 1 nginx 安装</h2>
+<p>基础工作的基础，就是先要会安装软件本身—— nginx ，一般分为两种，一种是下载源码包，自行编译安装；另一种，则是通过 yum 源安装。<br>
+在 <a href="/2018/06/12/centos-yum-repository/" title="CentOS yum 源">CentOS yum 源</a> 一文中，有提到关于 nginx 源如何添加的方法，这里不再赘叙，不清楚的，可以查看相应的文章。<br>
+添加源完成后，剩下的安装操作就很简单了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认安装的是源中最新的版本</span></span><br><span class="line"><span class="comment"># 同样也可以指定版本安装，前提需要你先去 packages 中查看存在某一具体版本</span></span><br><span class="line">yum install nginx -y</span><br></pre></td></tr></table></figure>
+<h2 id="2-nginx-配置"><a class="markdownIt-Anchor" href="#2-nginx-配置"></a> 2 nginx 配置</h2>
+<p>安装成功后，我们仍需要对其进行相关配置，以满足我们的相关应用需求。</p>
+<h3 id="21-配置文件-nginxconf"><a class="markdownIt-Anchor" href="#21-配置文件-nginxconf"></a> 2.1 配置文件 <code>nginx.conf</code></h3>
+<p>nginx 配置文件主要分为四部分：</p>
+<ul>
+<li><code>main</code> ：全局配置</li>
+<li><code>server</code> ：主机配置</li>
+<li><code>upstream</code> ：上游服务器配置，主要是：反向代理、负载均衡相关配置</li>
+<li><code>location</code> ：URL 路由匹配规则配置</li>
+</ul>
+<p>其中 <code>main</code> 部分的配置指令，会在全局范围内产生作用，从而影响其他所有部分的配置；<code>server</code> 部分的配置，主要用于指定虚拟主机域名、IP 和端口；<code>upstream</code> 用于配置一系列的后端服务器，配置反向代理及后端服务器的负载均衡；<code>location</code> 部分用于配置匹配页面访问规则（如，根目录：<code>/</code>，<code>/images</code>，等）。<br>
+这几部分之间的关系是：<code>server</code> 继承 <code>main</code>，<code>location</code> 继承 <code>server</code>；<code>upstream</code> 既不会继承其他配置也不会被继承，其有一套自身特有的配置。</p>
+<h3 id="22-常用配置说明"><a class="markdownIt-Anchor" href="#22-常用配置说明"></a> 2.2 常用配置说明</h3>
+<p>在配置 nginx 时，一般简单的应用，只需要配置很少量的，常见的几个配置参数即可，以下对于常见的一些配置进行说明记录。</p>
+<h4 id="221-main-全局配置"><a class="markdownIt-Anchor" href="#221-main-全局配置"></a> 2.2.1 <code>main</code> 全局配置</h4>
+<p>nginx 在运行时，与具体业务功能（如 http 服务或是 email 服务代理等）无关的一些参数，如：工作进程数、运行的身份等。</p>
+<ul>
+<li><code>worker_processes 2</code><br>
+在配置文件的顶部 <code>main</code> 部分，worker 角色的工作进程的个数，master 进程是接收并分配请求给 worker 处理。这个数值简单点可以配置为 CPU 的核心数（<code>grep ^processor /proc/cpuinfo | wc -l</code>），也是 auto 值，如果开启了 ssl 和 gzip ，则更应该设置成与逻辑 CPU 数量一致甚至为 2 倍，可以减少 I/O 操作，如若 nginx 服务器还有其它服务运行，可以适当的考虑减少。</li>
+<li><code>worker_cpu_affinity</code><br>
+同样配置在 <code>main</code> 部分。在高并发场景下，通过配置 CPU 粘性来降低由于多 CPU 核心切换造成的寄存器等现场重建带来的性能损耗。如：<code>worker_cpu_affinity 0001 0010 0100 1000;</code> （四核）。</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="lfire wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎添加</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>折腾中，痛并快乐着！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/pay_wx_300.png" alt="lfire 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/pay_ali_300.png" alt="lfire 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/21/vmnet/" rel="next" title="vmnet 分类 & 区别">
+                <i class="fa fa-chevron-left"></i> vmnet 分类 & 区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -487,8 +678,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -727,6 +927,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-nginx-安装"><span class="nav-text"> 1 nginx 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-nginx-配置"><span class="nav-text"> 2 nginx 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-配置文件-nginxconf"><span class="nav-text"> 2.1 配置文件 nginx.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-常用配置说明"><span class="nav-text"> 2.2 常用配置说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#221-main-全局配置"><span class="nav-text"> 2.2.1 main 全局配置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -889,6 +1105,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -903,6 +1123,23 @@
     <script id="dsq-count-scr" src="https://lfire-github-io.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://lfire.github.io/2018/06/21/nginx-install-and-config-file/';
+        this.page.identifier = '2018/06/21/nginx-install-and-config-file/';
+        this.page.title = 'nginx 安装和配置文件';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lfire-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 

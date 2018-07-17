@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nginx 安装和配置文件]]></title>
+    <url>%2F2018%2F06%2F21%2Fnginx-install-and-config-file%2F</url>
+    <content type="text"><![CDATA[1 nginx 安装 2 nginx 配置 2.1 配置文件 nginx.conf 2.2 常用配置说明 2.2.1 main 全局配置 在常规的使用过程中， nginx 是经常会要用到的一种服务软件，其给基于 web 的服务系统，提供了很大的便利，以及相关方面的基础支持。本文记录一下，在 linux 环境下，安装和配置 nginx 服务的过程。 1 nginx 安装 基础工作的基础，就是先要会安装软件本身—— nginx ，一般分为两种，一种是下载源码包，自行编译安装；另一种，则是通过 yum 源安装。 在 CentOS yum 源 一文中，有提到关于 nginx 源如何添加的方法，这里不再赘叙，不清楚的，可以查看相应的文章。 添加源完成后，剩下的安装操作就很简单了： 123# 默认安装的是源中最新的版本# 同样也可以指定版本安装，前提需要你先去 packages 中查看存在某一具体版本yum install nginx -y 2 nginx 配置 安装成功后，我们仍需要对其进行相关配置，以满足我们的相关应用需求。 2.1 配置文件 nginx.conf nginx 配置文件主要分为四部分： main ：全局配置 server ：主机配置 upstream ：上游服务器配置，主要是：反向代理、负载均衡相关配置 location ：URL 路由匹配规则配置 其中 main 部分的配置指令，会在全局范围内产生作用，从而影响其他所有部分的配置；server 部分的配置，主要用于指定虚拟主机域名、IP 和端口；upstream 用于配置一系列的后端服务器，配置反向代理及后端服务器的负载均衡；location 部分用于配置匹配页面访问规则（如，根目录：/，/images，等）。 这几部分之间的关系是：server 继承 main，location 继承 server；upstream 既不会继承其他配置也不会被继承，其有一套自身特有的配置。 2.2 常用配置说明 在配置 nginx 时，一般简单的应用，只需要配置很少量的，常见的几个配置参数即可，以下对于常见的一些配置进行说明记录。 2.2.1 main 全局配置 nginx 在运行时，与具体业务功能（如 http 服务或是 email 服务代理等）无关的一些参数，如：工作进程数、运行的身份等。 worker_processes 2 在配置文件的顶部 main 部分，worker 角色的工作进程的个数，master 进程是接收并分配请求给 worker 处理。这个数值简单点可以配置为 CPU 的核心数（grep ^processor /proc/cpuinfo | wc -l），也是 auto 值，如果开启了 ssl 和 gzip ，则更应该设置成与逻辑 CPU 数量一致甚至为 2 倍，可以减少 I/O 操作，如若 nginx 服务器还有其它服务运行，可以适当的考虑减少。 worker_cpu_affinity 同样配置在 main 部分。在高并发场景下，通过配置 CPU 粘性来降低由于多 CPU 核心切换造成的寄存器等现场重建带来的性能损耗。如：worker_cpu_affinity 0001 0010 0100 1000; （四核）。]]></content>
+      <categories>
+        <category>环境配置</category>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vmnet 分类 & 区别]]></title>
     <url>%2F2018%2F06%2F21%2Fvmnet%2F</url>
     <content type="text"><![CDATA[1 VMnet 功能 2 VMnet0 3 VMnet1 4 VMnet8 在安装使用 VMware Workstation 虚拟机时，创建的虚拟机通常我们需要配置，以使其可以上网，或是达到其他的网络通信条件，这时候我们就经常会接触到虚拟网卡。而在虚拟网中，我们又经常的看到 VMnet0、VMnet1、VMnet8 ，甚至有些还需要更多，VMnet2 ~ VMnet7 和 VMnet9 ，具体这些是什么含义，各有什么功能，又有什么区别？ 1 VMnet 功能 在实际使用过程中，默认的情况下， VMware Workstation 中有3个虚拟交换机，分别是： VMnet0 使用桥接网络 VMnet1 仅主机网络 VMnet8 NAT 网络 通过 编辑 -&gt; 虚拟网络编辑器 ，调出 VMnet 编辑器，如下图： 2 VMnet0 VMnet0，实际是上一个虚拟的网桥，有若干个端口，一个端口用于连接宿主机 host，一个端口用于连接相应的虚拟机，其位置相应对等，谁也不是谁的网关。因此，在 Bridged 模式下，虚拟机成为了一台与宿主机相同地位的机器。 3 VMnet1 VMnet1，是一种 Host-Only 网络模式，用于建立起一个与外界隔离的网络环境，其也是一个虚拟交换机，交换机的一个端口连接到宿主机，另一个端口连接到虚拟机的 DHCP 服务器上（实际是 VMware 的一个组件），另外剩下的端口就是连接虚拟机了。其可访问的范围即是 Host-Only 模式所指定的网段。 4 VMnet8 VMnet8，是一种 NAT 模式，最简单的组网方式了，从主机的“VMWare Virtual Ethernet Adapter for VMnet8”虚拟网卡出来，连接到vmnet8虚拟交换机，虚拟交换机的另外的口连接到虚拟的NAT服务器（这也是一个Vmware组件），还有一个口连接到虚拟 DHCP 服务器，其他的口连虚拟机，虚拟机的网关即是“VMWare Virtual Ethernet Adapter for VMnet8”网卡所在的机器。相比之下，可以看出来，NAT组网方式和Host-Only方式，区别就在于是否多了一个NAT服务。]]></content>

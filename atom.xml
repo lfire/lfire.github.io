@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lfire.github.io/"/>
-  <updated>2018-06-21T08:44:44.908Z</updated>
+  <updated>2018-07-17T07:36:27.010Z</updated>
   <id>https://lfire.github.io/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>nginx 安装和配置文件</title>
+    <link href="https://lfire.github.io/2018/06/21/nginx-install-and-config-file/"/>
+    <id>https://lfire.github.io/2018/06/21/nginx-install-and-config-file/</id>
+    <published>2018-06-21T16:45:10.000Z</published>
+    <updated>2018-07-17T07:36:27.010Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;ul class=&quot;markdownIt-TOC&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#1-nginx-%E5%AE%89%E8%A3%85&quot;&gt;1 nginx 安装&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-nginx-%E9%85%8D%E7%BD%AE&quot;&gt;2 nginx 配置&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#21-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-nginxconf&quot;&gt;2.1 配置文件 &lt;code&gt;nginx.conf&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#22-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E&quot;&gt;2.2 常用配置说明&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#221-main-%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE&quot;&gt;2.2.1 &lt;code&gt;main&lt;/code&gt; 全局配置&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;在常规的使用过程中， nginx 是经常会要用到的一种服务软件，其给基于 web 的服务系统，提供了很大的便利，以及相关方面的基础支持。本文记录一下，在 linux 环境下，安装和配置 nginx 服务的过程。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="环境配置" scheme="https://lfire.github.io/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="nginx" scheme="https://lfire.github.io/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/nginx/"/>
+    
+    
+      <category term="nginx" scheme="https://lfire.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vmnet 分类 &amp; 区别</title>
     <link href="https://lfire.github.io/2018/06/21/vmnet/"/>
     <id>https://lfire.github.io/2018/06/21/vmnet/</id>
     <published>2018-06-21T14:17:19.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -58,7 +94,7 @@
     <link href="https://lfire.github.io/2018/06/12/centos-yum-repository/"/>
     <id>https://lfire.github.io/2018/06/12/centos-yum-repository/</id>
     <published>2018-06-12T17:12:08.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -94,7 +130,7 @@
     <link href="https://lfire.github.io/2018/06/12/epel-and-webtatic-for-linux/"/>
     <id>https://lfire.github.io/2018/06/12/epel-and-webtatic-for-linux/</id>
     <published>2018-06-12T14:39:07.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -128,7 +164,7 @@
     <link href="https://lfire.github.io/2018/06/12/centos-rpm/"/>
     <id>https://lfire.github.io/2018/06/12/centos-rpm/</id>
     <published>2018-06-12T10:11:23.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -158,7 +194,7 @@
     <link href="https://lfire.github.io/2018/06/11/centos-yum-repo-admin/"/>
     <id>https://lfire.github.io/2018/06/11/centos-yum-repo-admin/</id>
     <published>2018-06-11T16:10:32.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -191,7 +227,7 @@
     <link href="https://lfire.github.io/2018/06/09/docker-work-with-vmware/"/>
     <id>https://lfire.github.io/2018/06/09/docker-work-with-vmware/</id>
     <published>2018-06-09T07:26:55.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -221,7 +257,7 @@
     <link href="https://lfire.github.io/2018/03/23/gitlab-config-for-email/"/>
     <id>https://lfire.github.io/2018/03/23/gitlab-config-for-email/</id>
     <published>2018-03-23T10:18:42.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -254,7 +290,7 @@
     <link href="https://lfire.github.io/2018/03/20/html-style-guide/"/>
     <id>https://lfire.github.io/2018/03/20/html-style-guide/</id>
     <published>2018-03-20T16:05:21.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -313,7 +349,7 @@
     <link href="https://lfire.github.io/2018/03/20/css-style-guide/"/>
     <id>https://lfire.github.io/2018/03/20/css-style-guide/</id>
     <published>2018-03-20T15:41:34.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -388,7 +424,7 @@
     <link href="https://lfire.github.io/2018/03/13/js-style-guide/"/>
     <id>https://lfire.github.io/2018/03/13/js-style-guide/</id>
     <published>2018-03-13T14:55:13.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -517,7 +553,7 @@
     <link href="https://lfire.github.io/2018/03/12/editorconfig/"/>
     <id>https://lfire.github.io/2018/03/12/editorconfig/</id>
     <published>2018-03-12T12:33:01.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -546,7 +582,7 @@
     <link href="https://lfire.github.io/2018/02/27/update-hexo-blog/"/>
     <id>https://lfire.github.io/2018/02/27/update-hexo-blog/</id>
     <published>2018-02-27T11:08:39.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -589,7 +625,7 @@
     <link href="https://lfire.github.io/2017/12/05/about-agile/"/>
     <id>https://lfire.github.io/2017/12/05/about-agile/</id>
     <published>2017-12-05T09:44:15.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -637,7 +673,7 @@
     <link href="https://lfire.github.io/2017/11/15/deploy-the-frp-server/"/>
     <id>https://lfire.github.io/2017/11/15/deploy-the-frp-server/</id>
     <published>2017-11-15T14:06:38.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -692,7 +728,7 @@
     <link href="https://lfire.github.io/2017/11/10/jetbrains-ide-active-server/"/>
     <id>https://lfire.github.io/2017/11/10/jetbrains-ide-active-server/</id>
     <published>2017-11-10T17:12:32.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -724,7 +760,7 @@
     <link href="https://lfire.github.io/2017/10/31/game-with-h5/"/>
     <id>https://lfire.github.io/2017/10/31/game-with-h5/</id>
     <published>2017-10-31T14:58:52.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -764,7 +800,7 @@
     <link href="https://lfire.github.io/2017/10/23/markdown-api/"/>
     <id>https://lfire.github.io/2017/10/23/markdown-api/</id>
     <published>2017-10-23T10:01:30.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -794,7 +830,7 @@
     <link href="https://lfire.github.io/2017/10/13/hexo-base-deploy/"/>
     <id>https://lfire.github.io/2017/10/13/hexo-base-deploy/</id>
     <published>2017-10-13T14:12:05.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -833,7 +869,7 @@
     <link href="https://lfire.github.io/2017/03/10/cmder-chinese-win10/"/>
     <id>https://lfire.github.io/2017/03/10/cmder-chinese-win10/</id>
     <published>2017-03-10T20:05:24.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -865,7 +901,7 @@
     <link href="https://lfire.github.io/2017/03/08/cmder-cygwin-chinese/"/>
     <id>https://lfire.github.io/2017/03/08/cmder-cygwin-chinese/</id>
     <published>2017-03-08T09:54:46.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -911,7 +947,7 @@
     <link href="https://lfire.github.io/2017/03/02/cmder/"/>
     <id>https://lfire.github.io/2017/03/02/cmder/</id>
     <published>2017-03-02T09:12:42.000Z</published>
-    <updated>2018-06-21T08:44:44.904Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
@@ -956,7 +992,7 @@
     <link href="https://lfire.github.io/2017/03/01/hello-world/"/>
     <id>https://lfire.github.io/2017/03/01/hello-world/</id>
     <published>2017-03-01T16:34:00.000Z</published>
-    <updated>2018-06-21T08:44:44.908Z</updated>
+    <updated>2018-07-17T07:36:27.010Z</updated>
     
     <summary type="html">
     
