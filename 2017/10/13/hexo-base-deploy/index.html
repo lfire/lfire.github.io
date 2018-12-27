@@ -118,12 +118,12 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="1 介绍&amp;amp;安装  1.1 简单的过程 1.2 安装主题 1.3 默认配置导入   2 博客文章新建 3 部署&amp;amp;发布  3.1 生成 3.2 部署 3.3 一步到位">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/tldkxmb2dhy0cni66z4jrsvc/image_1bsk41i721c8d1d9f1p761dop2159.png">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20181227143937898.png">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo基础搭建博客系统">
 <meta name="twitter:description" content="1 介绍&amp;amp;安装  1.1 简单的过程 1.2 安装主题 1.3 默认配置导入   2 博客文章新建 3 部署&amp;amp;发布  3.1 生成 3.2 部署 3.3 一步到位">
-<meta name="twitter:image" content="http://static.zybuluo.com/lfire/tldkxmb2dhy0cni66z4jrsvc/image_1bsk41i721c8d1d9f1p761dop2159.png">
+<meta name="twitter:image" content="http://pic.hqmmw.com/markdown-img-paste-20181227143937898.png">
 
 
 
@@ -565,7 +565,7 @@
 <p>执行之后，就会在对应的目录下（如目录名为 blog，则路径为：<em>blog/source/_posts/hello-hexo.md</em>）生成相关文件。</p>
 <h2 id="3-部署发布"><a class="markdownIt-Anchor" href="#3-部署发布"></a> 3 部署&amp;发布</h2>
 <p>在配置文件中（<em>blog/_config.yml</em>），如下图，会有 github 部署位置的一个配置，本例中，使用的只是一个演示 demo，有需要的可以自已修改为对应的位置即可。<br>
-<img src="http://static.zybuluo.com/lfire/tldkxmb2dhy0cni66z4jrsvc/image_1bsk41i721c8d1d9f1p761dop2159.png" alt="image_1bsk41i721c8d1d9f1p761dop2159.png-12.6kB"><br>
+<img src="http://pic.hqmmw.com/markdown-img-paste-20181227143937898.png" alt="部署配置"><br>
 配置部署位置后，我们就可以执行相关命令来完成部署。</p>
 <h3 id="31-生成"><a class="markdownIt-Anchor" href="#31-生成"></a> 3.1 生成</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 先将 markdown 文档转化为静态 HTML 文件资源</span></span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment">## or 缩写</span></span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
@@ -1253,7 +1253,7 @@
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

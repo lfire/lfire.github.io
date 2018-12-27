@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="1 背景 2 代码风格  2.1 文件 2.2 结构  2.2.1 缩进 2.2.2 空格 2.2.3 换行 2.2.4 语句 2.2.5 块 2.2.6 逗号 2.2.7 分号   2.3 命名 2.4 注释  2.4.1 单行注释 2.4.2 多行注释 2.4.3 文档化注释 2.4.4 类型定义 2.4.5 文件注释 2.4.6 命名空间注释 2.4.7 类注释 2.4.8 函数/方法注释">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 开发规范指导手册">
 <meta name="twitter:description" content="1 背景 2 代码风格  2.1 文件 2.2 结构  2.2.1 缩进 2.2.2 空格 2.2.3 换行 2.2.4 语句 2.2.5 块 2.2.6 逗号 2.2.7 分号   2.3 命名 2.4 注释  2.4.1 单行注释 2.4.2 多行注释 2.4.3 文档化注释 2.4.4 类型定义 2.4.5 文件注释 2.4.6 命名空间注释 2.4.7 类注释 2.4.8 函数/方法注释">
@@ -2381,7 +2381,7 @@ jQuery 内部会将其转换为 <code>$('#parent').find('.child')</code> ，比�
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

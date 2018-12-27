@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="1 nginx 安装 2 nginx 配置  2.1 配置文件 nginx.conf 2.2 常用配置说明  2.2.1 main 全局配置 2.2.2 http 服务器 2.2.3 server 虚拟主机 2.2.4 location 规则   2.3 其他配置  2.3.1 访问控制 allow/deny 2.3.2 目录列表 autoindex       在常规的使用过程中， nginx">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx 安装和配置文件">
 <meta name="twitter:description" content="1 nginx 安装 2 nginx 配置  2.1 配置文件 nginx.conf 2.2 常用配置说明  2.2.1 main 全局配置 2.2.2 http 服务器 2.2.3 server 虚拟主机 2.2.4 location 规则   2.3 其他配置  2.3.1 访问控制 allow/deny 2.3.2 目录列表 autoindex       在常规的使用过程中， nginx">
@@ -1347,7 +1347,7 @@ http_stream 模块通过一个简单的调试算法来实现客户端 IP 到后�
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

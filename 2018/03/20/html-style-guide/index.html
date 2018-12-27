@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="1 背景 2 代码风格  2.1 缩进与换行 2.2 命名 2.3 标签 2.4 属性   3 通用  3.1 DOCTYPE 3.2 编码 3.3 CSS 和 JavaScript 引入   4 head  4.1 title 4.2 favicon 4.3 viewport   5 图片 6 表单  6.1 控件标题 6.2 按钮 6.3 可访问性 (A11Y)   7 多媒体 8 模板中的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html 开发规范指导手册">
 <meta name="twitter:description" content="1 背景 2 代码风格  2.1 缩进与换行 2.2 命名 2.3 标签 2.4 属性   3 通用  3.1 DOCTYPE 3.2 编码 3.3 CSS 和 JavaScript 引入   4 head  4.1 title 4.2 favicon 4.3 viewport   5 图片 6 表单  6.1 控件标题 6.2 按钮 6.3 可访问性 (A11Y)   7 多媒体 8 模板中的">
@@ -1497,7 +1497,7 @@ HTML 作为描述网页结构的超文本标记语言，在 B/S 架构程序一�
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

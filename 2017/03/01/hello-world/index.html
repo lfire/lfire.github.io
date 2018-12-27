@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="Quick Start  Create a new post Run server Generate static files Deploy to remote sites   Test the application  制作一份待办事宜 Todo 列表 书写一个质能守恒公式[^LaTeX] 高亮一段代码[^code] 高效绘制 流程图 绘制表格     Welcome to Hexo! Thi">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
 <meta name="twitter:description" content="Quick Start  Create a new post Run server Generate static files Deploy to remote sites   Test the application  制作一份待办事宜 Todo 列表 书写一个质能守恒公式[^LaTeX] 高亮一段代码[^code] 高效绘制 流程图 绘制表格     Welcome to Hexo! Thi">
@@ -1284,7 +1284,7 @@ Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! T
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

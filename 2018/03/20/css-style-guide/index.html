@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="1 背景 2 代码风格  2.1 文件 2.2 缩进 2.3 空格 2.4 行长度 2.5 选择器 2.6 属性   3 通用  3.1 选择器 3.2 属性缩写 3.3 属性书写顺序 3.4 清除浮动 3.5 !important 3.6 z-index   4 值与单位  4.1 文本 4.2 数值 4.3 url() 4.4 长度 4.5 颜色 4.6 2D 位置   5 文本编排  5.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css 开发规范指导手册">
 <meta name="twitter:description" content="1 背景 2 代码风格  2.1 文件 2.2 缩进 2.3 空格 2.4 行长度 2.5 选择器 2.6 属性   3 通用  3.1 选择器 3.2 属性缩写 3.3 属性书写顺序 3.4 清除浮动 3.5 !important 3.6 z-index   4 值与单位  4.1 文本 4.2 数值 4.3 url() 4.4 长度 4.5 颜色 4.6 2D 位置   5 文本编排  5.">
@@ -1546,7 +1546,7 @@ CSS 作为网页样式的描述语言，在百度一直有着广泛的应用。�
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

@@ -118,13 +118,13 @@
 <meta property="og:site_name" content="lfire">
 <meta property="og:description" content="1 关键操作 2 自建公网服务器 3 配置参数说明 4 结合 nginx &amp;amp; 自有域名 配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/iuwa7up8t5s3al6nt3gans2w/image_1busn3u1urfekhh6tq1n48g3u9.png">
-<meta property="og:image" content="http://static.zybuluo.com/lfire/y14rx1cok7mit5fsd7vjar0w/image_1buso1b3av8ricp1nkmp116ram.png">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-2018122714350520.png">
+<meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20181227143625876.png">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jetbrains系列产品激活服务器搭建">
 <meta name="twitter:description" content="1 关键操作 2 自建公网服务器 3 配置参数说明 4 结合 nginx &amp;amp; 自有域名 配置">
-<meta name="twitter:image" content="http://static.zybuluo.com/lfire/iuwa7up8t5s3al6nt3gans2w/image_1busn3u1urfekhh6tq1n48g3u9.png">
+<meta name="twitter:image" content="http://pic.hqmmw.com/markdown-img-paste-2018122714350520.png">
 
 
 
@@ -551,12 +551,14 @@
 <li>在相应 idea 注册界面选择 <strong>License server</strong>，填写 <em><a href="http://127.0.0.1:1017" target="_blank" rel="noopener">http://127.0.0.1:1017</a></em>，（据说1017是作者女票生日，像作者女票致敬-_-）</li>
 </ol>
 </blockquote>
-<p><img src="http://static.zybuluo.com/lfire/iuwa7up8t5s3al6nt3gans2w/image_1busn3u1urfekhh6tq1n48g3u9.png" alt="image_1busn3u1urfekhh6tq1n48g3u9.png-25.2kB"></p>
+<p><img src="http://pic.hqmmw.com/markdown-img-paste-2018122714350520.png" alt="激活地址"></p>
 <h2 id="2-自建公网服务器"><a class="markdownIt-Anchor" href="#2-自建公网服务器"></a> 2 自建公网服务器</h2>
 <ol>
 <li>同样是下载<a href="https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY" target="_blank" rel="noopener">服务器搭建程序包</a>   备份链接: <a href="https://pan.baidu.com/s/1dGxchlJ" target="_blank" rel="noopener">https://pan.baidu.com/s/1dGxchlJ</a> 密码: 1k6w</li>
-<li>执行 <em>tar zxvf IntelliJIDEALicenseServer(v1.5).tar.gz</em>，解压文件，文件内容如下。<br>
-<img src="http://static.zybuluo.com/lfire/y14rx1cok7mit5fsd7vjar0w/image_1buso1b3av8ricp1nkmp116ram.png" alt="image_1buso1b3av8ricp1nkmp116ram.png-75.7kB"></li>
+<li>执行 <em>tar zxvf IntelliJIDEALicenseServer(v1.5).tar.gz</em>，解压文件，文件内容如下。</li>
+</ol>
+<p><img src="http://pic.hqmmw.com/markdown-img-paste-20181227143625876.png" alt="服务器激活程序内容"></p>
+<ol start="3">
 <li>根据自身机器的系统情况，选择对应的程序，本例中是：linux 64 位系统，所以我将 <em>IntelliJIDEALicenseServer_linux_amd64</em> 单独提出，并重命名为 <em>IdeaServer</em>。（文件名太长，命令也太长）</li>
 <li>运行服务程序，<em>nohup ./IdeaServer -p 1024 -prolongationPeriod 9999999999999999 &gt; idea.log 2&gt;&amp;1 &amp;</em>，其中采用了 nohup 运行方式，并将日志记录在了 <em>idea.log</em> 文件中。</li>
 <li>在激活时，激活服务器的地址就是：<em><a href="http://xxx.xxx.xxx.xx:1024" target="_blank" rel="noopener">http://xxx.xxx.xxx.xx:1024</a></em>，其中有 x 就是你对应服务器的 IP 地址。</li>
@@ -1255,7 +1257,7 @@
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

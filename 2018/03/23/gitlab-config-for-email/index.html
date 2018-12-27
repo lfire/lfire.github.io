@@ -120,7 +120,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pic.hqmmw.com/b217fba6bec7b316c3ec009ff2e1f3df.png">
 <meta property="og:image" content="http://pic.hqmmw.com/bf1107f363e3099b84acad0ff3d8fedb.png">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gitlab 配置腾讯企业邮箱邮件发送功能">
 <meta name="twitter:description" content="1 背景 2 gitlab 配置 3 执行效果">
@@ -1241,7 +1241,7 @@
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles

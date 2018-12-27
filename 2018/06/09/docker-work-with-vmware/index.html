@@ -123,7 +123,7 @@
 <meta property="og:image" content="http://pic.hqmmw.com/Snipaste_2018-06-08_21-50-16.png">
 <meta property="og:image" content="http://pic.hqmmw.com/Snipaste_2018-06-08_17-21-01.png">
 <meta property="og:image" content="http://pic.hqmmw.com/markdown-img-paste-20180611101908890.png">
-<meta property="og:updated_time" content="2018-12-27T03:11:23.601Z">
+<meta property="og:updated_time" content="2018-12-27T07:37:03.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker 和 vmware 共存工作">
 <meta name="twitter:description" content="1 起因 2 解决方案 3 更好的办法 4 bcdedit 简单用法">
@@ -1241,7 +1241,7 @@
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
