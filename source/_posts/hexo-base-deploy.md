@@ -73,7 +73,7 @@ hexo new hello-hexo
 ## 3 部署&发布
 
 在配置文件中（*blog/_config.yml*），如下图，会有 github 部署位置的一个配置，本例中，使用的只是一个演示 demo，有需要的可以自已修改为对应的位置即可。
-![image_1bsk41i721c8d1d9f1p761dop2159.png-12.6kB][1]
+![部署配置](http://pic.hqmmw.com/markdown-img-paste-20181227143937898.png)
 配置部署位置后，我们就可以执行相关命令来完成部署。
 
 ### 3.1 生成
@@ -104,5 +104,3 @@ hexo deploy --generate
 hexo g -d
 hexo d -g
 ```
-
-[1]: http://static.zybuluo.com/lfire/tldkxmb2dhy0cni66z4jrsvc/image_1bsk41i721c8d1d9f1p761dop2159.png

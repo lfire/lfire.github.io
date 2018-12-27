@@ -31,17 +31,21 @@ categories:
 ## 2 神器登场 cmder
 [cmder](http://cmder.net) 是一款绿色且开源的软件，并且已经托管在了 [github](https://github.com/cmderdev/cmder) 上，其主要的目标即是在 windows 平台上，打造类 linux 的终端操作体验。
 先来一张靓照：
-![image_1ba6bg7io1baabambl16t6164l9.png-125.4kB][1]
+
+![靓照](http://pic.hqmmw.com/markdown-img-paste-20181227145429530.png)
+
 从图中我们可以看到，中文支持友好，同时，终端的颜值很高，最最主要的是，本软件是高度可定制的。
 只要是你愿意，你完全可以根据你自己的喜好，自定出一套你自己喜欢的主题出来。
 如下图所示，你可以打开 Settings 来配置你自己的各种需要
-![image_1ba6dr9s21t1b1va83kag7r14eqm.png-58kB][2]
+
+![配置](http://pic.hqmmw.com/markdown-img-paste-20181227145453472.png)
 
 ## 3 主要特性
 ### 3.1 提供高度类 Linux 的终端体验
 在我们平常的使用命令终端的体验过程中，如若能达到 linux 平台下相关命令的可靠性，那即是 windows 平台下开发者的福音，而 cmder 正是朝着这一方向而来的。可以支持的初略的列一下：
 pwd ll ls whoami where cp rm unzip ...
-![image_1ba6enhov1l3gqh41bfa1ktupf91g.png-55.1kB][3]
+
+![类Linux体验](http://pic.hqmmw.com/markdown-img-paste-20181227145514528.png)
 
 ### 3.2 快捷键支持丰富
 * **打开设置：** 使用 `win + alt + p`
@@ -93,28 +97,24 @@ ls=ls --show-control-chars -F --color $*
 
 以下贴出我所配置的部分参数：
 **字体&字体编码配置**
-![image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png-21kB][4]
+
+![字体配置](http://pic.hqmmw.com/markdown-img-paste-20181227145551589.png)
 
 其中的 **YaHei Consolas Hybrid** 是我在编程过程中，所遇到的一种字体，对于中文、英文大小写、以及数字的支持以及辨识度很高。[个人推荐使用，可以这下载安装，提取密码: tmgw](http://pan.baidu.com/s/1i4HDZE1 )
 而其中因是在 windows 环境下，所以建议使用 GB2312 编码。
 
 **环境变量配置**
-![image_1ba6n59vr7a8se716vu16jhrbn2a.png-31.7kB][5]
+
+![环境变量配置](http://pic.hqmmw.com/markdown-img-paste-20181227145625196.png)
 
 为兼容 github 等使用，整体将 cmder 的环境变量中 LANG 设置为 UTF-8 ，以此实现 *git log* 等命令查看时支持中文。
 
 **VIM配置**
-![image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png-62.7kB][6]
+
+![VIM配置](http://pic.hqmmw.com/markdown-img-paste-20181227145651213.png)
 
 为实现 VIM 支持各种编码格式文件的中文查看及编辑，cmder 内部已做好了配置进行处理，上图只是将相关的配置内容贴出。
 
 ## 4 整体配置及软件包下载
 为方便大家直接使用，我将当前我所使用的版本，以及配置整体打包分享出来。
 [推荐大家使用，提取密码: 1aix](http://pan.baidu.com/s/1nuKTEe1)
-
-[1]: http://static.zybuluo.com/lfire/kjx599up3fkhyp66w8u1thk1/image_1ba6bg7io1baabambl16t6164l9.png
-[2]: http://static.zybuluo.com/lfire/c7lnguz1rbyw3ptfc25t1nsa/image_1ba6dr9s21t1b1va83kag7r14eqm.png
-[3]: http://static.zybuluo.com/lfire/popnb072z38727c023futjay/image_1ba6enhov1l3gqh41bfa1ktupf91g.png
-[4]: http://static.zybuluo.com/lfire/tqjuairc92zf58e0a6rxrwe3/image_1ba6mm5091ucu1ijdkvg1q6ghn41t.png
-[5]: http://static.zybuluo.com/lfire/mckot5pvachk05wtrvm1rvpt/image_1ba6n59vr7a8se716vu16jhrbn2a.png
-[6]: http://static.zybuluo.com/lfire/oatt6pao27tfbbkne7j7pgv5/image_1ba6nc7b0g391a4vhjnhfk1mhq2n.png

@@ -23,12 +23,14 @@ categories:
 > 2. 解压，使用 *IntelliJIDEALicenseServer_windows_amd64.exe*
 > 3. 在相应 idea 注册界面选择 **License server**，填写 *http://127.0.0.1:1017*，（据说1017是作者女票生日，像作者女票致敬-_-）
 
-![image_1busn3u1urfekhh6tq1n48g3u9.png-25.2kB][4]
+![激活地址](http://pic.hqmmw.com/markdown-img-paste-2018122714350520.png)
 
 ## 2 自建公网服务器
 1. 同样是下载[服务器搭建程序包][5]   备份链接: https://pan.baidu.com/s/1dGxchlJ 密码: 1k6w
 2. 执行 *tar zxvf IntelliJIDEALicenseServer\(v1.5\).tar.gz*，解压文件，文件内容如下。
-![image_1buso1b3av8ricp1nkmp116ram.png-75.7kB][6]
+
+![服务器激活程序内容](http://pic.hqmmw.com/markdown-img-paste-20181227143625876.png)
+
 3. 根据自身机器的系统情况，选择对应的程序，本例中是：linux 64 位系统，所以我将 *IntelliJIDEALicenseServer_linux_amd64* 单独提出，并重命名为 *IdeaServer*。（文件名太长，命令也太长）
 4. 运行服务程序，*nohup ./IdeaServer -p 1024 -prolongationPeriod 9999999999999999 > idea.log 2>&1 &*，其中采用了 nohup 运行方式，并将日志记录在了 *idea.log* 文件中。
 5. 在激活时，激活服务器的地址就是：*http://xxx.xxx.xxx.xx:1024*，其中有 x 就是你对应服务器的 IP 地址。
@@ -67,6 +69,4 @@ server {
 [1]: http://blog.lanyus.com/archives/314.html
 [2]: http://blog.lanyus.com/archives/174.html
 [3]: https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY
-[4]: http://static.zybuluo.com/lfire/iuwa7up8t5s3al6nt3gans2w/image_1busn3u1urfekhh6tq1n48g3u9.png
 [5]: https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY
-[6]: http://static.zybuluo.com/lfire/y14rx1cok7mit5fsd7vjar0w/image_1buso1b3av8ricp1nkmp116ram.png

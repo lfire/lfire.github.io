@@ -16,7 +16,7 @@ categories:
 
 ## 1 网友看敏捷
 
-![successRates2013.jpg-96.1kB][1]
+![敏捷](http://pic.hqmmw.com/markdown-img-paste-2018122715033744.png)
 
 > 敏捷，往小了说是改进了开发方法，往大了说是革了瀑布流式的命——把产品开发引向了快速迭代、小步快跑的路线上。
 
@@ -27,7 +27,7 @@ categories:
 
 敏捷 VS 传统  <===>  价值驱动 VS 计划驱动
 
-![forum_1499308033_52.png-61.6kB][2]
+![对比](http://pic.hqmmw.com/markdown-img-paste-2018122715035686.png)
 
 ## 4 Agile，优势在哪？
 
@@ -82,7 +82,7 @@ XP（极限编程） 由 Kent Beck 提出的一套针对业务需求和软件开
 ## 8 Scrum
 Scrum指的是英式橄榄球中一股脑争球这一战术或行为。
 
-![image_1c0ic8351s25cai1f0un73bqb15.png-222.3kB][3]
+![原义](http://pic.hqmmw.com/markdown-img-paste-20181227150421170.png)
 
 Scrum作为软件开发过程框架，是这样一种方式：大家一拥而上，团队是球员，球是产品目标，人员环环相扣，围绕着产品目标进行工作。
 
@@ -147,7 +147,3 @@ Scrum作为软件开发过程框架，是这样一种方式：大家一拥而上
 - **确定冲刺计划**：团队和PO共同决定在接下来的冲刺周期内的目标以及哪些功能和任务需要完成
 - **故事点计算**：故事点估算用于评估为了交付一个用户故事所包含的所有努力（team effort），用户故事的复杂度（complexity），风险，以及所有其他需要考虑的元素
 - **需求订单（产品订单）**：一张记录用户需求的列表，包括产品所有需要的特征
-
-[1]: http://static.zybuluo.com/lfire/odpurt8c7iwoq5w6ykv4j08f/successRates2013.jpg
-[2]: http://static.zybuluo.com/lfire/gz6bhwzi4ohpf027z5dl1wfi/forum_1499308033_52.png
-[3]: http://static.zybuluo.com/lfire/o6z7ew8a7n7zpn44djk6i8we/image_1c0ic8351s25cai1f0un73bqb15.png

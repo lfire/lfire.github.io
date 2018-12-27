@@ -45,16 +45,16 @@ categories:
 ## 2 cmder 方案
 ### 2.1 界面配置
 右键标题栏 > settings
-![image_1balsa4i04rc1qfi1ve13q94ss9.png-14.2kB][1]
+![右键菜单](http://pic.hqmmw.com/markdown-img-paste-20181227145839830.png)
 
 Main > Font charset
-![image_1balthlad1ksn14qb1jg13551l8om.png-58.9kB][2]
+![字体](http://pic.hqmmw.com/markdown-img-paste-20181227145858116.png)
 
 这里选择 GB 2312 主要是因为，windows 系统的主要编码还是：ANSI。
 
 ### 2.2 终端环境变量
 Settings > Startup > Environment
-![image_1baltov1i1s8t1v3h1pqg1k2010cg13.png-52.4kB][3]
+![环境变量](http://pic.hqmmw.com/markdown-img-paste-20181227145911985.png)
 
 这里的设置，需要关闭 cmder 再重新打开一次生效。
 我们可以通过 locale 命令查看设置的结果：
@@ -109,10 +109,10 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 ## 3 cygwin 方案
 ### 3.1 界面配置
 右键标题栏 > Options
-![image_1balvfe7crb3rmutbr10e715211g.png-7.6kB][4]
+![界面配置](http://pic.hqmmw.com/markdown-img-paste-20181227145956544.png)
 
 Text
-![image_1balvh3up1c1dmrg6ko5jovn01t.png-17.1kB][5]
+![文本](http://pic.hqmmw.com/markdown-img-paste-20181227150010779.png)
 
 ### 3.2 环境变量配置
 修改 ~/.bashrc 文件，加入：
@@ -121,23 +121,13 @@ export OUTPUT_CHARSET="UTF8"
 
 ### 3.3 相关工具配置
 git 和 vim 的配置与 cmder 下是一致的，可以采用同样的方式来处理。
-![image_1bam88jme1gt21lt41v5n8j37gh2a.png-9kB][6]
+![其他配置](http://pic.hqmmw.com/markdown-img-paste-20181227150042705.png)
 
 ## 4 综合方案
 cmder 是一种终端集成器，它同样可以将 cygwin 集成到其内部窗口上。
 具体的配置方式，我们可以参考 [cmder 官方手册](https://github.com/cmderdev/cmder/wiki/%5BWindows%5D-Integrating-Cygwin)
-以下是本人的配置截图：
-![image_1bam8ffjp11t71te51p34183e102n.png-60.7kB][7]
+以下是我的配置截图：
+![举例](http://pic.hqmmw.com/markdown-img-paste-20181227150057983.png)
 
 配置后的运行效果图：
-![image_1bam8k79o8kk1jmg3ah5tkqo234.png-73.2kB][8]
-
-
-[1]: http://static.zybuluo.com/lfire/tj8269jbtkqtfykvgy5zjq6e/image_1balsa4i04rc1qfi1ve13q94ss9.png
-[2]: http://static.zybuluo.com/lfire/uajwkvwfokfmi91x60b6ntwh/image_1balthlad1ksn14qb1jg13551l8om.png
-[3]: http://static.zybuluo.com/lfire/9dynqnoliilgilonji2mo8jc/image_1baltov1i1s8t1v3h1pqg1k2010cg13.png
-[4]: http://static.zybuluo.com/lfire/s4b2vn4jwjnexkenrh523c4k/image_1balvfe7crb3rmutbr10e715211g.png
-[5]: http://static.zybuluo.com/lfire/sg7wj11r10qijeg44gl54wme/image_1balvh3up1c1dmrg6ko5jovn01t.png
-[6]: http://static.zybuluo.com/lfire/onwbhz11og0ocin9z3fe3irq/image_1bam88jme1gt21lt41v5n8j37gh2a.png
-[7]: http://static.zybuluo.com/lfire/ns46ophzsvpq10ws01hqqhqv/image_1bam8ffjp11t71te51p34183e102n.png
-[8]: http://static.zybuluo.com/lfire/8c4i86w8lyvj98vx7931pg11/image_1bam8k79o8kk1jmg3ah5tkqo234.png
+![运行效果](http://pic.hqmmw.com/markdown-img-paste-20181227150130958.png)

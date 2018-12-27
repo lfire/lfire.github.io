@@ -20,12 +20,12 @@ categories:
 ## 1 项目效果演示
 先上个图，大致看一下最后的效果，没有将所有出现的情况全部展示。
 
-![dafuweng.gif-714.4kB][1]
+![dafuweng](http://pic.hqmmw.com/dafuweng.gif)
 
 ## 2 为什么可以说复杂
 ### 2.1 整体的游戏执行流程
 
-![流量大富翁流程图V3.jpg-1328.2kB][2]
+![流程图](http://pic.hqmmw.com/markdown-img-paste-20181227144335975.png)
 
 这张图中可以看出游戏在执行过程中的逻辑流程，其中大部分都会涉及到前端交互的响应变化，因此其中前端交互流程复杂。
 ### 2.2 界面中元素众多
@@ -55,20 +55,21 @@ categories:
 REM是我实践过程中，认为的终极解决方案。当然，这其中我们要感谢很多在这方面提供解决方案的开源付出，如：[lib-flexible][3]，这就是其中的一个，具体的设计思路，可以详细去查阅本方向上的资料，这里不再展开。
 附加的，会产生出另一个问题，REM，这个单位毕竟不是PX，仍需要换算。这里也同样有相应的解决方案，我们可以借用自动化的构建工具，实现rem和px之间的自动转换，[px2rem][4]，可以与gulp或grunt等构建工具集成，实现自动转换。
 
-![image_1btr83j1pgq11ku01lbds56uu9.png-37.7kB][5]
+![自动转换](http://pic.hqmmw.com/markdown-img-paste-20181227144429179.png)
 
 自动解析后：
 
-![image_1btr85vr41a6g1osg175v1klc1vrkm.png-34.1kB][6]
+![转换结果](http://pic.hqmmw.com/markdown-img-paste-20181227144449961.png)
+
 
 **元素尺寸的快速管理**
 在场景中，出现了很多个性化的元素，其中的实现，很多是以背景图片来实现，之所以选择这种方式，是借助了 **[cssgrace][7]** 中的一个特性：可以通过 ***image-width***、***image-height*** 两个动态属性，来自动的获取到图片的宽高尺寸。
 
-![image_1btre3le61qujv7818nu1pfeks813.png-61.9kB][8]
+![图片管理语法](http://pic.hqmmw.com/markdown-img-paste-20181227144608844.png)
 
 编译解析后
 
-![image_1btre4qr21m01rlk16528rj791g.png-35.5kB][9]
+![自动转换](http://pic.hqmmw.com/markdown-img-paste-20181227144642151.png)
 
 这样不但可以将图片尺寸的管理交托给自动化的构建脚本，提升CSS开发中的效率，并且可以明显降低设计稿发生修改所带来的代码改动成本。
 如若过程中，设计稿发生修改，某一个元素的尺寸发生了稍微的改动，这种方案下，我们只需要重新更新切图，再执行一次自动构建任务，中间的代码不需要任何的改动，高效而准确！
@@ -76,16 +77,16 @@ REM是我实践过程中，认为的终极解决方案。当然，这其中我�
 **元素定位**
 得益于 REM 方案带来的方便，我们只需要解决一种尺寸稿件下的准确定位，再附加上自动构建任务中，将 PX 自动转换为 REM 单位，其中的源码是 PX 单位，而构建出的成品代码是 REM 单位，这样实现了代码对于开发人员的可理解，以及代码的各尺寸终端的可兼容，两者兼顾。定位问题，在本次的开发过程中，直接采用的是针对于 750px 尺寸下的精准定位。
 
-![image_1btt70pk11sigibgs691hnv1886p.png-30.1kB][10]
+![元素定位](http://pic.hqmmw.com/markdown-img-paste-20181227144703725.png)
 
 如图中所示，小狐狸的路径节点相对于 750px 下的定位，全可以一次性的在稿件中标注定位，并写好相应的class，自动构建类的脚本，会自动将相关的单位进行解析转换。
 
-![image_1btt7nj9aa1a1k7l660mvt1es416.png-33.7kB][11]
+![转换后结果](http://pic.hqmmw.com/markdown-img-paste-20181227144722827.png)
 
 **样式封装共用**
 相信大家，在前面的几组对比图中，就可以发现，开发中有用到 **[LESS][12]** 来结构化的开发样式布局。类似于 LESS 的CSS预处理插件还有很多，我们可以自己查询相关的资料，这里希望能过这种预处理的插件，给我们带来了 CSS 模块、函数式的编辑体验，这样可以大增强样式表的结构可读性，同时也可以很好的提升样式表产出的规范，以及逻辑准确性。重要的是，其中可以很大程度的减少我们相似规则，或是嵌套规则之间的代码量。
 
-![image_1btt8j3s91brq5o31pcgk52c641j.png-73.7kB][13]
+![代码层次](http://pic.hqmmw.com/markdown-img-paste-20181227144747698.png)
 
 在本段示例规则中，弹窗的整体内容进行了一次性编写，其中各不同弹窗中的 *.bts* 和 *.bt* 可以共用，并且结合共用规则的封装，每一个不同弹窗，都与规则 *.pop_cont* 组合，其中具有相同表现的弹窗（*.p_c_free* & *.p_c_props*）直接共用规则。其中各规则之间的嵌套层级非常明确清晰，对于规则的阅读以及整体统一管理非常方便，从而屏蔽了普通 CSS 在编写过程中的，可能比较分散，规则识别路径原则不一致，给编写和维护带来困惑的弊端。
 
@@ -100,7 +101,7 @@ HTML部分的提出，对于本项目中的场景，可能不是十分的贴切�
 - IDE 等相关软件的响应速度影响
 - 减少重复代码在不同文件中的重复出现
 
-![image_1bttb02h511hi12ta18vm94e1dh020.png-37.6kB][14]
+![HTML模块](http://pic.hqmmw.com/markdown-img-paste-2018122714482075.png)
 
 这是本次项目中的主要 HTML 页面代码结构，其中有出现 *include* 的语法，而这种就是对于分模块化开发的一种实践方式，集成的是 **[nunjucks][15]** ，它的引入给 HTML 带来了很多模块化方向的能力提升，具体的特性，可以详细阅读其手册。
 回到项目中， *head_wap.html* 这是文件所需要引入的相关样式及JS库的部分，这是我们项目中经常在各个页面重复出现的部分，因此，这里对该部分进行了一次提取，在不同页面，只需要一名 *include* 就可以解决这种重复问题，更好的达到统一管理的需求。
@@ -113,7 +114,7 @@ JS部分中，我们需要整理和注意的点其实非常的多，其中所涉
 **模块化**
 有点牵强，但可能如前面所述，可以是一个*引子*。这里的模块化，也就只是停留在了函数的简单封装，能有规范、明确的相关参数说明，以及相关的调用解析。
 
-![image_1bttc7re91nfi1la814fv1c1u79s2d.png-54.2kB][16]
+![JS模块](http://pic.hqmmw.com/markdown-img-paste-20181227144908114.png)
 
 这些也仅仅只是JS模块化的冰山一角，问题（砖）的抛出，只是为了引出项目实施过程中，对于模块化开发的思考（玉）。
 其过程中，可能有好几个词可以来提及，**[commonjs][17]**、**[AMD][18]**，这些思想，都是为了解决一种（一系列）具体的问题而产生，因此，要读懂这其中的内容，也必须要能理解这种**问题是什么，痛到底在哪里**，这里也仅仅只能讲到这个层次，更多的内容，后面有机会，我再会详细的来展开。
@@ -134,22 +135,11 @@ JS部分中，我们需要整理和注意的点其实非常的多，其中所涉
 
 工程化的过程，其实就是模块化、自动化之间的一种更业务层次的组合，每一个复杂业务场景出现时，最为直接的问题解决方向就是**如何便于人的理解，又能便于机器的执行**，这些不同层次问题的思考解决过程，其实就是我们所需要的思考模型。
 
-[1]: http://static.zybuluo.com/lfire/6k58gyrj6avlmblciis11x4t/dafuweng.gif
-[2]: http://static.zybuluo.com/lfire/fwiihz6mb8gpn80objovvy77/%E6%B5%81%E9%87%8F%E5%A4%A7%E5%AF%8C%E7%BF%81%E6%B5%81%E7%A8%8B%E5%9B%BEV3.jpg
 [3]: https://github.com/amfe/lib-flexible
 [4]: https://www.npmjs.com/package/px2rem
-[5]: http://static.zybuluo.com/lfire/tei794jibswdxau2rj8pvgfu/image_1btr83j1pgq11ku01lbds56uu9.png
-[6]: http://static.zybuluo.com/lfire/hzqzqrd3s17q2plyjgvntnqo/image_1btr85vr41a6g1osg175v1klc1vrkm.png
 [7]: https://github.com/cssdream/cssgrace
-[8]: http://static.zybuluo.com/lfire/grm8t8gp3gy1p1fn84iv51xj/image_1btre3le61qujv7818nu1pfeks813.png
-[9]: http://static.zybuluo.com/lfire/xrhsyx8jbr7lg3jxud9btzrx/image_1btre4qr21m01rlk16528rj791g.png
-[10]: http://static.zybuluo.com/lfire/orjfl3q08kij10fnukltnk1t/image_1btt70pk11sigibgs691hnv1886p.png
-[11]: http://static.zybuluo.com/lfire/jwk1lb2wdovz28rqt0cf80ue/image_1btt7nj9aa1a1k7l660mvt1es416.png
 [12]: http://lesscss.org/
-[13]: http://static.zybuluo.com/lfire/n10a2v5jn5eci9jkc0u3nueu/image_1btt8j3s91brq5o31pcgk52c641j.png
-[14]: http://static.zybuluo.com/lfire/fw7ztripqgtlggaasiy5fqcg/image_1bttb02h511hi12ta18vm94e1dh020.png
 [15]: http://mozilla.github.io/nunjucks/
-[16]: http://static.zybuluo.com/lfire/ut6a9w8w4xs4a51iyn3p6d4t/image_1bttc7re91nfi1la814fv1c1u79s2d.png
 [17]: http://www.commonjs.org/
 [18]: http://requirejs.org/docs/whyamd.html
 [19]: https://www.npmjs.com/package/gulp-less

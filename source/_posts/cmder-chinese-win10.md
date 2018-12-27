@@ -18,7 +18,7 @@ categories:
 
 ## 1 问题表现，别名全部失效
 表现是相关加载都能成功，但命令本身就是不生效，无法工作，并且，相关中文也会产生叠加现象。
-![image_1bas246jq19641o3ffbjncm14ea9.png-32.6kB][1]
+![别名](http://pic.hqmmw.com/markdown-img-paste-20181227150220262.png)
 
 ## 2 查找答案
 我通过 google 查找各种可能性，最后终于在 [github cmder issues](https://github.com/cmderdev/cmder/issues/1257) 查找到了需要的答案。
@@ -29,10 +29,6 @@ I am using Windows 10 Insider build 15025 - the problem was with modification th
 > To solve this I had to "Use legacy console" option in standard cmd - which solved this issue.
 
 是因 win10 升级，可能其内部改变了某些终端的特性，我们需要禁用新的控制台。
-![image_1bas34bfun11ip51bot1am71ute9.png-36kB][2]
+![WIN10配置](http://pic.hqmmw.com/markdown-img-paste-20181227150241728.png)
 
 这样配置完成后，我们重新打开 cmder 一次，** OK，问题解决 **。
-
-
-[1]: http://static.zybuluo.com/lfire/39hqqx5xswsstbpa6ayc620y/image_1bas246jq19641o3ffbjncm14ea9.png
-[2]: http://static.zybuluo.com/lfire/xew1dq4a9von8309oqczgpij/image_1bas34bfun11ip51bot1am71ute9.png

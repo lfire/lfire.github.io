@@ -42,7 +42,7 @@ categories:
 在网方的发布平台 [releases][5]，我们下载最新的发布版本（当前最新的版本为 V0.13.0）。其中我们需要选择对应的版本，其中服务器，常见的系统环境版本，一般为 linux 64 位，因此，我们一般情况选择：[frp_0.13.0_linux_amd64.tar.gz][6]。
 我们将压缩包中的服务端程序（frps）和服务端配置文件（frps.ini）提取出来，如下图。
 
-![image_1bv1q1duabqbh2md35d1irikp.png-4.6kB][7]
+![服务端](http://pic.hqmmw.com/markdown-img-paste-20181227145133745.png)
 
 ### 3.1 frp 配置
 服务器的配置文件，官方手册中有详细的解释，我这里贴出本次我所搭环境的示例：
@@ -97,7 +97,7 @@ nohup ./frps -c frps.ini &
 ## 4 客户端环境搭建
 客户端在配置之前，同样的请在官方下载与自己系统对应的程序包，解压出其中的客户端程序（frpc.exe）和配置文件（frpc.ini）。
 
-![image_1bv1si4m97b5j651olr1qf518pj16.png-5.2kB][8]
+![客户端](http://pic.hqmmw.com/markdown-img-paste-20181227145159932.png)
 
 ### 4.1 客户端环境配置
 与服务端配置相对应的客户端配置如下：
@@ -140,13 +140,13 @@ custom_domains = frp.domain.com
 .\frpc.exe -c frpc.ini
 ```
 
-![image_1bv1toms3iko1nvb1kvc6rg193d1j.png-15.4kB][9]
+![客户端启动](http://pic.hqmmw.com/markdown-img-paste-20181227145220696.png)
 
 
 ### 4.4 测试连接效果
 公网服务器，启动 nginx，本地启动 wamp 服务，并在 wamp 虚拟主机配置的对应目录中（c:\project\wumi\tmp\public），新建 index.html 文件。浏览器打开： http://liyz.frp.domain.com 访问。
 
-![image_1bv1tvjrc19asmle1vlf1a4h186c2g.png-7.5kB][10]
+![运行效果](http://pic.hqmmw.com/markdown-img-paste-2018122714523918.png)
 
 可以查看到正确的访问返回，成功！
 
@@ -228,14 +228,14 @@ class Index
 ### 5.2 微信公众号配置
 因开发了 PHP 对接程序，接口配置的 URL 为： http://liyz.frp.domain.com/Index/wxServer
 
-![image_1bv1v6f091nmj1gbp1etpt5o1alk3a.png-24.1kB][14]
+![公众号配置](http://pic.hqmmw.com/markdown-img-paste-20181227145310232.png)
 
 根据网速，大概最多几移后，系统会提示配置成功。
 
 ### 5.3 接口测试
 在逻辑中，我们开发了一个 testWx 逻辑页面，我们可以通过访问，http://liyz.frp.domain.com/Index/testWx ，其中实现：获取公众号用户列表，以其中一个用户的信息。
 
-![image_1bv1vdcif1033msejimhh44854n.png-54.2kB][15]
+![接口测试](http://pic.hqmmw.com/markdown-img-paste-20181227145329760.png)
 
 需要说明的，公众号测试平台中的某些接口，在实际开发过程中，是没有相关权限的，比如：群发接口，因此，建议在有资源的情况下，还是单独的申请注册一个认证的订阅号，或是服务号来开展测试调试工作。
 
